@@ -44,7 +44,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -60,7 +60,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -85,7 +85,7 @@
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-07T14:57:14.000Z" itemprop="datePublished"> Published 2016-10-07</time>
+    <time datetime="2016-10-07T14:57:14.000Z" itemprop="datePublished"> 发表于 2016-10-07</time>
     
   </p>
 </header>
@@ -97,15 +97,16 @@
 <li>从第n-1步到第n步，只有一种可能性（投骰子结果为 1 ），所以从第n-1步到第n步共有f(n-1)*1 种投骰子的方法；</li>
 <li>从第n-2步到第n步，只有一种可能性（投骰子结果为 2 ），所以从第n-2步到第n步共有f(n-2)*1 种投骰子的方法；</li>
 <li>从第n-3步到第n步，只有一种可能性（投骰子结果为 3 ），所以从第n-3步到第n步共有f(n-3)*1 种投骰子的方法；</li>
-<li>依次类推:f(n) = f(n-1)+f(n-2)+f(n-3)+….+f(1)+f(0),且f(1)=f(0)=1;<br>代码如下：<pre><code>import java.util.Scanner;
+<li>依次类推:f(n) = f(n-1)+f(n-2)+f(n-3)+….+f(1)+f(0),且f(1)=f(0)=1;<br>代码如下：<blockquote>
+<pre><code>import java.util.Scanner;
 public class Main{
 public static void main(String[] args){
-    Scanner scan = new Scanner(System.in);
+      Scanner scan = new Scanner(System.in);
     int n = scan.nextInt();
     System.out.println(getSum(n));
 }
 public static int getSum(int n){
-       int count=0;
+        int count=0;
     if(n==1)
     count=1;//f(1) =1
     else if(n==2)
@@ -119,7 +120,8 @@ public static int getSum(int n){
 return count;
     }
 }
-</code></pre></li>
+</code></pre></blockquote>
+</li>
 </ul>
 
         
@@ -169,7 +171,7 @@ return count;
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-07T15:09:59.000Z" itemprop="datePublished"> Published 2016-09-07</time>
+    <time datetime="2016-09-07T15:09:59.000Z" itemprop="datePublished"> 发表于 2016-09-07</time>
     
   </p>
 </header>
@@ -249,7 +251,7 @@ print largestarea(heights)
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-04T13:40:14.000Z" itemprop="datePublished"> Published 2016-05-04</time>
+    <time datetime="2016-05-04T13:40:14.000Z" itemprop="datePublished"> 发表于 2016-05-04</time>
     
   </p>
 </header>
@@ -313,10 +315,10 @@ print largestarea(heights)
 
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -324,7 +326,7 @@ print largestarea(heights)
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -342,7 +344,7 @@ print largestarea(heights)
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -364,12 +366,12 @@ print largestarea(heights)
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
 
@@ -385,13 +387,11 @@ print largestarea(heights)
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
+		<p> Hello ,I&#39;m Cassiel in BISTU. <br/>
+			</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		
@@ -518,7 +518,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
