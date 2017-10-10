@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>柱子最大面积 | Cindy</title>
+    <title>地理散列编码 | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。 采用分治法，最大矩形面积只可能有三种情况：  高度最小的柱子，面积即为最低高度乘以总长度； 在最低柱子的左面； 在最低柱子右面；  代码如下：  n = input() heights = map(int, ra">
+    <meta name="description" content="地理散列编码：地理散列常用于将二维的经纬度转换为字符串，分为两步：第一步是经纬度的二进制编码，第二步是base32转码。此题考察纬度的二进制编码：算法对纬度[ -90，90]通过二分法进行无限逼近（取决于所需精度，本题精度为6）。注意，本题进行二分法近近过程中只采用向下取整进来二分，针对二分中间值属于右区间。算法举例如下：针对纬度为80进行二进制编码过程：  区间[-90，90]进行二分为[-90">
 <meta property="og:type" content="article">
-<meta property="og:title" content="柱子最大面积">
-<meta property="og:url" content="http://yoursite.com/2017/10/07/柱子最大面积/index.html">
+<meta property="og:title" content="地理散列编码">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/地理散列编码/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。 采用分治法，最大矩形面积只可能有三种情况：  高度最小的柱子，面积即为最低高度乘以总长度； 在最低柱子的左面； 在最低柱子右面；  代码如下：  n = input() heights = map(int, ra">
-<meta property="og:updated_time" content="2017-10-09T03:14:54.000Z">
+<meta property="og:description" content="地理散列编码：地理散列常用于将二维的经纬度转换为字符串，分为两步：第一步是经纬度的二进制编码，第二步是base32转码。此题考察纬度的二进制编码：算法对纬度[ -90，90]通过二分法进行无限逼近（取决于所需精度，本题精度为6）。注意，本题进行二分法近近过程中只采用向下取整进来二分，针对二分中间值属于右区间。算法举例如下：针对纬度为80进行二进制编码过程：  区间[-90，90]进行二分为[-90">
+<meta property="og:updated_time" content="2017-10-10T13:07:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="柱子最大面积">
-<meta name="twitter:description" content="给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。 采用分治法，最大矩形面积只可能有三种情况：  高度最小的柱子，面积即为最低高度乘以总长度； 在最低柱子的左面； 在最低柱子右面；  代码如下：  n = input() heights = map(int, ra">
+<meta name="twitter:title" content="地理散列编码">
+<meta name="twitter:description" content="地理散列编码：地理散列常用于将二维的经纬度转换为字符串，分为两步：第一步是经纬度的二进制编码，第二步是base32转码。此题考察纬度的二进制编码：算法对纬度[ -90，90]通过二分法进行无限逼近（取决于所需精度，本题精度为6）。注意，本题进行二分法近近过程中只采用向下取整进来二分，针对二分中间值属于右区间。算法举例如下：针对纬度为80进行二进制编码过程：  区间[-90，90]进行二分为[-90">
 
     
     <link rel="alternative" href="/atom.xml" title="Cindy" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/07/柱子最大面积/" title="柱子最大面积" itemprop="url">柱子最大面积</a>
+      <a href="/2017/10/10/地理散列编码/" title="地理散列编码" itemprop="url">地理散列编码</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> Published 2017-10-07</time>
+    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -100,32 +100,39 @@
 		
 		</div>
 		
-		<p>给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。</p>
-<p>采用分治法，最大矩形面积只可能有三种情况：</p>
-<ul>
-<li>高度最小的柱子，面积即为最低高度乘以总长度；</li>
-<li>在最低柱子的左面；</li>
-<li>在最低柱子右面；</li>
-</ul>
-<p>代码如下：</p>
+		<p>地理散列编码：地理散列常用于将二维的经纬度转换为字符串，分为两步：第一步是经纬度的二进制编码，第二步是base32转码。此题考察纬度的二进制编码：算法对纬度[ -90，90]通过二分法进行无限逼近（取决于所需精度，本题精度为6）。注意，本题进行二分法近近过程中只采用向下取整进来二分，针对二分中间值属于右区间。算法举例如下：针对纬度为80进行二进制编码过程：</p>
+<ol>
+<li>区间[-90，90]进行二分为[-90，0），[0，90]，成为左右区间，可以确定80为右区间，标记为1; </li>
+<li>针对上一步的右区间[0，90]进行二分为[0，45]，[45，90]，可以确定80是右区间，标记为1; </li>
+<li>针对[45，90 ]进行二分为[45，67]，[67,90]，可以确定80为右区间，标记为1; </li>
+<li>针对[67,90]进行二分为[67，78]，[78,90]可以确定80为右区间，标记为1; </li>
+<li>针对[78，90]进行二分为[78，84），[84，90]，可以确定80为左区间，标记 0; </li>
+<li>针对[78，84）进行二分为[78，81），[81，84），可以确定80为左区间，标记为0;</li>
+</ol>
+<p>思路：本题思路相对简单，类似于数组的二分查找，根据规则向结果里添加‘1’或‘0’<br>python代码如下：</p>
 <blockquote>
-<pre><code>n = input()
-heights = map(int, raw_input().split())
-def largestarea(a):
-    leng = len(a)
-    minIndex = a.index(min(a))
-    tmp = a[minIndex] * leng  #高低最低时
-    if minIndex != 0:
-        left = largestarea(a[0:minIndex]) #在最低柱子左面
-    else:
-        left = 0
-    if minIndex != leng - 1:
-        right = largestarea(a[minIndex + 1:leng]) #在最低柱子右面
-    else:
-        right = 0
-    return max(left, tmp, right)
-print largestarea(heights)
+<pre><code>from __future__ import division
+def f(num):
+    values = [-90, 90]
+    ret = &apos;&apos;
+    for i in range(6):
+        mid = int((values[0] + values[1])/2)
+        if num &gt;= mid:
+            values = [mid, values[1]]
+            ret += &apos;1&apos;
+        else:
+            values = [values[0], mid]
+            ret += &apos;0&apos;
+    return ret
+if __name__ == &apos;__main__&apos;:
+    while 1:
+        try:
+            num = int(raw_input())
+        except:
+            break
+        print f(num)
 </code></pre></blockquote>
+<p><strong>注意:</strong>在使用python语言时，需倒入division模块，否则会有少量测试用例无法通过</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -143,7 +150,7 @@ print largestarea(heights)
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/07/柱子最大面积/" data-title="柱子最大面积 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/10/地理散列编码/" data-title="地理散列编码 | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -157,18 +164,18 @@ print largestarea(heights)
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/10/09/找出最长公共连续子串/" title="找出最长公共连续子串">
+ <a href="/2017/10/10/第三便宜的帽子/" title="第三便宜的帽子">
   <strong>上一篇：</strong><br/>
   <span>
-  找出最长公共连续子串</span>
+  第三便宜的帽子</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/10/07/大富翁游戏/"  title="大富翁游戏">
+<a href="/2017/10/10/求满足整数内质数和为该数的个数/"  title="求满足整数内质数和为该数的个数">
  <strong>下一篇：</strong><br/> 
- <span>大富翁游戏
+ <span>求满足整数内质数和为该数的个数
 </span>
 </a>
 </div>
