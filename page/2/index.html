@@ -78,6 +78,157 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/09/找出最长公共连续子串/" title="找出最长公共连续子串" itemprop="url">找出最长公共连续子串</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> Published 2017-10-09</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度</p>
+<p>思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：</p>
+<blockquote>
+<pre><code>str1=&apos;_&apos;+raw_input()
+str2=&apos;_&apos;+raw_input()
+dp=[]
+for i in range(len(str2)):
+   dp.append([0]*len(str1))
+for i in range(1,len(str2)):
+    for j in range(len(str1)):
+        if str2[i]==str1[j]:
+            dp[i][j]=dp[i-1][j-1]+1
+        else:
+            dp[i][j]=0
+tmp=[max(x) for x in dp]
+print max(tmp)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/柱子最大面积/" title="柱子最大面积" itemprop="url">柱子最大面积</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> Published 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。</p>
+<p>采用分治法，最大矩形面积只可能有三种情况：</p>
+<ul>
+<li>高度最小的柱子，面积即为最低高度乘以总长度；</li>
+<li>在最低柱子的左面；</li>
+<li>在最低柱子右面；</li>
+</ul>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>n = input()
+heights = map(int, raw_input().split())
+def largestarea(a):
+    leng = len(a)
+    minIndex = a.index(min(a))
+    tmp = a[minIndex] * leng  #高低最低时
+    if minIndex != 0:
+        left = largestarea(a[0:minIndex]) #在最低柱子左面
+    else:
+        left = 0
+    if minIndex != leng - 1:
+        right = largestarea(a[minIndex + 1:leng]) #在最低柱子右面
+    else:
+        right = 0
+    return max(left, tmp, right)
+print largestarea(heights)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/07/大富翁游戏/" title="大富翁游戏" itemprop="url">大富翁游戏</a>
   </h1>
   <p class="article-author">By
@@ -254,11 +405,15 @@ return count;
 		<ul>
 		
 		  
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>11</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>12</sup></a></li>
 		  
 		
 		</ul>
