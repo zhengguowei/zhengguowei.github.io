@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>找出最长公共连续子串 | Cindy</title>
+    <title>GBDT和XGBoost的区别 | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度 思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：  str1=&amp;apos;_&amp;apos;+raw_input() str2=&amp;apos;_&amp;">
+    <meta name="description" content="xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：  损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数 对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性 节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="找出最长公共连续子串">
-<meta property="og:url" content="http://yoursite.com/2017/10/09/找出最长公共连续子串/index.html">
+<meta property="og:title" content="GBDT和XGBoost的区别">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/机器学习算法常问问题/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度 思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：  str1=&amp;apos;_&amp;apos;+raw_input() str2=&amp;apos;_&amp;">
-<meta property="og:updated_time" content="2017-10-09T07:33:52.000Z">
+<meta property="og:description" content="xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：  损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数 对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性 节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的">
+<meta property="og:updated_time" content="2017-10-16T00:23:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="找出最长公共连续子串">
-<meta name="twitter:description" content="给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度 思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：  str1=&amp;apos;_&amp;apos;+raw_input() str2=&amp;apos;_&amp;">
+<meta name="twitter:title" content="GBDT和XGBoost的区别">
+<meta name="twitter:description" content="xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：  损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数 对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性 节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的">
 
     
     <link rel="alternative" href="/atom.xml" title="Cindy" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/09/找出最长公共连续子串/" title="找出最长公共连续子串" itemprop="url">找出最长公共连续子串</a>
+      <a href="/2017/10/16/机器学习算法常问问题/" title="GBDT和XGBoost的区别" itemprop="url">GBDT和XGBoost的区别</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> Published 2017-10-09</time>
+    <time datetime="2017-10-16T00:15:30.000Z" itemprop="datePublished"> Published 2017-10-16</time>
     
   </p>
 </header>
@@ -100,23 +100,12 @@
 		
 		</div>
 		
-		<p>给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度</p>
-<p>思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：</p>
-<blockquote>
-<pre><code>str1=&apos;_&apos;+raw_input()
-str2=&apos;_&apos;+raw_input()
-dp=[]
-for i in range(len(str2)):
-   dp.append([0]*len(str1))
-for i in range(1,len(str2)):
-    for j in range(len(str1)):
-        if str2[i]==str1[j]:
-            dp[i][j]=dp[i-1][j-1]+1
-        else:
-            dp[i][j]=0
-tmp=[max(x) for x in dp]
-print max(tmp)
-</code></pre></blockquote>
+		<p>xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：</p>
+<ol>
+<li>损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数</li>
+<li>对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性</li>
+<li>节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -134,7 +123,7 @@ print max(tmp)
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/09/找出最长公共连续子串/" data-title="找出最长公共连续子串 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/16/机器学习算法常问问题/" data-title="GBDT和XGBoost的区别 | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -147,19 +136,11 @@ print max(tmp)
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/09/找出最长公共子序列/" title="找出最长公共子序列">
-  <strong>上一篇：</strong><br/>
-  <span>
-  找出最长公共子序列</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/07/柱子最大面积/"  title="柱子最大面积">
+<a href="/2017/10/11/LR和SVM的联系与区别/"  title="LR和SVM的联系与区别">
  <strong>下一篇：</strong><br/> 
- <span>柱子最大面积
+ <span>LR和SVM的联系与区别
 </span>
 </a>
 </div>
