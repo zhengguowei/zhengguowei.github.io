@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>GBDT和XGBoost的区别 | Cindy</title>
+    <title>纸币的不同组合 | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：  损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数 对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性 节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的">
+    <meta name="description" content="给你六种面额 1、5、10、20、50、100 元的纸币，假设每种币值的数量都足够多，编写程序求组成N元（N为0~10000的非负整数）的不同组合的个数。  import java.util.Scanner; import java.util.Arrays; public class Main{ public static long count(int n){     if(n &amp;lt;= 0)r">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GBDT和XGBoost的区别">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/机器学习算法常问问题/index.html">
+<meta property="og:title" content="纸币的不同组合">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/纸币的不同组合/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：  损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数 对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性 节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的">
-<meta property="og:updated_time" content="2017-10-16T00:23:06.000Z">
+<meta property="og:description" content="给你六种面额 1、5、10、20、50、100 元的纸币，假设每种币值的数量都足够多，编写程序求组成N元（N为0~10000的非负整数）的不同组合的个数。  import java.util.Scanner; import java.util.Arrays; public class Main{ public static long count(int n){     if(n &amp;lt;= 0)r">
+<meta property="og:updated_time" content="2017-10-16T01:14:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GBDT和XGBoost的区别">
-<meta name="twitter:description" content="xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：  损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数 对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性 节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的">
+<meta name="twitter:title" content="纸币的不同组合">
+<meta name="twitter:description" content="给你六种面额 1、5、10、20、50、100 元的纸币，假设每种币值的数量都足够多，编写程序求组成N元（N为0~10000的非负整数）的不同组合的个数。  import java.util.Scanner; import java.util.Arrays; public class Main{ public static long count(int n){     if(n &amp;lt;= 0)r">
 
     
     <link rel="alternative" href="/atom.xml" title="Cindy" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/16/机器学习算法常问问题/" title="GBDT和XGBoost的区别" itemprop="url">GBDT和XGBoost的区别</a>
+      <a href="/2017/10/16/纸币的不同组合/" title="纸币的不同组合" itemprop="url">纸币的不同组合</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T00:15:30.000Z" itemprop="datePublished"> Published 2017-10-16</time>
+    <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> Published 2017-10-16</time>
     
   </p>
 </header>
@@ -100,12 +100,33 @@
 		
 		</div>
 		
-		<p>xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：</p>
-<ol>
-<li>损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数</li>
-<li>对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性</li>
-<li>节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的</li>
-</ol>
+		<p>给你六种面额 1、5、10、20、50、100 元的纸币，假设每种币值的数量都足够多，编写程序求组成N元（N为0~10000的非负整数）的不同组合的个数。</p>
+<blockquote>
+<pre><code>import java.util.Scanner;
+import java.util.Arrays;
+public class Main{
+public static long count(int n){
+    if(n &lt;= 0)return 0;
+    int[] coins = new int[]{1,5,10,20,50,100};
+    long[] dp = new long[n+1];
+    dp[0] = 1;
+    for(int i = 0; i &lt; coins.length; i++) {
+    for(int j = coins[i]; j &lt;= n; j++) {
+    dp[j] = dp[j] + dp[j - coins[i]];//类似斐波那契 后者的种类数基于前者
+    }
+}
+return dp[n];
+}
+public static void main(String args[]){
+    Scanner sc=new Scanner(System.in);
+    while(sc.hasNext()){
+        int n=sc.nextInt();
+        long res=count(n);
+        System.out.println(res);
+    }
+}
+}
+</code></pre></blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +144,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/16/机器学习算法常问问题/" data-title="GBDT和XGBoost的区别 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/16/纸币的不同组合/" data-title="纸币的不同组合 | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,11 +157,19 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/10/16/无序数组中最长连续数长度/" title="无序数组中最长连续数长度">
+  <strong>上一篇：</strong><br/>
+  <span>
+  无序数组中最长连续数长度</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2017/10/11/LR和SVM的联系与区别/"  title="LR和SVM的联系与区别">
+<a href="/2017/10/16/机器学习常见问题/"  title="机器学习常见问题">
  <strong>下一篇：</strong><br/> 
- <span>LR和SVM的联系与区别
+ <span>机器学习常见问题
 </span>
 </a>
 </div>
@@ -173,7 +202,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>1</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
 		  
 		
 		  
@@ -181,7 +210,7 @@
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>13</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>14</sup></a></li>
 		  
 		
 		</ul>

@@ -78,6 +78,159 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/10/求满足整数内质数和为该数的个数/" title="求满足整数内质数和为该数的个数" itemprop="url">求满足整数内质数和为该数的个数</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T12:50:27.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给定一个正整数，编写程序计算有多少对数数的等于输入的这个正整数，并输出结果。输入值小于1000. 如输入为10，程序应该输出结果为2.（共有两对质数的和为10，分别为（5,5），（3,7））</p>
+<p>思路：先求出整数内所有质数的组合，分别判断其和进行计数<br>python代码如下：</p>
+<blockquote>
+<pre><code>n=input()
+from itertools import combinations
+def get_zhishu(n):  #    求整数n内所有质数
+    tmp=[]
+    for i in range(2,n):
+        flag=False
+        for j in range(2,i):
+            if i%j==0:
+                flag=True
+        if flag==False:
+            tmp.append(i)
+            flag=False
+    return tmp
+counts=0
+zhishu=get_zhishu(n)
+for x in combinations(zhishu,2):
+    if x[0]+x[1]==n:
+        counts+=1
+print counts+1 if n/2 in zhishu else counts
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/10/a-y编码/" title="a-y编码" itemprop="url">a-y编码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>假定一种编码的编码范围是a〜y的25个字母，从1位到4位的编码，如果我们把该编码按字典序排序，形成一个数组如下：a，aa，aaa，aaaa，aaab， aaac，… …，b，ba，baa，baaa，baab，baac … …，yyyw，yyyx，yyyy其中索引为0，aa的索引为1，aaa的索引为2，以此类推。编写一个函数，输入是任意一个编码，输出这个编码对应的指数。</p>
+<p>思路：由于字母是25个，可以理解为25进制编码，从后向前扫描分别比较每一位字符与字符‘a’的距离，将其距离与转换25进制的数相乘求其和。python 代码如下：</p>
+<blockquote>
+<pre><code>def f(str1, v):
+    length = len(str1)
+    ret = length - 1
+    for i in range(length-1, -1, -1):
+        ret += v[i] * int(ord(str1[i]) - ord(&apos;a&apos;))  #扫描每个字符与‘a’的距离
+    return ret
+if __name__ == &apos;__main__&apos;:
+    v1 = 25*25*25 + 25*25 + 25 + 1
+    v2 = 25*25 + 25 + 1
+    v3 = 25 + 1
+    v4 = 1
+    v = [v1, v2, v3, v4]
+    while 1:
+        try:
+            str1 = raw_input()
+        except:
+            break
+        print f(str1, v)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/09/找出最长公共子序列/" title="找出最长公共子序列" itemprop="url">找出最长公共子序列</a>
   </h1>
   <p class="article-author">By
@@ -487,7 +640,7 @@ return count;
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>1</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
 		  
 		
 		  
@@ -495,7 +648,7 @@ return count;
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>13</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>14</sup></a></li>
 		  
 		
 		</ul>

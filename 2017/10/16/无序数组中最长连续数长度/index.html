@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>LR和SVM的联系与区别 | Cindy</title>
+    <title>无序数组中最长连续数长度 | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="联系：  LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）; 两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。   区别：  LR是参数模型，SVM是非参数模型; 从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对">
+    <meta name="description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LR和SVM的联系与区别">
-<meta property="og:url" content="http://yoursite.com/2017/10/11/LR和SVM的联系与区别/index.html">
+<meta property="og:title" content="无序数组中最长连续数长度">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/无序数组中最长连续数长度/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="联系：  LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）; 两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。   区别：  LR是参数模型，SVM是非参数模型; 从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对">
-<meta property="og:updated_time" content="2017-10-11T00:40:32.000Z">
+<meta property="og:description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
+<meta property="og:updated_time" content="2017-10-16T09:12:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LR和SVM的联系与区别">
-<meta name="twitter:description" content="联系：  LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）; 两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。   区别：  LR是参数模型，SVM是非参数模型; 从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对">
+<meta name="twitter:title" content="无序数组中最长连续数长度">
+<meta name="twitter:description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
 
     
     <link rel="alternative" href="/atom.xml" title="Cindy" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/11/LR和SVM的联系与区别/" title="LR和SVM的联系与区别" itemprop="url">LR和SVM的联系与区别</a>
+      <a href="/2017/10/16/无序数组中最长连续数长度/" title="无序数组中最长连续数长度" itemprop="url">无序数组中最长连续数长度</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> Published 2017-10-11</time>
+    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
     
   </p>
 </header>
@@ -100,19 +100,23 @@
 		
 		</div>
 		
-		<p><strong>联系：</strong></p>
-<ul>
-<li>LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）;</li>
-<li>两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。 </li>
-</ul>
-<p><strong>区别：</strong></p>
-<ul>
-<li>LR是参数模型，SVM是非参数模型;</li>
-<li>从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重;</li>
-<li>SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重;</li>
-<li>逻辑回归相对来说模型更简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些，SVM转化为对偶问题后,分类只需要计算与少数几个支持向量的距离,这个在进行复杂核函数计算时优势很明显,能够大大简化模型和计算;</li>
-<li>logic 能做的 svm能做，但可能在准确率上有问题，svm能做的logic有的做不了。</li>
-</ul>
+		<p>leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n)</p>
+<p>思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：</p>
+<blockquote>
+<pre><code>def longestConsecutive(nums):
+    dic={}
+    ans=0
+    for i in  nums:
+        if i not in dic:
+            left=dic.get(i-1,0)
+            right=dic.get(i+1,0)
+            tmp=left+right+1
+            ans=max(ans,tmp)
+            dic[i]=tmp
+            dic[i-left]=tmp
+            dic[i+right]=tmp
+    return ans
+</code></pre></blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,7 +124,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
 </div>
 
 
@@ -130,7 +134,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/11/LR和SVM的联系与区别/" data-title="LR和SVM的联系与区别 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/16/无序数组中最长连续数长度/" data-title="无序数组中最长连续数长度 | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +147,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/16/机器学习常见问题/" title="机器学习常见问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  机器学习常见问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/11/合法的不等式数列/"  title="合法的不等式数列">
+<a href="/2017/10/16/纸币的不同组合/"  title="纸币的不同组合">
  <strong>下一篇：</strong><br/> 
- <span>合法的不等式数列
+ <span>纸币的不同组合
 </span>
 </a>
 </div>
