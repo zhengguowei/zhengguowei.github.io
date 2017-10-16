@@ -78,6 +78,79 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/17/黑白卡片翻转/" title="黑白卡片翻转" itemprop="url">黑白卡片翻转</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>牛牛有n张卡片排成一个序列.每张卡片一面是黑色的,另一面是白色的。初始状态的时候有些卡片是黑色朝上,有些卡片是白色朝上。牛牛现在想要把一些卡片翻过来,得到一种交替排列的形式,即每对相邻卡片的颜色都是不一样的。牛牛想知道最少需要翻转多少张卡片可以变成交替排列的形式。</p>
+<p><strong>思路：</strong><br>要得到交替排列形式，只有BWBWBW….或者WBWBWB…两种可能，只需要用两个变量记录得到这两种形式串所需要的步数即可，输出最小值</p>
+<blockquote>
+<pre><code>data=raw_input()
+counts1=0
+counts2=0
+for i in range(len(data)):
+    if i%2==0:
+        if data[i]==&apos;B&apos;:
+            continue
+        else:
+            counts1+=1
+    else:
+        if data[i]==&apos;W&apos;:
+            continue
+        else:
+            counts1+=1
+print min(counts1,len(data)-counts1)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/16/无序数组中最长连续数长度/" title="无序数组中最长连续数长度" itemprop="url">无序数组中最长连续数长度</a>
   </h1>
   <p class="article-author">By
@@ -762,93 +835,6 @@ except:
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/地理散列编码/" title="地理散列编码" itemprop="url">地理散列编码</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> Published 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>地理散列编码：地理散列常用于将二维的经纬度转换为字符串，分为两步：第一步是经纬度的二进制编码，第二步是base32转码。此题考察纬度的二进制编码：算法对纬度[ -90，90]通过二分法进行无限逼近（取决于所需精度，本题精度为6）。注意，本题进行二分法近近过程中只采用向下取整进来二分，针对二分中间值属于右区间。算法举例如下：针对纬度为80进行二进制编码过程：</p>
-<ol>
-<li>区间[-90，90]进行二分为[-90，0），[0，90]，成为左右区间，可以确定80为右区间，标记为1; </li>
-<li>针对上一步的右区间[0，90]进行二分为[0，45]，[45，90]，可以确定80是右区间，标记为1; </li>
-<li>针对[45，90 ]进行二分为[45，67]，[67,90]，可以确定80为右区间，标记为1; </li>
-<li>针对[67,90]进行二分为[67，78]，[78,90]可以确定80为右区间，标记为1; </li>
-<li>针对[78，90]进行二分为[78，84），[84，90]，可以确定80为左区间，标记 0; </li>
-<li>针对[78，84）进行二分为[78，81），[81，84），可以确定80为左区间，标记为0;</li>
-</ol>
-<p>思路：本题思路相对简单，类似于数组的二分查找，根据规则向结果里添加‘1’或‘0’<br>python代码如下：</p>
-<blockquote>
-<pre><code>from __future__ import division
-def f(num):
-    values = [-90, 90]
-    ret = &apos;&apos;
-    for i in range(6):
-        mid = int((values[0] + values[1])/2)
-        if num &gt;= mid:
-            values = [mid, values[1]]
-            ret += &apos;1&apos;
-        else:
-            values = [values[0], mid]
-            ret += &apos;0&apos;
-    return ret
-if __name__ == &apos;__main__&apos;:
-    while 1:
-        try:
-            num = int(raw_input())
-        except:
-            break
-        print f(num)
-</code></pre></blockquote>
-<p><strong>注意:</strong>在使用python语言时，需倒入division模块，否则会有少量测试用例无法通过</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -878,7 +864,7 @@ if __name__ == &apos;__main__&apos;:
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>14</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>15</sup></a></li>
 		  
 		
 		</ul>

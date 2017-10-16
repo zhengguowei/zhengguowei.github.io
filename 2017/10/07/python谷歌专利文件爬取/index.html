@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/07/python谷歌专利文件爬取/index.html">
 <meta property="og:site_name" content="Cindy">
 <meta property="og:description" content="google被称为世界最强大搜索引擎,其反爬虫技术做的也非常好，下面我们就来简单的谈下爬取google专利的一些技巧。  本篇就用python语言讲述下爬虫的过程，自己写过爬虫程序的人都知道，通常程序有三大主要模块，url管理器，下载器，解析器，我们通常用BeautifulSoup解析器根据自己需求来解析下载好的网页，url管理器也是自己根据需求自己手写，本文章我们重点讲解所用到的下载器。 通常我">
-<meta property="og:updated_time" content="2017-10-09T03:55:03.000Z">
+<meta property="og:updated_time" content="2017-10-16T11:53:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python谷歌专利文件爬取">
 <meta name="twitter:description" content="google被称为世界最强大搜索引擎,其反爬虫技术做的也非常好，下面我们就来简单的谈下爬取google专利的一些技巧。  本篇就用python语言讲述下爬虫的过程，自己写过爬虫程序的人都知道，通常程序有三大主要模块，url管理器，下载器，解析器，我们通常用BeautifulSoup解析器根据自己需求来解析下载好的网页，url管理器也是自己根据需求自己手写，本文章我们重点讲解所用到的下载器。 通常我">
@@ -103,16 +103,19 @@
 		<p>google被称为世界最强大搜索引擎,其反爬虫技术做的也非常好，下面我们就来简单的谈下爬取google专利的一些技巧。</p>
 <ol>
 <li>本篇就用python语言讲述下爬虫的过程，自己写过爬虫程序的人都知道，通常程序有三大主要模块，url管理器，下载器，解析器，我们通常用BeautifulSoup解析器根据自己需求来解析下载好的网页，url管理器也是自己根据需求自己手写，本文章我们重点讲解所用到的下载器。</li>
-<li><p>通常我们直接访问google，是访问不了的，所以我们要先翻墙，GAE，免费软件和vpn是我们常用的方法，这次我们使用XX-NET代理，至于这个代理是怎么配的，网上有不少的教程，这里我们就不多说了，我们试着访问下google专利网址，<a href="https://www.google.com.hk/patents" target="_blank" rel="external">谷歌专利</a>，输入一个专利号即可得到专利全文(<strong>注意：不翻墙这个地址是访问不了的</strong>)<br>通过构建url，当专利号为’CN101011964‘时，url构建方法如下：</p>
-<blockquote>
-<p>   import urllib2<br>   response = urllib2.urlopen(‘<a href="https://www.google.com.hk/patents/CN101011964B?cl=zh&amp;dq=CN101011964" target="_blank" rel="external">https://www.google.com.hk/patents/CN101011964B?cl=zh&amp;dq=CN101011964</a>‘)<br>   print response.getcode()</p>
-</blockquote>
-<p>直接抛出401权限错误问题，由于谷歌检测到我们发送的请求并不是通过浏览器，因此尝试下最土的方式试试，每次爬取一个专利文本通过代码启动浏览器并发送请求，如下代码：</p>
-<blockquote>
-<p>   from selenium import webdriver<br>   browser = webdriver.Chrome()<br>   browser.get(url)<br>   html_source = browser.page_source<br>   return (html_source.encode(‘utf-8’))</p>
-</blockquote>
-</li>
+<li>通常我们直接访问google，是访问不了的，所以我们要先翻墙，GAE，免费软件和vpn是我们常用的方法，这次我们使用XX-NET代理，至于这个代理是怎么配的，网上有不少的教程，这里我们就不多说了，我们试着访问下google专利网址，<a href="https://www.google.com.hk/patents" target="_blank" rel="external">谷歌专利</a>，输入一个专利号即可得到专利全文(<strong>注意：不翻墙这个地址是访问不了的</strong>)<br>通过构建url，当专利号为’CN101011964‘时，url构建方法如下：</li>
 </ol>
+<blockquote>
+<pre><code>import urllib2 
+response = urllib2.urlopen(&apos;https://www.google.com.hk/patents/CN101011964B?cl=zh&amp;dq=CN101011964&apos;) 
+print response.getcode()
+</code></pre><p> 直接抛出401权限错误问题，由于谷歌检测到我们发送的请求并不是通过浏览器，因此尝试下最土的方式试试，每次爬取一个专利文本通过代码启动浏览器并发送请求，如下代码：</p>
+<pre><code>from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get(url)
+html_source = browser.page_source
+return (html_source.encode(&apos;utf-8&apos;))
+</code></pre></blockquote>
 <p><strong>注意事项:</strong></p>
 <ul>
 <li>该教程适合在winds系统适用；</li>
@@ -196,7 +199,7 @@
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>14</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>15</sup></a></li>
 		  
 		
 		</ul>
