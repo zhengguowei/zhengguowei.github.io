@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>LR和SVM的联系与区别 | Cindy</title>
+    <title>长度为n的数组选取k个数据所有组合 | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="联系：  LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）; 两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。   区别：  LR是参数模型，SVM是非参数模型; 从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对">
+    <meta name="description" content="一个长度为n的数组或字符串，打印选取k个数据所组成的可能性(不要求排列循序，如123和132为一种可能性) 思路：由于k的值不确定，有可能很大，如果采用k层循环的话，时间复杂度会非常大。采取先固定前k-1位，从后面选取一位组合，从前向后递归代码如下  ans=[] Count = 0 def combination(data, t, vl):     _kk = len(data)     for">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LR和SVM的联系与区别">
-<meta property="og:url" content="http://yoursite.com/2017/10/11/LR和SVM的联系与区别/index.html">
+<meta property="og:title" content="长度为n的数组选取k个数据所有组合">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/长度为n的数组选取k个数据所有组合/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="联系：  LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）; 两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。   区别：  LR是参数模型，SVM是非参数模型; 从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对">
-<meta property="og:updated_time" content="2017-10-11T00:40:32.000Z">
+<meta property="og:description" content="一个长度为n的数组或字符串，打印选取k个数据所组成的可能性(不要求排列循序，如123和132为一种可能性) 思路：由于k的值不确定，有可能很大，如果采用k层循环的话，时间复杂度会非常大。采取先固定前k-1位，从后面选取一位组合，从前向后递归代码如下  ans=[] Count = 0 def combination(data, t, vl):     _kk = len(data)     for">
+<meta property="og:updated_time" content="2017-10-17T03:02:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LR和SVM的联系与区别">
-<meta name="twitter:description" content="联系：  LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）; 两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。   区别：  LR是参数模型，SVM是非参数模型; 从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对">
+<meta name="twitter:title" content="长度为n的数组选取k个数据所有组合">
+<meta name="twitter:description" content="一个长度为n的数组或字符串，打印选取k个数据所组成的可能性(不要求排列循序，如123和132为一种可能性) 思路：由于k的值不确定，有可能很大，如果采用k层循环的话，时间复杂度会非常大。采取先固定前k-1位，从后面选取一位组合，从前向后递归代码如下  ans=[] Count = 0 def combination(data, t, vl):     _kk = len(data)     for">
 
     
     
@@ -76,14 +76,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/11/LR和SVM的联系与区别/" title="LR和SVM的联系与区别" itemprop="url">LR和SVM的联系与区别</a>
+      <a href="/2017/10/17/长度为n的数组选取k个数据所有组合/" title="长度为n的数组选取k个数据所有组合" itemprop="url">长度为n的数组选取k个数据所有组合</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> Published 2017-10-11</time>
+    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -96,19 +96,33 @@
 		
 		</div>
 		
-		<p><strong>联系：</strong></p>
-<ul>
-<li>LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）;</li>
-<li>两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。 </li>
-</ul>
-<p><strong>区别：</strong></p>
-<ul>
-<li>LR是参数模型，SVM是非参数模型;</li>
-<li>从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重;</li>
-<li>SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重;</li>
-<li>逻辑回归相对来说模型更简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些，SVM转化为对偶问题后,分类只需要计算与少数几个支持向量的距离,这个在进行复杂核函数计算时优势很明显,能够大大简化模型和计算;</li>
-<li>logic 能做的 svm能做，但可能在准确率上有问题，svm能做的logic有的做不了。</li>
-</ul>
+		<p>一个长度为n的数组或字符串，打印选取k个数据所组成的可能性(不要求排列循序，如123和132为一种可能性)</p>
+<p><strong>思路：</strong><br>由于k的值不确定，有可能很大，如果采用k层循环的话，时间复杂度会非常大。采取先固定前k-1位，从后面选取一位组合，从前向后递归<br>代码如下</p>
+<blockquote>
+<pre><code>ans=[]
+Count = 0
+def combination(data, t, vl):
+    _kk = len(data)
+    for _i in range(_kk - t + 1):
+        vl.append(data[_i])
+        new_data = data[_i + 1:]
+        if t - 1 == 1:
+            for _j in range(len(new_data)):
+                ans.append(&apos;&apos;.join(map(str, vl)) + str(new_data[_j]))
+                global Count
+                Count += 1
+        else:
+            combination(new_data, t - 1, vl)
+        vl.pop()
+    return ans
+if __name__ == &apos;__main__&apos;:
+    n = input()  # 总数
+    k = input()  # 选取个数
+    vl = []  # 用于存放选中的数字
+    data = range(1, n + 1)  # [1, 2, 3, 4,..n]
+    result=combination(data, k, vl)
+    print result
+</code></pre></blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +130,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
 </div>
 
 
@@ -126,7 +140,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/11/LR和SVM的联系与区别/" data-title="LR和SVM的联系与区别 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/17/长度为n的数组选取k个数据所有组合/" data-title="长度为n的数组选取k个数据所有组合 | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,18 +154,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/10/16/机器学习常见问题/" title="机器学习常见问题">
+ <a href="/2017/10/17/常用八大排序算法/" title="常用八大排序算法">
   <strong>上一篇：</strong><br/>
   <span>
-  机器学习常见问题</span>
+  常用八大排序算法</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/10/11/合法的不等式数列/"  title="合法的不等式数列">
+<a href="/2017/10/17/牛牛最多需要尝试多少次密码/"  title="牛牛最多需要尝试多少次密码">
  <strong>下一篇：</strong><br/> 
- <span>合法的不等式数列
+ <span>牛牛最多需要尝试多少次密码
 </span>
 </a>
 </div>

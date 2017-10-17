@@ -1,0 +1,579 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>常用八大排序算法 | Cindy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Liberty_zheng">
+    
+
+    
+    <meta name="description" content="排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。排序分类如下图所示  排序分类有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序各排序算法思想和代码如下  快速排序思想：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用八大排序算法">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/常用八大排序算法/index.html">
+<meta property="og:site_name" content="Cindy">
+<meta property="og:description" content="排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。排序分类如下图所示  排序分类有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序各排序算法思想和代码如下  快速排序思想：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的">
+<meta property="og:image" content="http://yoursite.com/2017/10/17/常用八大排序算法/sort.png">
+<meta property="og:updated_time" content="2017-10-17T06:41:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用八大排序算法">
+<meta name="twitter:description" content="排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。排序分类如下图所示  排序分类有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序各排序算法思想和代码如下  快速排序思想：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/17/常用八大排序算法/sort.png">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Cindy" title="Cindy"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/17/常用八大排序算法/" title="常用八大排序算法" itemprop="url">常用八大排序算法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。<br>排序分类如下图所示</p>
+<p><center><img width="500" align="center" src="/2017/10/17/常用八大排序算法/sort.png"></center></p>
+<p><center>排序分类</center><br>有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序<br>各排序算法思想和代码如下</p>
+<ol>
+<li>快速排序<br><strong>思想：</strong>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。代码如下：<blockquote>
+<pre><code>def quick_sort(lists, left, right):
+ if left &gt;= right:
+     return lists
+ key = lists[left]
+ low = left
+ high = right
+ while left &lt; right:
+     while left &lt; right and lists[right] &gt;= key:
+         right -= 1
+     lists[left] = lists[right]
+     while left &lt; right and lists[left] &lt;= key:
+         left += 1
+     lists[right] = lists[left]
+ lists[right] = key
+ quick_sort(lists, low, left - 1)
+ quick_sort(lists, left + 1, high)
+ return lists
+</code></pre></blockquote>
+</li>
+<li>插入排序<br><strong>思想：</strong>插入排序的基本操作就是将一个数据插入到已经排好序的有序数据中，从而得到一个新的、个数加一的有序数据，算法适用于少量数据的排序，时间复杂度为O(n^2)。是稳定的排序方法。插入算法把要排序的数组分成两部分：第一部分包含了这个数组的所有元素，但将最后一个元素除外（让数组多一个空间才有插入的位置），而第二部分就只包含这一个元素（即待插入元素）。在第一部分排序完成后，再将这个最后元素插入到已排好序的第一部分中。代码如下：<blockquote>
+<pre><code>def insert_sort(lists):
+ count = len(lists)
+ for i in range(1, count):
+     key = lists[i]
+     j = i - 1
+     while j &gt;= 0:
+         if lists[j] &gt; key:
+             lists[j + 1] = lists[j]
+             lists[j] = key
+         j -= 1
+ return lists
+</code></pre></blockquote>
+</li>
+<li>希尔排序<br><strong>思想：</strong>希尔排序(Shell Sort)是插入排序的一种。也称缩小增量排序，是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。 希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。代码如下：<blockquote>
+<pre><code>def shell_sort(lists):
+ count = len(lists)
+ step = 2
+ group = count / step
+ while group &gt; 0:
+     for i in range(0, group):
+         j = i + group
+         while j &lt; count:
+             k = j - group
+             key = lists[j]
+             while k &gt;= 0:
+                 if lists[k] &gt; key:
+                     lists[k + group] = lists[k]
+                     lists[k] = key
+                 k -= group
+             j += group
+        group /= step
+ return lists
+</code></pre></blockquote>
+</li>
+<li>冒泡排序<br><strong>思想：</strong>它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。代码如下：<blockquote>
+<pre><code>def bubble_sort(lists):
+ count = len(lists)
+ for i in range(0, count):
+     for j in range(i + 1, count):
+         if lists[i] &gt; lists[j]:
+             lists[i], lists[j] = lists[j], lists[i]
+ return lists
+</code></pre></blockquote>
+</li>
+<li>直接选择排序<br><strong>思想：</strong>第1趟，在待排序记录r1 ~ r[n]中选出最小的记录，将它与r1交换；第2趟，在待排序记录r2 ~ r[n]中选出最小的记录，将它与r2交换；以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。代码如下：<blockquote>
+<pre><code>def select_sort(lists):
+ count = len(lists)
+ for i in range(0, count):
+     min = i
+     for j in range(i + 1, count):
+         if lists[min] &gt; lists[j]:
+             min = j
+     lists[min], lists[i] = lists[i], lists[min]
+ return lists
+</code></pre></blockquote>
+</li>
+<li>堆排序<br><strong>思想：</strong>堆排序(Heapsort)是指利用堆积树（堆）这种数据结构所设计的一种排序算法，它是选择排序的一种。可以利用数组的特点快速定位指定索引的元素。堆分为大根堆和小根堆，是完全二叉树。大根堆的要求是每个节点的值都不大于其父节点的值，即A[PARENT[i]] &gt;= A[i]。在数组的非降序排序中，需要使用的就是大根堆，因为根据大根堆的要求可知，最大的值一定在堆顶。代码如下：<blockquote>
+<pre><code>def adjust_heap(lists, i, size):
+ lchild = 2 * i + 1
+ rchild = 2 * i + 2
+ max = i
+ if i &lt; size / 2:
+     if lchild &lt; size and lists[lchild] &gt; lists[max]:
+         max = lchild
+     if rchild &lt; size and lists[rchild] &gt; lists[max]:
+         max = rchild
+     if max != i:
+         lists[max], lists[i] = lists[i], lists[max]
+         adjust_heap(lists, max, size)
+def build_heap(lists, size):
+ for i in range(0, (size/2))[::-1]:
+     adjust_heap(lists, i, size)
+def heap_sort(lists):
+ size = len(lists)
+ build_heap(lists, size)
+ for i in range(0, size)[::-1]:
+     lists[0], lists[i] = lists[i], lists[0]
+     adjust_heap(lists, 0, i)
+</code></pre></blockquote>
+</li>
+<li>归并排序<br><strong>思想：</strong>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。代码如下：<blockquote>
+<pre><code>def merge(left, right):
+ i, j = 0, 0
+ result = []
+ while i &lt; len(left) and j &lt; len(right):
+     if left[i] &lt;= right[j]:
+         result.append(left[i])
+         i += 1
+     else:
+         result.append(right[j])
+         j += 1
+ result += left[i:]
+ result += right[j:]
+ return resu
+</code></pre></blockquote>
+</li>
+<li>基数排序<br><strong>思想：</strong>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序     法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。代码如下：<blockquote>
+<pre><code>import math
+def radix_sort(lists, radix=10):
+     k = int(math.ceil(math.log(max(lists), radix)))
+     bucket = [[] for i in range(radix)]
+     for i in range(1, k+1):
+         for j in lists:
+             bucket[j/(radix**(i-1)) % (radix**i)].append(j)
+         del lists[:]
+         for z in bucket:
+             lists += z
+             del z[:]
+     return lists    
+</code></pre></blockquote>
+</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/10/17/常用八大排序算法/" data-title="常用八大排序算法 | Cindy" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/10/17/长度为n的数组选取k个数据所有组合/"  title="长度为n的数组选取k个数据所有组合">
+ <strong>下一篇：</strong><br/> 
+ <span>长度为n的数组选取k个数据所有组合
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>18</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Cassiel in BISTU. <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Liberty_zheng">Liberty_zheng</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
