@@ -19,8 +19,6 @@
 <meta name="twitter:title" content="Cindy">
 
     
-    <link rel="alternative" href="/atom.xml" title="Cindy" type="application/atom+xml">
-    
     
     <link rel="icon" href="/img/favicon.ico">
     
@@ -54,8 +52,6 @@
 					
 						<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/">About</a></li>
-					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
@@ -78,11 +74,75 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/17/牛牛最多需要尝试多少次密码/" title="牛牛最多需要尝试多少次密码" itemprop="url">牛牛最多需要尝试多少次密码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>牛牛变得黑化了,想要摧毁掉地球。但他忘记了开启地球毁灭器的密码。牛牛手里有一个字符串S,牛牛还记得从S中去掉一个字符就恰好是正确的密码,请你帮牛牛求出他最多需要尝试多少次密码。<br>如样例所示S = “ABA”,3个可能的密码是”BA”, “AA”, “AB”.<br>当S = “A”, 牛牛唯一可以尝试的密码是一个空的密码,所以输出1. </p>
+<p><strong>思路：</strong><br>如果没有相邻的重复字母，次数即为字符串的长度，每有一对相邻重复字母，就会重复一次，次数因此减一<br>代码如下：</p>
+<blockquote>
+<pre><code>data=raw_input()
+count=len(data)
+for i in range(1,len(data)):
+    if data[i]==data[i-1]:
+        count-=1
+print count
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/17/黑白卡片翻转/" title="黑白卡片翻转" itemprop="url">黑白卡片翻转</a>
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> Published 2017-10-17</time>
@@ -155,7 +215,7 @@ print min(counts1,len(data)-counts1)
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
@@ -226,7 +286,7 @@ print min(counts1,len(data)-counts1)
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> Published 2017-10-16</time>
@@ -307,7 +367,7 @@ public static void main(String args[]){
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-16T00:59:56.000Z" itemprop="datePublished"> Published 2017-10-16</time>
@@ -379,7 +439,7 @@ public static void main(String args[]){
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> Published 2017-10-11</time>
@@ -446,7 +506,7 @@ public static void main(String args[]){
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-11T00:06:29.000Z" itemprop="datePublished"> Published 2017-10-11</time>
@@ -524,7 +584,7 @@ private static int solve(int n, int k) {
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> Published 2017-10-10</time>
@@ -592,7 +652,7 @@ print len(index) - count
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> Published 2017-10-10</time>
@@ -705,7 +765,7 @@ if __name__ == &apos;__main__&apos;:
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
     <time datetime="2017-10-10T13:12:39.000Z" itemprop="datePublished"> Published 2017-10-10</time>
@@ -732,73 +792,6 @@ for i in range(1,len(data)-1):
     if get_distance(tem)&lt;nearst:
         nearst=get_distance(tem)
 print nearst
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/第三便宜的帽子/" title="第三便宜的帽子" itemprop="url">第三便宜的帽子</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T13:08:14.000Z" itemprop="datePublished"> Published 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>度度熊想去商场买一顶帽子，商场里有N顶帽子，有些帽子的价格可能相同。度度熊想买一顶价格第三便宜的帽子，问第三便宜的帽子价格是多少？</p>
-<p>思路：本题相对简单些，将所有帽子价格进行排序，得出第三小的价格</p>
-<p>python代码如下：</p>
-<blockquote>
-<pre><code>input()
-data=map(int,raw_input().split(&apos; &apos;))
-data=map(int,list(set(data)))
-data.sort()
-try:
-    print data[2]
-except:
-    print -1
 </code></pre></blockquote>
 
         
@@ -864,7 +857,7 @@ except:
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>15</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>16</sup></a></li>
 		  
 		
 		</ul>
@@ -877,18 +870,6 @@ except:
   <p class="asidetitle">Links</p>
     <ul>
         
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
-        
     </ul>
 </div>
 
@@ -896,7 +877,7 @@ except:
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
