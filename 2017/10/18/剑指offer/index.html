@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/18/剑指offer/index.html">
 <meta property="og:site_name" content="Cindy">
 <meta property="og:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
-<meta property="og:updated_time" content="2017-10-21T11:12:45.000Z">
+<meta property="og:updated_time" content="2017-10-22T11:27:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer">
 <meta name="twitter:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
@@ -257,7 +257,7 @@ def GetNext(self, pNode):
                 pNext = pNode.next
     return pNext
 </code></pre></blockquote>
-<p>7.<strong>斐波那契数列</strong><br>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。<br>思路1:采用循环，代码如下：</p>
+<p>7.<strong>斐波那契数列</strong><br>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。<br>思路1:采用循环，时间复杂度为O(n），代码如下：</p>
 <blockquote>
 <pre><code>def fabci(n):
     if n==0:
@@ -268,7 +268,7 @@ def GetNext(self, pNode):
         a,b=b,a+b
     return b
 </code></pre></blockquote>
-<p>思路2：采用递归<br>代码如下：</p>
+<p>思路2：采用递归，复杂度较高，会重复计算相同的值<br>代码如下：</p>
 <blockquote>
 <pre><code>def fab(n):
       if n==1:
@@ -278,6 +278,73 @@ def GetNext(self, pNode):
       else:
         result=int(fab(n-1))+int(fab(n-2))    
     return result
+</code></pre></blockquote>
+<p>青蛙跳台阶, 每次可以跳1级或2级<br>思路：其实就是斐波那契数列问题，每次可以跳1级或者两级，则下次的可能性为前两次可能性之和</p>
+<blockquote>
+<pre><code>def jumpFloor(self, number):
+ # write code here
+ tempArray = [1, 2]
+ if number &gt;= 3:
+     for i in range(3, number + 1):
+         tempArray[(i + 1) % 2] = tempArray[0] + tempArray[1]
+ return tempArray[(number + 1) % 2]
+</code></pre></blockquote>
+<p>8.<strong>旋转数组的最小数字</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。给出的所有元素都大于0，若数组大小为0，请返回0。<br>思路：如果遍历一遍，复杂度太高，可以采用二分查找，用两个指针分别指向第一个值和最后一个值，取中间的数，如果该数小于最前面的数，则该数在后面递增的数组里，将前面的指针指向该数，否则在前面递增的数组里，将后面的指针指向该数，将更新后的数组重复做以上操作，当两个指针距离是1时结束，返回后面的指针指向的数字。代码如下：</p>
+<blockquote>
+<pre><code>def minNumberInRotateArray2(rotateArray):
+if len(rotateArray) == 0:
+    return 0
+front, rear = 0, len(rotateArray) - 1
+midIndex = 0  #如果数组把前0个数移到后面，则直接返回第一个
+while rotateArray[front] &gt;= rotateArray[rear]:
+    if rear - front == 1:
+        midIndex = rear
+        break
+    midIndex = (front + rear) // 2
+    if rotateArray[front] == rotateArray[rear] and rotateArray[front] == rotateArray[midIndex]:
+        return MinInOrder(rotateArray, front, rear)
+    if rotateArray[midIndex] &gt;= rotateArray[front]:
+        front = midIndex
+    elif rotateArray[midIndex] &lt;= rotateArray[rear]:
+        rear = midIndex
+return rotateArray[midIndex]
+def MinInOrder( array, front, end):
+    result = array[0]
+    for i in array[front:end + 1]:
+        if i &lt; result:
+            result = i
+    return result
+print minNumberInRotateArray2([3,4,5,1,2])
+</code></pre></blockquote>
+<p>9.矩阵中的路径<br>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。例如 [[a b c e], [s f c s], [a d e e]]矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。<br>思路：递归的采用回溯法</p>
+<blockquote>
+<pre><code>class Solution:
+def hasPath(self, matrix, rows, cols, path):
+    if matrix == None or rows &lt; 1 or cols &lt; 1 or path == None:
+        return False
+    visited = [0] * (rows * cols)
+    pathLength = 0
+    for row in range(rows):
+        for col in range(cols):
+            if self.hasPathCore(matrix, rows, cols, row, col, path, pathLength, visited):
+                return True
+    return False
+def hasPathCore(self, matrix, rows, cols, row, col, path, pathLength, visited):
+    if len(path) == pathLength:
+        return True
+    hasPath = False
+    if row &gt;= 0 and row &lt; rows and col &gt;= 0 and col &lt; cols and matrix[row * cols + col] == path[pathLength] and not \
+    visited[row * cols + col]:
+        pathLength += 1
+        visited[row * cols + col] = True
+        hasPath = self.hasPathCore(matrix, rows, cols, row, col - 1, path, pathLength, visited) or \
+                  self.hasPathCore(matrix, rows, cols, row - 1, col, path, pathLength, visited) or \
+                  self.hasPathCore(matrix, rows, cols, row, col + 1, path, pathLength, visited) or \
+                  self.hasPathCore(matrix, rows, cols, row + 1, col, path, pathLength, visited)
+        if not hasPath:
+            pathLength -= 1
+            visited[row * cols + col] = False
+    return hasPath
 </code></pre></blockquote>
   
 	</div>
@@ -362,7 +429,7 @@ def GetNext(self, pNode):
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>23</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>24</sup></a></li>
 		  
 		
 		</ul>
