@@ -74,6 +74,401 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/10/a-y编码/" title="a-y编码" itemprop="url">a-y编码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>假定一种编码的编码范围是a〜y的25个字母，从1位到4位的编码，如果我们把该编码按字典序排序，形成一个数组如下：a，aa，aaa，aaaa，aaab， aaac，… …，b，ba，baa，baaa，baab，baac … …，yyyw，yyyx，yyyy其中索引为0，aa的索引为1，aaa的索引为2，以此类推。编写一个函数，输入是任意一个编码，输出这个编码对应的指数。</p>
+<p>思路：由于字母是25个，可以理解为25进制编码，从后向前扫描分别比较每一位字符与字符‘a’的距离，将其距离与转换25进制的数相乘求其和。python 代码如下：</p>
+<blockquote>
+<pre><code>def f(str1, v):
+    length = len(str1)
+    ret = length - 1
+    for i in range(length-1, -1, -1):
+        ret += v[i] * int(ord(str1[i]) - ord(&apos;a&apos;))  #扫描每个字符与‘a’的距离
+    return ret
+if __name__ == &apos;__main__&apos;:
+    v1 = 25*25*25 + 25*25 + 25 + 1
+    v2 = 25*25 + 25 + 1
+    v3 = 25 + 1
+    v4 = 1
+    v = [v1, v2, v3, v4]
+    while 1:
+        try:
+            str1 = raw_input()
+        except:
+            break
+        print f(str1, v)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/09/找出最长公共子序列/" title="找出最长公共子序列" itemprop="url">找出最长公共子序列</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-09T07:28:24.000Z" itemprop="datePublished"> Published 2017-10-09</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给定一个字符串s，你可以从中删除一些字符，使得剩下的串是一个回文串。如何删除才能使得回文串最长呢？<br>输出需要删除的字符个数。</p>
+<p>思路：其实就是求原字符串和其反串的最大公共子序列,用字符串长度减去其最大公共子序列长度即可,不同于连续公共子串，子序列可以不连续，采用动态规划的思想，双层循环，当str1[i-1]==str2[j-1]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=max(dp[i-1][j],dp[i][j-1]),java代码如下:</p>
+<blockquote>
+<pre><code>import java.util.Scanner; 
+    public class Main {    
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+            while(in.hasNext()){
+            // 相当于求原字符串和其反串的最大公共子序列
+                String str1 = in.nextLine();
+                String str2 = new StringBuilder(str1).reverse().toString();
+                // 动态规划部分
+                int[][] c = new int[str1.length()+1][str2.length()+1];
+                for(int i=1;i&lt;=str1.length();i++){
+                    for(int j=1;j&lt;=str2.length();j++){
+                        if(str1.charAt(i-1)==str2.charAt(j-1)){
+                            c[i][j]=c[i-1][j-1]+1;
+                        }else{
+                            c[i][j]=c[i-1][j]&gt;c[i][j-1]?c[i-1][j]:c[i][j-1];
+                    }
+                }
+            }
+        System.out.println(str1.length()-c[str1.length()][str2.length()]);
+        }
+
+    }
+}
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/09/找出最长公共连续子串/" title="找出最长公共连续子串" itemprop="url">找出最长公共连续子串</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> Published 2017-10-09</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度</p>
+<p>思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：</p>
+<blockquote>
+<pre><code>str1=&apos;_&apos;+raw_input()
+str2=&apos;_&apos;+raw_input()
+dp=[]
+for i in range(len(str2)):
+   dp.append([0]*len(str1))
+for i in range(1,len(str2)):
+    for j in range(len(str1)):
+        if str2[i]==str1[j]:
+            dp[i][j]=dp[i-1][j-1]+1
+        else:
+            dp[i][j]=0
+tmp=[max(x) for x in dp]
+print max(tmp)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/柱子最大面积/" title="柱子最大面积" itemprop="url">柱子最大面积</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> Published 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。</p>
+<p>采用分治法，最大矩形面积只可能有三种情况：</p>
+<ul>
+<li>高度最小的柱子，面积即为最低高度乘以总长度；</li>
+<li>在最低柱子的左面；</li>
+<li>在最低柱子右面；</li>
+</ul>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>n = input()
+heights = map(int, raw_input().split())
+def largestarea(a):
+    leng = len(a)
+    minIndex = a.index(min(a))
+    tmp = a[minIndex] * leng  #高低最低时
+    if minIndex != 0:
+        left = largestarea(a[0:minIndex]) #在最低柱子左面
+    else:
+        left = 0
+    if minIndex != leng - 1:
+        right = largestarea(a[minIndex + 1:leng]) #在最低柱子右面
+    else:
+        right = 0
+    return max(left, tmp, right)
+print largestarea(heights)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/大富翁游戏/" title="大富翁游戏" itemprop="url">大富翁游戏</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>大富翁游戏，玩家根据骰子的点数决定走的步数，即骰子点数为1时可以走一步，点数为2时可以走两步，点数为n时可以走n步。求玩家走到第n步（n&lt;=骰子最大点数且是方法的唯一入参）时，总共有多少种投骰子的方法。</p>
+<p>思路：设f(n)表示到第n步时总共有f(n)种投骰子的方法,那么到第n-1步时总共有f(n-1)种投骰子的方法;那么到第n-2步时总共有f(n-2)种投骰子的方法……<br>规律:</p>
+<ul>
+<li>从第n-1步到第n步，只有一种可能性（投骰子结果为 1 ），所以从第n-1步到第n步共有f(n-1)*1 种投骰子的方法；</li>
+<li>从第n-2步到第n步，只有一种可能性（投骰子结果为 2 ），所以从第n-2步到第n步共有f(n-2)*1 种投骰子的方法；</li>
+<li>从第n-3步到第n步，只有一种可能性（投骰子结果为 3 ），所以从第n-3步到第n步共有f(n-3)*1 种投骰子的方法；</li>
+<li>依次类推:f(n) = f(n-1)+f(n-2)+f(n-3)+….+f(1)+f(0),且f(1)=f(0)=1;<br>代码如下：<blockquote>
+<pre><code>import java.util.Scanner;
+public class Main{
+public static void main(String[] args){
+      Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    System.out.println(getSum(n));
+}
+public static int getSum(int n){
+        int count=0;
+    if(n==1)
+    count=1;//f(1) =1
+    else if(n==2)
+        count=2;//f(2)=2
+    else{
+        for(int i=1;i&lt;n;i++){
+            count+=getSum(n-i);//计算f(n) = f(n-1)+f(n-2)+f(n-3)+....+f(1)
+            }
+    count=count+1;//再加f(0) = 1
+        }
+return count;
+    }
+}
+</code></pre></blockquote>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/07/python谷歌专利文件爬取/" title="python谷歌专利文件爬取" itemprop="url">python谷歌专利文件爬取</a>
   </h1>
   <p class="article-author">By
@@ -175,7 +570,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>18</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>23</sup></a></li>
 		  
 		
 		</ul>

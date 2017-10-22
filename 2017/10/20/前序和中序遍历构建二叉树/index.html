@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>无序数组中最长连续数长度 | Cindy</title>
+    <title>前序和中序遍历构建二叉树 | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
+    <meta name="description" content="已知二叉树的前序和中序构建二叉树代码如下：  class Node:     def __init__(self, data, left, right):         self.data=data         self.left=left         self.right=right def construct_tree(preorder,midorder):     if len(p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无序数组中最长连续数长度">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/无序数组中最长连续数长度/index.html">
+<meta property="og:title" content="前序和中序遍历构建二叉树">
+<meta property="og:url" content="http://yoursite.com/2017/10/20/前序和中序遍历构建二叉树/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
-<meta property="og:updated_time" content="2017-10-16T09:12:09.000Z">
+<meta property="og:description" content="已知二叉树的前序和中序构建二叉树代码如下：  class Node:     def __init__(self, data, left, right):         self.data=data         self.left=left         self.right=right def construct_tree(preorder,midorder):     if len(p">
+<meta property="og:updated_time" content="2017-10-20T02:51:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无序数组中最长连续数长度">
-<meta name="twitter:description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
+<meta name="twitter:title" content="前序和中序遍历构建二叉树">
+<meta name="twitter:description" content="已知二叉树的前序和中序构建二叉树代码如下：  class Node:     def __init__(self, data, left, right):         self.data=data         self.left=left         self.right=right def construct_tree(preorder,midorder):     if len(p">
 
     
     
@@ -76,14 +76,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/16/无序数组中最长连续数长度/" title="无序数组中最长连续数长度" itemprop="url">无序数组中最长连续数长度</a>
+      <a href="/2017/10/20/前序和中序遍历构建二叉树/" title="前序和中序遍历构建二叉树" itemprop="url">前序和中序遍历构建二叉树</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
+    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> Published 2017-10-20</time>
     
   </p>
 </header>
@@ -96,22 +96,26 @@
 		
 		</div>
 		
-		<p>leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n)</p>
-<p>思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：</p>
+		<p>已知二叉树的前序和中序构建二叉树<br>代码如下：</p>
 <blockquote>
-<pre><code>def longestConsecutive(nums):
-    dic={}
-    ans=0
-    for i in  nums:
-        if i not in dic:
-            left=dic.get(i-1,0)
-            right=dic.get(i+1,0)
-            tmp=left+right+1
-            ans=max(ans,tmp)
-            dic[i]=tmp
-            dic[i-left]=tmp
-            dic[i+right]=tmp
-    return ans
+<pre><code>class Node:
+    def __init__(self, data, left, right):
+        self.data=data
+        self.left=left
+        self.right=right
+def construct_tree(preorder,midorder):
+    if len(preorder)==0:
+        return None
+    root_data=preorder[0]
+    i=midorder.index(root_data)
+    left=construct_tree(preorder[1:i+1],midorder[:i])
+    right=construct_tree(preorder[i+1:],midorder[i+1:])
+    return Node(root_data,left,right)
+if __name__==&apos;__main__&apos;:
+    pre_order = [1, 2, 4, 7, 3, 5, 6, 8]
+    mid_order = [4, 7, 2, 1, 5, 3, 8, 6]
+    root=construct_tree(pre_order,mid_order)
+    print root
 </code></pre></blockquote>
   
 	</div>
@@ -130,7 +134,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/16/无序数组中最长连续数长度/" data-title="无序数组中最长连续数长度 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/20/前序和中序遍历构建二叉树/" data-title="前序和中序遍历构建二叉树 | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +147,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/17/黑白卡片翻转/" title="黑白卡片翻转">
-  <strong>上一篇：</strong><br/>
-  <span>
-  黑白卡片翻转</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/16/纸币的不同组合/"  title="纸币的不同组合">
+<a href="/2017/10/19/按层次遍历二叉树与求二叉树深度/"  title="按层次遍历二叉树与求二叉树深度">
  <strong>下一篇：</strong><br/> 
- <span>纸币的不同组合
+ <span>按层次遍历二叉树与求二叉树深度
 </span>
 </a>
 </div>

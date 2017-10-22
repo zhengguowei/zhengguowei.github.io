@@ -1,0 +1,631 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>剑指offer | Cindy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Liberty_zheng">
+    
+
+    
+    <meta name="description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/剑指offer/index.html">
+<meta property="og:site_name" content="Cindy">
+<meta property="og:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
+<meta property="og:updated_time" content="2017-10-21T11:12:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer">
+<meta name="twitter:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Cindy" title="Cindy"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/18/剑指offer/" title="剑指offer" itemprop="url">剑指offer</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>1.<strong>二维数组的查找</strong><br>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。<br>代码如下：</p>
+<blockquote>
+<pre><code>def search(arr,n):
+     i,j=0,len(arr[0])-1
+    while i&lt;len(arr) and j&gt;0:
+        if n==arr[i][j]:
+            return True
+        elif n&gt;arr[i][j]:
+            i+=1
+        else:
+            j-=1
+    return False
+</code></pre><p>当然也有效率不高的每行查找，代码如下：<br>    def search(arr,n):<br>         for x in arr:<br>             if n in x:<br>                 return True<br>         return False</p>
+</blockquote>
+<p>2.<strong>替换空格</strong><br>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。<br>有如下三个思路：</p>
+<p>思路一：创建新的字符串进行替换</p>
+<blockquote>
+<pre><code>def replaceSpace1(self, s):
+    tempstr = &apos;&apos;
+    if type(s) != str:
+        return
+    for c in s:
+        if c == &apos; &apos;:
+            tempstr += &apos;%20&apos;
+        else:
+            tempstr += c
+    return tempstr
+</code></pre></blockquote>
+<p>思路二：简单代码替换，在Python中str类型是不可变的类型, 使用replace语句会生成一个新的str, 原始的s还是带空格的str变量</p>
+<blockquote>
+<pre><code>def replaceSpace2(self, s):
+    if type(s) != str:
+        return
+    return s.replace(&apos; &apos;, &apos;%20&apos;)
+</code></pre></blockquote>
+<p>思路三：统计空格的个数，将字符串拉长，每多一个空格字符串长度增加2，从后向前，将子串已到相对应的位置</p>
+<blockquote>
+<pre><code>def replaceSpace3(self, s): # 判断输入类型的时候，isinstance必须首先判断，因为如果输入为integer的话，没有len，就会直接报错
+    if not isinstance(s,str) or len(s) &lt;= 0 or s == None:
+        return &quot;&quot;
+    spaceNum = 0
+    for i in s:
+        if i == &quot; &quot;:
+            spaceNum += 1
+    newStrLen = len(s) + spaceNum * 2
+    newStr = newStrLen * [None]
+    indexOfOriginal, indexOfNew = len(s) - 1, newStrLen - 1
+    while indexOfNew &gt;= 0 and indexOfNew &gt;= indexOfOriginal:
+        if s[indexOfOriginal] == &apos; &apos;:
+            newStr[indexOfNew-2:indexOfNew+1] = [&apos;%&apos;, &apos;2&apos;, &apos;0&apos;]
+            indexOfNew -= 3
+            indexOfOriginal -= 1
+        else:
+            newStr[indexOfNew] = s[indexOfOriginal]
+            indexOfNew -= 1
+            indexOfOriginal -= 1
+    return &quot;&quot;.join(newStr)
+s = &apos;we are happy&apos;
+test = Solution()
+print(test.replaceSpace1(s))
+print(test.replaceSpace2(s))
+print(test.replaceSpace3(s))
+</code></pre></blockquote>
+<p>3.<strong>从尾到头打印链表</strong><br>输入一个链表，从尾到头打印链表每个节点的值。<br>思路1：定义一个栈，将链表遍历，将节点数值存入栈中，然后依次出栈<br>代码如下：</p>
+<blockquote>
+<pre><code>class ListNode:
+    def __init__(self, x=None):
+        self.val = x
+        self.next = None    
+class Solution:
+    def printListFromTailToHead(self, listNode):
+        if listNode.val == None:
+            return
+        l = []
+        head = listNode
+        while head:
+            l.insert(0, head.val)
+            head = head.next
+        return l
+node1 = ListNode(10)
+node2 = ListNode(11)
+node3 = ListNode(13)
+node1.next = node2
+node2.next = node3
+S = Solution()
+print(S.printListFromTailToHead(node1))
+</code></pre></blockquote>
+<p>思路2:使用递归，打印当前节点的下一个节点的数值<br>代码如下：</p>
+<blockquote>
+<pre><code>def printListFromTailToHead1(listNode):
+    if listNode!=None:
+        if listNode.next!=None:
+            printListFromTailToHead1(listNode.next)
+        print listNode.val
+</code></pre></blockquote>
+<p>4.<strong>重建二叉树</strong><br>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。<br>思路:先序遍历的第一个值为根节点，找在中序遍历中找到该节点的下标，该节点将树分为左右子树，递归的进行建树<br>代码如下：</p>
+<blockquote>
+<pre><code>class Node:
+    def __init__(self, data, left, right):
+        self.data=data
+        self.left=left
+        self.right=right
+def construct_tree(preorder,midorder):
+    if len(preorder)==0:
+        return None
+    root_data=preorder[0]
+    i=midorder.index(root_data)
+    left=construct_tree(preorder[1:i+1],midorder[:i])
+    right=construct_tree(preorder[i+1:],midorder[i+1:])
+    return Node(root_data,left,right)
+if __name__==&apos;__main__&apos;:
+    pre_order = [1, 2, 4, 7, 3, 5, 6, 8]
+    mid_order = [4, 7, 2, 1, 5, 3, 8, 6]
+    root=construct_tree(pre_order,mid_order)
+    print root
+</code></pre></blockquote>
+<p>5.<strong>用两个栈实现队列</strong><br>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。<br>思路：定义两个队列，stack1和stack2，如果push，则将数据存入stack1，如果pop，如果stack2中有数据，则直接弹出，否则先将stack1中数据依次弹出存入stack2中，再弹出stack2一个数据。<br>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def __init__(self):
+        self.stack1=[]
+        self.stack2=[]
+    def push(self, node):
+        self.stack1.append(node)
+    def pop(self):
+        if self.stack2==[]:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2.pop()
+</code></pre></blockquote>
+<p>6.<strong>二叉树的下一个结点</strong><br>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+<blockquote>
+<pre><code>class Solution2:
+def GetNext(self, pNode):
+    # 输入是一个空节点
+    if pNode == None:
+        return None
+    # 注意当前节点是根节点的情况。所以在最开始设定pNext = None, 如果下列情况都不满足, 说明当前结点为根节点, 直接输出None
+    pNext = None
+    # 如果输入节点有右子树，则下一个结点是当前节点右子树中最左节点
+    if pNode.right:
+        pNode = pNode.right
+        while pNode.left:
+            pNode = pNode.left
+        pNext = pNode
+    else:
+        # 如果当前节点有父节点且当前节点是父节点的左子节点, 下一个结点即为父节点
+        if pNode.next and pNode.next.left == pNode:
+            pNext = pNode.next
+        # 如果当前节点有父节点且当前节点是父节点的右子节点, 那么向上遍历
+        # 当遍历到当前节点为父节点的左子节点时, 输入节点的下一个结点为当前节点的父节点
+        elif pNode.next and pNode.next.right == pNode:
+            pNode = pNode.next
+            while pNode.next and pNode.next.right == pNode:
+                pNode = pNode.next
+            # 遍历终止时当前节点有父节点, 说明当前节点是父节点的左子节点, 输入节点的下一个结点为当前节点的父节点
+            # 反之终止时当前节点没有父节点, 说明当前节点在位于根节点的右子树, 没有下一个结点
+            if pNode.next:
+                pNext = pNode.next
+    return pNext
+</code></pre></blockquote>
+<p>7.<strong>斐波那契数列</strong><br>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。<br>思路1:采用循环，代码如下：</p>
+<blockquote>
+<pre><code>def fabci(n):
+    if n==0:
+        return 0
+    a=0
+    b=1
+    for i in range(n-1):
+        a,b=b,a+b
+    return b
+</code></pre></blockquote>
+<p>思路2：采用递归<br>代码如下：</p>
+<blockquote>
+<pre><code>def fab(n):
+      if n==1:
+        return 1
+      if n==0:
+        return 0
+      else:
+        result=int(fab(n-1))+int(fab(n-2))    
+    return result
+</code></pre></blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/10/18/剑指offer/" data-title="剑指offer | Cindy" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/10/18/N皇后问题/" title="N皇后问题">
+  <strong>上一篇：</strong><br/>
+  <span>
+  N皇后问题</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/"  title="实现一个包含insert、search、和startWith的前缀树">
+ <strong>下一篇：</strong><br/> 
+ <span>实现一个包含insert、search、和startWith的前缀树
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>23</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Cassiel in BISTU. <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Liberty_zheng">Liberty_zheng</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
