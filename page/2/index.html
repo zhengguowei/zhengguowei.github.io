@@ -74,7 +74,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/23/机器学习常见问题/机器学习常见问题 _ Cindy_files/gallery/" title="" itemprop="url"></a>
+      <a href="/2017/10/23/机器学习常见问题/机器学习常见问题 _ Cindy_files/hm/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
@@ -87,74 +87,22 @@
 </header>
     <div class="article-content">
         
-        (function($){
-  // Caption
-  $('.entry').each(function(i){
-    $(this).find('img').each(function(){
-      if (!$(this).hasClass('nofancybox')){
-        var alt = this.alt;
-
-        if (alt){
-          $(this).after('<span class="caption">' + alt + '</span>');
-        }
-
-        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery' + i + '">');
-      }
-    });
-  });
-
-  // Gallery
-  var play = function(parent, item, callback){
-    var width = parent.width();
-
-    item.imagesLoaded(function(){
-      var _this = this[0],
-        nWidth = _this.naturalWidth,
-        nHeight = _this.naturalHeight;
-
-      callback();
-      this.animate({opacity: 1}, 500);
-      parent.animate({height: width * nHeight / nWidth}, 500);
-    });
-  };
-
-  $('.gallery').each(function(){
-    var $this = $(this),
-      current = 0,
-      photoset = $this.children('.photoset').children(),
-      all = photoset.length,
-      loading = true;
-
-    play($this, photoset.eq(0), function(){
-      loading = false;
-    });
-
-    $this.on('click', '.prev', function(){
-      if (!loading){
-        var next = (current - 1) % all;
-        loading = true;
-
-        play($this, photoset.eq(next), function(){
-          photoset.eq(current).animate({opacity: 0}, 500);
-          loading = false;
-          current = next;
-        });
-      }
-    }).on('click', '.next', function(){
-      if (!loading){
-        var next = (current + 1) % all;
-        loading = true;
-
-        play($this, photoset.eq(next), function(){
-          photoset.eq(current).animate({opacity: 0}, 500);
-          loading = false;
-          current = next;
-        });
-      }
-    });
-  });
-})(jQuery);
-</a>
+        (function(){var h={},mt={},c={id:"e6d1f421bbc9962127a50488f9ed37d1",dm:["wuchong.me"],js:"tongji.baidu.com/hm-web/js/",etrk:[],icon:'',ctrk:false,align:-1,nv:-1,vdur:1800000,age:31536000000,rec:0,rp:[],trust:0,vcard:0,qiao:0,lxb:0,conv:0,med:0,cvcc:'',cvcf:[],apps:''};var r=void 0,s=!0,t=null,u=!1;mt.cookie={};mt.cookie.set=function(a,b,d){var g;d.H&&(g=new Date,g.setTime(g.getTime()+d.H));document.cookie=a+"="+b+(d.domain?"; domain="+d.domain:"")+(d.path?"; path="+d.path:"")+(g?"; expires="+g.toGMTString():"")+(d.eb?"; secure":"")};mt.cookie.get=function(a){return(a=RegExp("(^| )"+a+"=([^;]*)(;|$)").exec(document.cookie))?a[2]:t};mt.h={};mt.h.na=function(a){return document.getElementById(a)};
+mt.h.J=function(a,b){var d=[],g=[];if(!a)return g;for(;a.parentNode!=t;){for(var f=0,m=0,l=a.parentNode.childNodes.length,e=0;e<l;e++){var n="a.parentNode.childNodes[e];if(n.nodeName===a.nodeName&&(f++,n===a&&(m=f),0<m&&1<f))break}if((l=" "!="=a.id)&&b){d.unshift("#"+encodeURIComponent(a.id));break}else"" l&&(l="#" +encodeuricomponent(a.id),l="0<d.length?l+" "="">"+d.join(">"):l,g.push(l)),d.unshift(encodeURIComponent(String(a.nodeName).toLowerCase())+(1<f?"["+m+"]":""));a=a.parentnode}g.push(d.join(">"));return g};
+mt.h.Ya=function(a){return(a=mt.h.J(a,s))&&a.length?String(a[0]):""};mt.h.Xa=function(a){return mt.h.J(a,u)};mt.h.Va=function(a,b){for(b=b.toUpperCase();(a=a.parentNode)&&1==a.nodeType;)if(a.tagName==b)return a;return t};mt.h.oa=function(a){return 9===a.nodeType?a:a.ownerDocument||a.document};
+mt.h.Wa=function(a){var b=mt.h.oa(a),d={top:0,left:0};if(a)return b=b.documentElement,"undefined"!==typeof a.getBoundingClientRect&&(d=a.getBoundingClientRect()),{top:d.top+(window.pageYOffset||b.scrollTop)-(b.clientTop||0),left:d.left+(window.pageXOffset||b.scrollLeft)-(b.clientLeft||0)}};
+(mt.h.Z=function(){function a(){if(!a.A){a.A=s;for(var b=0,d=g.length;b<d;b++)g[b]()}}function 10="" b(){try{document.documentelement.doscroll("left")}catch(d){settimeout(b,1);return}a()}var="" d="u,g=[],f;document.addEventListener?f=function(){document.removeEventListener(" domcontentloaded",f,u);a()}:document.attachevent&&(f="function(){"complete"===document.readyState&&(document.detachEvent("onreadystatechange",f),a())});(function(){if(!d)if(d=s,"complete"===document.readyState)a.A=s;else"" if(document.addeventlistener)document.addeventlistener("domcontentloaded",="" f,u),window.addeventlistener("load",a,u);else="" if(document.attachevent){document.attachevent("onreadystatechange",f);window.attachevent("onload",a);var="" g="u;try{g=window.frameElement==t}catch(l){}document.documentElement.doScroll&&g&&b()}})();return" function(b){a.a?b():g.push(b)}}()).a="u;mt.event={};mt.event.c=function(a,b,d){a.attachEvent?a.attachEvent(" on"+b,function(b){d.call(a,b)}):a.addeventlistener&&a.addeventlistener(b,d,u)};"="" mt.event.preventdefault="function(a){a.preventDefault?a.preventDefault():a.returnValue=u};" (function(){var="" a="mt.event;mt.i={};mt.i.Ca=/msie" (\d+\.\d+)="" i.test(navigator.useragent);mt.i.aa="/msie" i.test(navigator.useragent)?document.documentmode||+regexp.$1:r;mt.i.cookieenabled="navigator.cookieEnabled;mt.i.javaEnabled=navigator.javaEnabled();mt.i.language=navigator.language||navigator.browserLanguage||navigator.systemLanguage||navigator.userLanguage||" ";mt.i.ea="(window.screen.width||0)+"x"+(window.screen.height||0);mt.i.colorDepth=window.screen.colorDepth||0;mt.i.orientation=0;"" (function(){function="" b(){var="" mt.i})();mt.l="{};mt.l.parse=function(){return(new" function('return="" ("="" +="" source="" ")'))()};="" mt.l.stringify="function(){function" a(a){="" ["\\\x00-\x1f]="" .test(a)&&(a="a.replace(/[" \\\x00-\x1f]="" g,function(a){var"="" b="d[a];if(b)return" b;b="a.charCodeAt();return" \\u00"+math.floor(b="" 16).tostring(16)+(b%16).tostring(16)}));return'"'+a+'"'}function"="" b(a){return="">a?"0"+a:a}var d={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"};return function(d){switch(typeof d){case "undefined":return"undefined";case "number":return isFinite(d)?String(d):"null";case "string":return a(d);case "boolean":return String(d);
+default:if(d===t)return"null";if(d instanceof Array){var f=["["],m=d.length,l,e,n;for(e=0;e<m;e++)switch(n=d[e],typeof n){case="" "undefined":case="" "function":case="" "unknown":break;default:l&&f.push(","),f.push(mt.l.stringify(n)),l="1}f.push(" ]");return"="" f.join("")}if(d="" instanceof="" date)return'"'+d.getfullyear()+"-"+b(d.getmonth()+1)+"-"+b(d.getdate())+"t"+b(d.gethours())+":"+b(d.getminutes())+":"+b(d.getseconds())+'"';l="[" {"];e="mt.l.stringify;for(m"" in="" d)if(object.prototype.hasownproperty.call(d,m))switch(n="d[m],typeof" "unknown":case="" "function":break;default:f&&l.push(","),f="1,l.push(e(m)+" :"+e(n))}l.push("}");return"="" l.join("")}}}();mt.lang="{};mt.lang.d=function(a,b){return" [object"="" "+b+"]"="=={}.toString.call(a)};mt.lang.ab=function(a){return" mt.lang.d(a,"number")&&isfinite(a)};mt.lang.cb="function(a){return" mt.lang.d(a,"string")};mt.lang.j="function(a){return" a.replace?a.replace(="" '="" g,"'0").replace(="" \*="" g,"'1").replace(="" !="" g,"'2"):a};mt.localstorage="{};" mt.localstorage.c="function(){if(!mt.localStorage.g)try{mt.localStorage.g=document.createElement(" input"),mt.localstorage.g.type="hidden" ,mt.localstorage.g.style.display="none" ,mt.localstorage.g.addbehavior("#default#userdata"),document.getelementsbytagname("head")[0].appendchild(mt.localstorage.g)}catch(a){return"="" u}return="" s};="" mt.localstorage.set="function(a,b,d){var" g="new" date;g.settime(g.gettime()+d||31536e6);try{window.localstorage?(b="g.getTime()+" |"+b,window.localstorage.setitem(a,b)):mt.localstorage.c()&&(mt.localstorage.g.expires="g.toUTCString(),mt.localStorage.g.load(document.location.hostname),mt.localStorage.g.setAttribute(a,b),mt.localStorage.g.save(document.location.hostname))}catch(f){}};"" mt.localstorage.get="function(a){if(window.localStorage){if(a=window.localStorage.getItem(a)){var" b="a.indexOf(" |"),d="a.substring(0,b)-0;if(d&&d"">(new Date).getTime())return a.substring(b+1)}}else if(mt.localStorage.C())try{return mt.localStorage.g.load(document.location.hostname),mt.localStorage.g.getAttribute(a)}catch(g){}return t};
+mt.localStorage.remove=function(a){if(window.localStorage)window.localStorage.removeItem(a);else if(mt.localStorage.C())try{mt.localStorage.g.load(document.location.hostname),mt.localStorage.g.removeAttribute(a),mt.localStorage.g.save(document.location.hostname)}catch(b){}};mt.sessionStorage={};mt.sessionStorage.set=function(a,b){if(window.sessionStorage)try{window.sessionStorage.setItem(a,b)}catch(d){}};
+mt.sessionStorage.get=function(a){return window.sessionStorage?window.sessionStorage.getItem(a):t};mt.sessionStorage.remove=function(a){window.sessionStorage&&window.sessionStorage.removeItem(a)};mt.$={};mt.$.log=function(a,b){var d=new Image,g="mini_tangram_log_"+Math.floor(2147483648*Math.random()).toString(36);window[g]=d;d.onload=d.onerror=d.onabort=function(){d.onload=d.onerror=d.onabort=t;d=window[g]=t;b&&b(a)};d.src=a};mt.Q={};
+mt.Q.ta=function(){var a="";if(navigator.plugins&&navigator.mimeTypes.length){var b=navigator.plugins["Shockwave Flash"];b&&b.description&&(a=b.description.replace(/^.*\s+(\S+)\s+\S+$/,"$1"))}else if(window.ActiveXObject)try{if(b=new ActiveXObject("ShockwaveFlash.ShockwaveFlash"))(a=b.GetVariable("$version"))&&(a=a.replace(/^.*\s+(\d+),(\d+).*$/,"$1.$2"))}catch(d){}return a};
+mt.Q.Ua=function(a,b,d,g,f){return'<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="'+a+'" width="'+d+'" height="'+g+'"><param name="movie" value="'+b+'"><param name="flashvars" value="'+(f||" ")+'"=""><param name="allowscriptaccess" value="always"><embed type="application/x-shockwave-flash" name="'+a+'" width="'+d+'" height="'+g+'" src="'+b+'" flashvars="'+(f||" ")+'"="" allowscriptaccess="always"></object>'};mt.url={};
+mt.url.f=function(a,b){var d=a.match(RegExp("(^|&|\\?|#)("+b+")=([^&#]*)(&|$|#)",""));return d?d[3]:t};mt.url.Za=function(a){return(a=a.match(/^(https?:)\/\//))?a[1]:t};mt.url.qa=function(a){return(a=a.match(/^(https?:\/\/)?([^\/\?#]*)/))?a[2].replace(/.*@/,""):t};mt.url.U=function(a){return(a=mt.url.qa(a))?a.replace(/:\d+$/,""):a};mt.url.J=function(a){return(a=a.match(/^(https?:\/\/)?[^\/]*(.*)/))?a[2].replace(/[\?#].*/,"").replace(/^$/,"/"):t};
+(function(){function a(){for(var a=u,d=document.getElementsByTagName("script"),g=d.length,g=100<g?100:g,f=0;f<g;f++){var m="d[f].src;if(m&&0===m.indexOf(" https:="" hm.baidu.com="" h")){a="s;break}}return"" a}return="" h.ma="a})();var" a="h.ma;" h.d="{$a:" http:="" tongji.baidu.com="" hm-web="" welcome="" ico",y:"hm.baidu.com="" hm.gif",da:"baidu.com",xa:"hmmd",ya:"hmpl",na:"utm_medium",wa:"hmkw",pa:"utm_term",ua:"hmci",ma:"utm_content",za:"hmsr",oa:"utm_source",va:"hmcu",la:"utm_campaign",r:0,m:math.round(+new"="" date="" 1e3),s:math.round(+new="" 1e3)%65535,protocol:"https:"="==document.location.protocol?" https:":"http:",m:a()||"https:"="==document.location.protocol?"https:":"http:",bb:0,Ra:6E5,Sa:5,Ta:1024,Qa:1,N:2147483647,aa:"cc"" cf="" ci="" ck="" cl="" cm="" cp="" cu="" cw="" ds="" ep="" et="" fl="" ja="" ln="" lo="" lt="" rnd="" si="" su="" v="" cv="" lv="" api="" sn="" ct="" u="" tt".split("="" ")};="" (function(){var="" g="this.p[a].length,f=0;f<g;f++)this.p[a][f](d)}};return" h.g="a})();" (function(){function="" a(a,g){var="" f="document.createElement(" script");f.charset="utf-8" ;b.d(g,"function")&&(f.readystate?f.onreadystatechange="function(){if("loaded"===f.readyState||"complete"===f.readyState)f.onreadystatechange=t,g()}:f.onload=function(){g()});f.src=a;var"" b="mt.lang;return" h.load="a})();" a(){return="" function(){h.b.a.nv="0;h.b.a.st=4;h.b.a.et=3;h.b.a.ep=h.F.ra()+" ,"+h.f.pa();h.b.k()}}function"="" b(){cleartimeout(y);var="" a;x&&(a="visible" =="document[x]);z&&(a=!document[z]);e=" undefined"="=typeof"" a?s:a;if((!l||!n)&&e&&k)v="s,p=+new" date;else="" if(l&&n&&(!e||!k))v="u,q+=+new" date-p;l="e;n=k;y=setTimeout(b,100)}function" d(a){var="" n="document,p=" ";if(a"="" in="" n)p="a;else" for(var="" d="[" webkit","ms","moz","o"],b="0;b<d.length;b++){var"" k="d[b]+a.charAt(0).toUpperCase()+a.slice(1);if(k" n){p="k;break}}return" p}function="" g(a){if(!("focus"="=a.type||" blur"="=a.type)||!(a.target&&a.target!=window))k="focus"==a.type||"focusin"==a.type?s:u,b()}var"" date,p="w,q=0,v=s,x=d(" visibilitystate"),z="d("hidden"),y;b();(function(){var"" document.onfocusin?(f.c(document,"focusin",g),f.c(document,"focusout",g)):(f.c(window,"focus",g),="" f.c(window,"blur",g))})();h.f="{ra:function(){return+new" date-w},pa:function(){return="" v?+new="" date-p+q:q}};m.c("pv-b",function(){f.c(window,"unload",a())});return="" h.f})();="" h.b){var="" h.ga="g})();" a(a,d,b,p){if(!(a="==r||d===r||p===r)){if(" "="==a)return[d,b,p].join("*");a=String(a).split("!");for(var"" q,e="u,x=0;x<a.length;x++)if(q=a[x].split(" *"),string(d)="==q[0]){q[1]=b;q[2]=p;a[x]=q.join("*");e=s;break}e||a.push([d,b,p].join("*"));return"" a.join("!")}}function="" b(a){for(var="" a)if({}.hasownproperty.call(a,k)){var="" e="a[k];d.d(e," object")||d.d(e,"array")?b(e):a[k]="String(e)}}var"" function(){e.ha();e.ka()});m.c("pv-d",function(){e.la();e.o.page="" });m.c("stag-b",function(){h.b.a.api="e.e||e.B?e.e+" _"+e.b:"";h.b.a.ct="[decodeURIComponent(h.b.getData("Hm_ct_"+c.id)||""),e.o.R,e.o.page].join("!")});m.c("stag-d",function(){h.b.a.api=0;e.e=0;e.B=0})},ha:function(){var"" p="arguments[n];d.d(p," array")&&(a.cmd[a.id].push(p),"_setaccount"="==p[0]&&(1<"" p.length&&="" ^[0-9a-f]{32}$="" .test(p[1]))&&(p="p[1],a.id=p,a.cmd[p]=a.cmd[p]||[]))}}},window._hmt.cmd[c.id]=[],window._hmt.push.apply(window._hmt,a)},ka:function(){var" _setaccount:function(a){1<a.length&&="" .test(a[1])&&(e.e|="1)},_setAutoPageview:function(a){if(1<a.length&&(a=a[1],u===a||s===a))e.e|=2,h.b.V=a},_trackPageview:function(a){if(1<a.length&&a[1].charAt&&" 0,h.b.a.st="4,h.b.a.et=4,h.b.a.ep=d.j(a[1])+" *"+d.j(a[2])+(a[3]?"*"+d.j(a[3]):"")+(a[4]?"*"+d.j(a[4]):""),h.b.k())},_setcustomvar:function(a){if(!(4"="">a.length)){var b=a[1],f=a[4]||3;if(0<b&&6>b&&0<f&&4>f){e.B++;for(var p=(h.b.a.cv||"*").split("!"),q=p.length;q<b-1;q++)p.push("*");p[b-1]=f+"*"+d.j(a[2])+"*"+d.j(a[3]);h.b.a.cv=p.join("!");a=h.b.a.cv.replace( [^1](\*[^!]*){2}="" g,"*").replace(="" ((^|!)\*)+$="" g,"");""!="=a?h.b.setData(" hm_cv_"+c.id,encodeuricomponent(a),c.age):h.b.da("hm_cv_"+c.id)}}},_setusertag:function(b){if(!(3"="">
+b.length)){var e=d.j(b[1]);b=d.j(b[2]);if(e!==r&&b!==r){var f=decodeURIComponent(h.b.getData("Hm_ct_"+c.id)||""),f=a(f,e,1,b);h.b.setData("Hm_ct_"+c.id,encodeURIComponent(f),c.age)}}},_setVisitTag:function(b){if(!(3>b.length)){var f=d.j(b[1]);b=d.j(b[2]);if(f!==r&&b!==r){var g=e.o.R,g=a(g,f,2,b);e.o.R=g}}},_setPageTag:function(b){if(!(3>b.length)){var f=d.j(b[1]);b=d.j(b[2]);if(f!==r&&b!==r){var g=e.o.page,g=a(g,f,3,b);e.o.page=g}}},_setReferrerOverride:function(a){1<a.length&&(h.b.a.su=a[1].charat&& "="">=encodeURIComponent(a).length&&(e.e|=64,h.b.a.rt=a))},_trackRTEvent:function(a){a=a[1];if(d.d(a,
+"Object")){b(a);a=encodeURIComponent(g.stringify(a));var k=function(a){var b=h.b.a.rt;e.e|=128;h.b.a.et=90;h.b.a.rt=a;h.b.k();h.b.a.rt=b},l=a.length;if(900>=l)k.call(this,a);else for(var l=Math.ceil(l/900),p="block|"+Math.round(Math.random()*f.N).toString(16)+"|"+l+"|",q=[],v=0;v<l;v++)q.push(v),q.push(a.substring(900*v,900*v+900)),k.call(this,p+q.join("|")),q=[]}},_setuserid:function(a){a=a[1];l.ba();l.ka(a)}};e.init();h.ea=e;return 0="==a.indexOf(b)},z:function(a){for(var" h.ea})();="" (function(){function="" a(){"undefined"="==typeof" window["_bdhm_loaded_"+c.id]&&(window["_bdhm_loaded_"+c.id]="s,this.a={},this.V=s,this.K=u,this.init())}var" b="mt.url,d=mt.$,g=mt.Q,f=mt.lang,m=mt.cookie,l=mt.i,e=mt.localStorage,n=mt.sessionStorage,k=h.D,w=h.G;a.prototype={L:function(a,b){a=" ."+a.replace(="" :\d+="" ,"");b="." +b.replace(="" ,"");var"="" d="a.indexOf(b);return-1<d&&d+b.length===a.length},X:function(a,b){a=a.replace(/^https?:\/\//," ");return"="" c.dm[d].indexof("="" ")){if(this.x(a,c.dm[d]))return="" s}else{var="" e="b.U(a);if(e&&this.L(e,c.dm[d]))return" s}return="" u},i:function(){for(var="" a="document.location.hostname,b=0,d=c.dm.length;b<d;b++)if(this.L(a,c.dm[b]))return" c.dm[b].replace(="" (:\d+)?[\="" \?#].*="" ,"");return="" a},t:function(){for(var="" d.replace(="" ^[^\="" ]+(\="" .*)="" ,"$1")+"="" "}return"="" "},sa:function(){if(!document.referrer)return="" k.m-k.r="">c.vdur?1:4;var a=
+u;this.z(document.referrer)&&this.z(document.location.href)?a=s:(a=b.U(document.referrer),a=this.L(a||"",document.location.hostname));return a?k.m-k.r>c.vdur?1:4:3},getData:function(a){try{return m.get(a)||n.get(a)||e.get(a)}catch(b){}},setData:function(a,b,d){try{m.set(a,b,{domain:this.I(),path:this.T(),H:d}),d?e.set(a,b,d):n.set(a,b)}catch(f){}},Da:function(a){try{m.set(a,"",{domain:this.I(),path:this.T(),H:-1}),n.remove(a),e.remove(a)}catch(b){}},Ia:function(){var a,b,d,e,f;k.r=this.getData("Hm_lpvt_"+
+c.id)||0;13===k.r.length&&(k.r=Math.round(k.r/1E3));b=this.sa();a=4!==b?1:0;if(d=this.getData("Hm_lvt_"+c.id)){e=d.split(",");for(f=e.length-1;0<=f;f--)13===e[f].length&&(e[f]=""+math.round(e[f] 1e3));for(;2592e3<k.m-e[0];)e.shift();f="4">e.length?2:3;for(1===a&&e.push(k.m);4<e.length;)e.shift();d=e.join(",");e=e[e.length-1]}else d="k.m,e=" ",f="1;this.setData("Hm_lvt_"+c.id,d,c.age);this.setData("Hm_lpvt_"+c.id,k.m);d=k.m===this.getData("Hm_lpvt_"+c.id)?"1":"0";if(0===c.nv&&this.z(document.location.href)&&"" (""="==document.referrer||this.z(document.referrer)))a=0,b=4;this.a.nv=a;this.a.st=b;this.a.cc=d;this.a.lt=e;this.a.lv=f},Ha:function(){for(var" a="[],b=this.a.et,d=0,e=k.aa.length;d<e;d++){var" f="k.aa[d],g=this.a[f];" undefined"!="=typeof"" g&&""!="=g&&(" tt"!="=f||"tt"===f&&0===b)&&("ct"!==f||"ct"===f&&0===b)&&a.push(f+"="+encodeURIComponent(g))}switch(b){case"" 0:a.push("sn="+k.S);this.a.rt&&a.push(" rt="+encodeURIComponent(this.a.rt));break;case 3:a.push(" sn="+k.S);break;case 90:this.a.rt&&a.push(" &")},="" ja:function(){this.ia();this.a.si="c.id;this.a.su=document.referrer;this.a.ds=l.Ea;this.a.cl=l.colorDepth+" -bit";this.a.ln="String(l.language).toLowerCase();this.a.ja=l.javaEnabled?1:0;this.a.ck=l.cookieEnabled?1:0;this.a.lo="number"===typeof"" _bdhm_top?1:0;this.a.fl="g.ta();this.a.v=" 1.2.24";this.a.cv="decodeURIComponent(this.getData("Hm_cv_"+c.id)||"");this.a.tt=document.title||"";var"" k.pa)||"";this.a.ci="b.f(a,k.ua)||b.f(a,k.Ma)||" ";this.a.cf="b.f(a,k.za)||b.f(a,k.Oa)||"";this.a.cu=b.f(a,k.va)||b.f(a,k.La)||""},init:function(){try{this.Ja(),0===this.a.nv?this.Ga():this.P(".*"),h.b=this,this.fa(),w.w("pv-b"),this.Fa()}catch(a){var"" b="[];b.push(" si="+c.id);b.push(" n="+encodeURIComponent(a.name));b.push(" m="+encodeURIComponent(a.message));b.push(" r="+encodeURIComponent(document.referrer));d.log(k.M+" "+k.y+"?"+b.join("&"))}},fa:function(){function"="" a(){w.w("pv-d")}this.v?(this.k="s," this.a.et="0,this.a.ep=" ",this.k(a)):a()},k:function(a){var"="" e="k.M+" "+k.y+"?"+b.ha();w.w("stag-d");b.ca(e);d.log(e,function(d){b.p(d);f.d(a,"function")&&a.call(b)})},fa:function(){var"="" "text="" javascript"),a.setattribute("charset","utf-8"),a.setattribute("src",k.protocol+"="" "+c.js+f+".js?"+this.a.rnd),f="document.getElementsByTagName(" script")[0],f.parentnode.insertbefore(a,f))},ca:function(a){var"="" new="" a})();="" (function(){var="" h.b){var="" date,m="function(a){var" date});var="" a,b,e;e="m(" navigation");b="m("request");e={netAll:b.start-e.start,netDns:m("domainLookup").value,netTcp:m("connect").value,srv:m("response").start-b.start,dom:performance.timing.domInteractive-"" performance.timing.fetchstart,loadevent:m("loadevent").end-e.start};a="document.referrer;var" www.baidu.com"="==n[2]||"m.baidu.com"===n[2])v=d.f(a,"qid"),b=d.f(a,"click_t");a=v;e.qid=a!=t?a:"";b!=t?(e.bdDom=l?l-b:0,e.bdRun=f-b,e.bdDef=m("navigation").start-b):(e.bdDom=0,e.bdRun=0,e.bdDef=0);h.b.a.et=87;h.b.a.ep=g.stringify(e);h.b.k()};b.c(window,"load",function(){setTimeout(e,500)})}}catch(n){}})();"" h.b&&(c.med||(!a.ca||7<a.aa)&&c.cvcc)){var="" f,m,l,e,n="function(a){if(a.item){for(var" d}return[].slice.call(a)},k="function(a,b){for(var" in="" a)if(a.hasownproperty(d)&&b.call(a,d,a[d])="==u)return" u},w="function(a,d){var" k="d.getAttribute(" href"),m="d.getAttribute("onclick")?""+d.getAttribute("onclick"):t,n=d.getAttribute("id")||"";l.test(k)?(e.sn="mediate","" e.snv="k):b.d(m," string")&&l.test(m)&&(e.sn="wrap" ,e.snv="m);e.id=n}h.b.a.et=86;h.b.a.ep=g.stringify(e);h.b.k();for(e=+new"" date;400="">=+new Date-e;);};if(c.med)m="/zoosnet",f="swt",l=/swt|zixun|call|chat|zoos|business|talk|kefu|openkf|online|\/LR\/Chatpre\.aspx/i,e={click:function(){for(var a=[],b=n(document.getElementsByTagName("a")),b=[].concat.apply(b,n(document.getElementsByTagName("area"))),b=[].concat.apply(b,n(document.getElementsByTagName("img"))),d,e,f=0,g=b.length;f</e.length;)e.shift();d=e.join(",");e=e[e.length-1]}else></=f;f--)13===e[f].length&&(e[f]=""+math.round(e[f]></l;v++)q.push(v),q.push(a.substring(900*v,900*v+900)),k.call(this,p+q.join("|")),q=[]}},_setuserid:function(a){a=a[1];l.ba();l.ka(a)}};e.init();h.ea=e;return></a.length&&(h.b.a.su=a[1].charat&&></b-1;q++)p.push("*");p[b-1]=f+"*"+d.j(a[2])+"*"+d.j(a[3]);h.b.a.cv=p.join("!");a=h.b.a.cv.replace(></f&&4></b&&6></g?100:g,f=0;f<g;f++){var></m;e++)switch(n=d[e],typeof></d;b++)g[b]()}}function></f?"["+m+"]":""));a=a.parentnode}g.push(d.join("></l;e++){var>
         
         
         <p class="article-more-link">
@@ -378,91 +326,6 @@ def level_order(tree):  #按层次遍历
         return 0
     left,right=depth(tree.left),depth(tree.right)
     return max(left,right)+1
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
-<ol>
-<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
-<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
-<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
-<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
-</ol>
-<p>代码如下：</p>
-<blockquote>
-<pre><code>class Solution:
-# @return a list of lists of string
-    def solveNQueens(self, n):
-        def check(k,j,board):
-            for i in range(k):
-                if board[i]==j or abs(k-i)==abs(board[i]-j):
-                    return False
-            return True
-        def dfs(depth,board,valuelist,solution):
-        #for i in range(len(board)):
-            if depth==len(board):
-                solution.append(valuelist)
-            for row in range(len(board)):
-                if check(depth,row,board):
-                    s=&apos;.&apos;*len(board)
-                    board[depth]=row
-                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
-        board=[-1 for i in range(n)]
-        solution=[]
-        dfs(0,board,[],solution)
-        return solution
 </code></pre></blockquote>
 
         
@@ -767,6 +630,180 @@ def hasPathCore(self, matrix, rows, cols, row, col, path, pathLength, visited):
             pathLength -= 1
             visited[row * cols + col] = False
     return hasPath
+</code></pre></blockquote>
+<p>10.<strong>机器人的运动范围</strong><br>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子？<br>思路：机器人从（0，0）开始运动，当它准备进入为（i，j）位置时，判断坐标要求能否进入，如果可以进入，然后递归的进入它相邻的4个格子（i,j-1）,（i-1,j）（i,j+1）,（i+1,j）,采用回溯法，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def movingCount(self, threshold, rows, cols):
+        visited = [False] * (rows * cols)
+        count = self.movingCountCore(threshold, rows, cols, 0, 0, visited)
+        return count
+    def movingCountCore(self, threshold, rows, cols, row, col, visited):
+        count = 0
+        if self.check(threshold, rows, cols, row, col, visited):
+            visited[row * cols + col] = True
+            count = 1 + self.movingCountCore(threshold, rows, cols, row-1, col, visited) + \
+                        self.movingCountCore(threshold, rows, cols, row+1, col, visited) + \
+                        self.movingCountCore(threshold, rows, cols, row, col-1, visited) + \
+                        self.movingCountCore(threshold, rows, cols, row, col+1, visited)
+        return count
+    def check(self, threshold, rows, cols, row, col, visited):
+        if row &gt;= 0 and row &lt; rows and col &gt;= 0 and col &lt; cols and self.getDigitSum(row) + self.getDigitSum(col) &lt;= threshold and not visited[row * cols + col]:
+            return True
+        return False
+    def getDigitSum(self, number):
+        sum = 0
+        while number &gt; 0:
+            sum += (number % 10)
+            number = number // 10
+        return sum
+s = Solution()
+print(s.movingCount(5, 10, 10))
+</code></pre></blockquote>
+<p>11.<strong>剪绳子</strong><br>给你一根长度为n的绳子，请把绳子剪成m段 (m和n都是整数，n&gt;1并且m&gt;1)每段绳子的长度记为k[0],k[1],…,k[m].请问k[0]<em>k[1]</em>…<em>k[m]可能的最大乘积是多少？例如，当绳子的长度为8时，我们把它剪成长度分别为2,3,3的三段，此时得到的最大乘积是18.<br>思路1：首先定义函数f(n)为把长度为n的绳子剪成若干段后各段长度乘积的最大值。在剪第一刀时，我们有n-1种选择，也就是说第一段绳子的可能长度分别为1,2,3…..，n-1。因此f(n)=max(f(i)</em>f(n-i))，其中0&lt;i&lt;n。这是一个自上而下的递归公式。由于递归会有大量的不必要的重复计算。一个更好的办法是按照从下而上的顺序计算，也就是说我们先得到f(2),f(3)，再得到f(4),f(5)，直到得到f(n)。当绳子的长度为2的时候，只能剪成长度为1的两段，所以f(2) = 1，当n = 3时，容易得出f(3) = 2;代码如下：</p>
+<blockquote>
+<pre><code> public class Main {
+public static void main(String[] args) {
+    System.out.println(maxAfterCutting(8));
+}
+/**
+ * 常规的需要O(n2)的时间复杂度和O(n)的空间复杂度的动态规划思路 题目的意思是:绳子至少是2米，并且必须最少剪一刀。
+ */
+public static int maxAfterCutting(int length) {
+    if (length &lt; 2)
+        return 0;
+    if (length == 2)
+        return 1;
+    if (length == 3)
+        return 2;
+    // 子问题的最优解存储在f数组中，数组中的第i个元素表示把长度为i的绳子剪成若干段后各段长度乘积的最大值。
+    int[] f = new int[length + 1];
+    f[0] = 0;
+    f[1] = 1;
+    f[2] = 2;
+    f[3] = 3;
+    int result = 0;
+    for (int i = 4; i &lt;= length; i++) {
+        int max = 0;
+        for (int j = 1; j &lt;= i / 2; j++) {
+            int num = f[j] * f[i - j];
+            if (max &lt; num)
+                max = num;
+        }
+        f[i] = max;
+    }
+    result = f[length];
+    return result;
+}
+</code></pre><p>}</p>
+</blockquote>
+<p>思路2:当n&gt;=5时尽可能多的剪长度为3的绳子，剩下剩下的绳子为4时，把绳子剪成两个长度为2的绳子<br>代码如下：</p>
+<blockquote>
+<pre><code>def long_cut(n):
+    if n==3:
+        return 2
+    if n==2:
+        return 1
+    if n==0:
+        return 0
+    counts=0
+    for i in range(1,n+1):
+        if i%3==0:
+            counts+=1
+    rest=n-counts*3
+    if rest==1:
+        return pow(3,counts-1)*4
+    elif rest==2:
+        return pow(3,counts)*2
+    else:
+        return pow(3,counts)
+    print long_cut(0)
+</code></pre><p>12.<em>**</em></p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
+<ol>
+<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
+<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
+<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
+<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
+</ol>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+# @return a list of lists of string
+    def solveNQueens(self, n):
+        def check(k,j,board):
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth,board,valuelist,solution):
+        #for i in range(len(board)):
+            if depth==len(board):
+                solution.append(valuelist)
+            for row in range(len(board)):
+                if check(depth,row,board):
+                    s=&apos;.&apos;*len(board)
+                    board[depth]=row
+                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
+        board=[-1 for i in range(n)]
+        solution=[]
+        dfs(0,board,[],solution)
+        return solution
 </code></pre></blockquote>
 
         

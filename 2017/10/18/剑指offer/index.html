@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/18/剑指offer/index.html">
 <meta property="og:site_name" content="Cindy">
 <meta property="og:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
-<meta property="og:updated_time" content="2017-10-22T11:27:57.000Z">
+<meta property="og:updated_time" content="2017-10-23T06:56:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer">
 <meta name="twitter:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
@@ -346,6 +346,95 @@ def hasPathCore(self, matrix, rows, cols, row, col, path, pathLength, visited):
             visited[row * cols + col] = False
     return hasPath
 </code></pre></blockquote>
+<p>10.<strong>机器人的运动范围</strong><br>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子？<br>思路：机器人从（0，0）开始运动，当它准备进入为（i，j）位置时，判断坐标要求能否进入，如果可以进入，然后递归的进入它相邻的4个格子（i,j-1）,（i-1,j）（i,j+1）,（i+1,j）,采用回溯法，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def movingCount(self, threshold, rows, cols):
+        visited = [False] * (rows * cols)
+        count = self.movingCountCore(threshold, rows, cols, 0, 0, visited)
+        return count
+    def movingCountCore(self, threshold, rows, cols, row, col, visited):
+        count = 0
+        if self.check(threshold, rows, cols, row, col, visited):
+            visited[row * cols + col] = True
+            count = 1 + self.movingCountCore(threshold, rows, cols, row-1, col, visited) + \
+                        self.movingCountCore(threshold, rows, cols, row+1, col, visited) + \
+                        self.movingCountCore(threshold, rows, cols, row, col-1, visited) + \
+                        self.movingCountCore(threshold, rows, cols, row, col+1, visited)
+        return count
+    def check(self, threshold, rows, cols, row, col, visited):
+        if row &gt;= 0 and row &lt; rows and col &gt;= 0 and col &lt; cols and self.getDigitSum(row) + self.getDigitSum(col) &lt;= threshold and not visited[row * cols + col]:
+            return True
+        return False
+    def getDigitSum(self, number):
+        sum = 0
+        while number &gt; 0:
+            sum += (number % 10)
+            number = number // 10
+        return sum
+s = Solution()
+print(s.movingCount(5, 10, 10))
+</code></pre></blockquote>
+<p>11.<strong>剪绳子</strong><br>给你一根长度为n的绳子，请把绳子剪成m段 (m和n都是整数，n&gt;1并且m&gt;1)每段绳子的长度记为k[0],k[1],…,k[m].请问k[0]<em>k[1]</em>…<em>k[m]可能的最大乘积是多少？例如，当绳子的长度为8时，我们把它剪成长度分别为2,3,3的三段，此时得到的最大乘积是18.<br>思路1：首先定义函数f(n)为把长度为n的绳子剪成若干段后各段长度乘积的最大值。在剪第一刀时，我们有n-1种选择，也就是说第一段绳子的可能长度分别为1,2,3…..，n-1。因此f(n)=max(f(i)</em>f(n-i))，其中0&lt;i&lt;n。这是一个自上而下的递归公式。由于递归会有大量的不必要的重复计算。一个更好的办法是按照从下而上的顺序计算，也就是说我们先得到f(2),f(3)，再得到f(4),f(5)，直到得到f(n)。当绳子的长度为2的时候，只能剪成长度为1的两段，所以f(2) = 1，当n = 3时，容易得出f(3) = 2;代码如下：</p>
+<blockquote>
+<pre><code> public class Main {
+public static void main(String[] args) {
+    System.out.println(maxAfterCutting(8));
+}
+/**
+ * 常规的需要O(n2)的时间复杂度和O(n)的空间复杂度的动态规划思路 题目的意思是:绳子至少是2米，并且必须最少剪一刀。
+ */
+public static int maxAfterCutting(int length) {
+    if (length &lt; 2)
+        return 0;
+    if (length == 2)
+        return 1;
+    if (length == 3)
+        return 2;
+    // 子问题的最优解存储在f数组中，数组中的第i个元素表示把长度为i的绳子剪成若干段后各段长度乘积的最大值。
+    int[] f = new int[length + 1];
+    f[0] = 0;
+    f[1] = 1;
+    f[2] = 2;
+    f[3] = 3;
+    int result = 0;
+    for (int i = 4; i &lt;= length; i++) {
+        int max = 0;
+        for (int j = 1; j &lt;= i / 2; j++) {
+            int num = f[j] * f[i - j];
+            if (max &lt; num)
+                max = num;
+        }
+        f[i] = max;
+    }
+    result = f[length];
+    return result;
+}
+</code></pre><p>}</p>
+</blockquote>
+<p>思路2:当n&gt;=5时尽可能多的剪长度为3的绳子，剩下剩下的绳子为4时，把绳子剪成两个长度为2的绳子<br>代码如下：</p>
+<blockquote>
+<pre><code>def long_cut(n):
+    if n==3:
+        return 2
+    if n==2:
+        return 1
+    if n==0:
+        return 0
+    counts=0
+    for i in range(1,n+1):
+        if i%3==0:
+            counts+=1
+    rest=n-counts*3
+    if rest==1:
+        return pow(3,counts-1)*4
+    elif rest==2:
+        return pow(3,counts)*2
+    else:
+        return pow(3,counts)
+    print long_cut(0)
+</code></pre><p>12.<em>**</em></p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -377,18 +466,18 @@ def hasPathCore(self, matrix, rows, cols, row, col, path, pathLength, visited):
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/10/18/N皇后问题/" title="N皇后问题">
+ <a href="/2017/10/19/按层次遍历二叉树与求二叉树深度/" title="按层次遍历二叉树与求二叉树深度">
   <strong>上一篇：</strong><br/>
   <span>
-  N皇后问题</span>
+  按层次遍历二叉树与求二叉树深度</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/"  title="实现一个包含insert、search、和startWith的前缀树">
+<a href="/2017/10/18/N皇后问题/"  title="N皇后问题">
  <strong>下一篇：</strong><br/> 
- <span>实现一个包含insert、search、和startWith的前缀树
+ <span>N皇后问题
 </span>
 </a>
 </div>
