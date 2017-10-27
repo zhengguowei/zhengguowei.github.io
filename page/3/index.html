@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -74,595 +74,40 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/17/黑白卡片翻转/" title="黑白卡片翻转" itemprop="url">黑白卡片翻转</a>
+      <a href="/2017/10/10/a-y编码/" title="a-y编码" itemprop="url">a-y编码</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>牛牛有n张卡片排成一个序列.每张卡片一面是黑色的,另一面是白色的。初始状态的时候有些卡片是黑色朝上,有些卡片是白色朝上。牛牛现在想要把一些卡片翻过来,得到一种交替排列的形式,即每对相邻卡片的颜色都是不一样的。牛牛想知道最少需要翻转多少张卡片可以变成交替排列的形式。</p>
-<p><strong>思路：</strong><br>要得到交替排列形式，只有BWBWBW….或者WBWBWB…两种可能，只需要用两个变量记录得到这两种形式串所需要的步数即可，输出最小值</p>
+        <p>假定一种编码的编码范围是a〜y的25个字母，从1位到4位的编码，如果我们把该编码按字典序排序，形成一个数组如下：a，aa，aaa，aaaa，aaab， aaac，… …，b，ba，baa，baaa，baab，baac … …，yyyw，yyyx，yyyy其中索引为0，aa的索引为1，aaa的索引为2，以此类推。编写一个函数，输入是任意一个编码，输出这个编码对应的指数。</p>
+<p>思路：由于字母是25个，可以理解为25进制编码，从后向前扫描分别比较每一位字符与字符‘a’的距离，将其距离与转换25进制的数相乘求其和。python 代码如下：</p>
 <blockquote>
-<pre><code>data=raw_input()
-counts1=0
-counts2=0
-for i in range(len(data)):
-    if i%2==0:
-        if data[i]==&apos;B&apos;:
-            continue
-        else:
-            counts1+=1
-    else:
-        if data[i]==&apos;W&apos;:
-            continue
-        else:
-            counts1+=1
-print min(counts1,len(data)-counts1)
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/16/无序数组中最长连续数长度/" title="无序数组中最长连续数长度" itemprop="url">无序数组中最长连续数长度</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n)</p>
-<p>思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：</p>
-<blockquote>
-<pre><code>def longestConsecutive(nums):
-    dic={}
-    ans=0
-    for i in  nums:
-        if i not in dic:
-            left=dic.get(i-1,0)
-            right=dic.get(i+1,0)
-            tmp=left+right+1
-            ans=max(ans,tmp)
-            dic[i]=tmp
-            dic[i-left]=tmp
-            dic[i+right]=tmp
-    return ans
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/16/纸币的不同组合/" title="纸币的不同组合" itemprop="url">纸币的不同组合</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> Published 2017-10-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>给你六种面额 1、5、10、20、50、100 元的纸币，假设每种币值的数量都足够多，编写程序求组成N元（N为0~10000的非负整数）的不同组合的个数。</p>
-<blockquote>
-<pre><code>import java.util.Scanner;
-import java.util.Arrays;
-public class Main{
-public static long count(int n){
-    if(n &lt;= 0)return 0;
-    int[] coins = new int[]{1,5,10,20,50,100};
-    long[] dp = new long[n+1];
-    dp[0] = 1;
-    for(int i = 0; i &lt; coins.length; i++) {
-    for(int j = coins[i]; j &lt;= n; j++) {
-    dp[j] = dp[j] + dp[j - coins[i]];//类似斐波那契 后者的种类数基于前者
-    }
-}
-return dp[n];
-}
-public static void main(String args[]){
-    Scanner sc=new Scanner(System.in);
-    while(sc.hasNext()){
-        int n=sc.nextInt();
-        long res=count(n);
-        System.out.println(res);
-    }
-}
-}
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/16/机器学习常见问题/" title="机器学习常见问题" itemprop="url">机器学习常见问题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-16T00:59:56.000Z" itemprop="datePublished"> Published 2017-10-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>1.<strong>GBDT和XGBoost的区别是什么</strong></p>
-<ul>
-<li>xgboost类似于gbdt的优化版，不论是精度还是效率上都有了提升。与gbdt相比，具体的优点有：</li>
-<li>损失函数是用泰勒展式二项逼近，而不是像gbdt里的就是一阶导数</li>
-<li>对树的结构进行了正则化约束，防止模型过度复杂，降低了过拟合的可能性</li>
-<li>节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的</li>
-</ul>
-<p>2.<strong>LR和SVM的联系与区别</strong><br>联系：</p>
-<ul>
-<li>LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题） </li>
-<li>两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。<br>区别：</li>
-<li>LR是参数模型，SVM是非参数模型。  </li>
-<li>从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss，这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重。 </li>
-<li>SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重。 </li>
-<li>逻辑回归相对来说模型更简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些，SVM转化为对偶问题后,分类只需要计算与少数几个支持向量的距离,这个在进行复杂核函数计算时优势很明显,能够大大简化模型和计算。 </li>
-<li>logic 能做的 svm能做，但可能在准确率上有问题，svm能做的logic有的做不了。</li>
-</ul>
-<p>3.<strong>在k-means或kNN，我们是用欧氏距离来计算最近的邻居之间的距离。为什么不用曼哈顿距离？</strong><br>曼哈顿距离只计算水平或垂直距离，有维度的限制。另一方面，欧氏距离可用于任何空间的距离计算问题。因为，数据点可以存在于任何空间，欧氏距离是更可行的选择。例如：想象一下国际象棋棋盘，象或车所做的移动是由曼哈顿距离计算的，因为它们是在各自的水平和垂直方向做的运动。</p>
-<p>4.<strong>讲讲LR</strong>建模，现场数学推导，每种解法的原理，正则化，LR和maxent模型啥关系，lr为啥比线性回归好。有不少会背答案的人，问逻辑细节就糊涂了。原理都会? 那就问工程，并行化怎么做，有几种并行化方式，读过哪些开源的实现。还会，那就准备收了吧，顺便逼问LR模型发展历史。</p>
-<center><img src="/2017/10/16/机器学习常见问题/lr1.png"></center>
-
-<p>5.<strong>overfitting怎么解决</strong><br>dropout、regularization、batch normalizatin</p>
-<p>6.<strong>LR与线性回归的区别与联系</strong><br>逻辑回归的模型本质上是一个线性回归模型，逻辑回归都是以线性回归为理论支持的。但线性回归模型无法做到sigmoid的非线性形式，sigmoid可以轻松处理0/1分类问题。</p>
-<p>7.<strong>谈谈判别式模型和生成式模型？</strong><br>判别方法：由数据直接学习决策函数 Y = f（X），或者由条件分布概率 P（Y|X）作为预测模型，即判别模型。<br>生成方法：由数据学习联合概率密度分布函数 P（X,Y）,然后求出条件概率分布P(Y|X)作为预测的模型，即生成模型。<br>由生成模型可以得到判别模型，但由判别模型得不到生成模型。<br>常见的判别模型有：K近邻、SVM、决策树、感知机、线性判别分析（LDA）、线性回归、传统的神经网络、逻辑斯蒂回归、boosting、条件随机场<br>常见的生成模型有：朴素贝叶斯、隐马尔可夫模型、高斯混合模型、文档主题生成模型（LDA）、限制玻尔兹曼机</p>
-<p>8.<strong>L1和L2的区别</strong><br>L1范数（L1 norm）是指向量中各个元素绝对值之和，也有个美称叫“稀疏规则算子”（Lasso regularization）。<br>比如 向量A=[1，-1，3]， 那么A的L1范数为 |1|+|-1|+|3|.<br>简单总结一下就是：<br>L1范数: 为x向量各个元素绝对值之和。<br>L2范数: 为x向量各个元素平方和的1/2次方，L2范数又称Euclidean范数或者Frobenius范数<br>Lp范数: 为x向量各个元素绝对值p次方和的1/p次方.<br>在支持向量机学习过程中，L1范数实际是一种对于成本函数求解最优的过程，因此，L1范数正则化通过向成本函数中添加L1范数，使得学习得到的结果满足稀疏化，从而方便人类提取特征。<br>L1范数可以使权值稀疏，方便特征提取。<br>L2范数可以防止过拟合，提升模型的泛化能力。</p>
-<p>9.<strong>CNN最成功的应用是在CV，那为什么NLP和Speech的很多问题也可以用CNN解出来？为什么AlphaGo里也用了CNN？这几个不相关的问题的相似性在哪里？CNN通过什么手段抓住了这个共性？</strong><br>以上几个不相关问题的相关性在于，都存在局部与整体的关系，由低层次的特征经过组合，组成高层次的特征，并且得到不同特征之间的空间相关性。如下图：低层次的直线／曲线等特征，组合成为不同的形状，最后得到汽车的表示。<br><img width="800" src="/2017/10/16/机器学习常见问题/CNN1.png"><br>CNN抓住此共性的手段主要有四个：局部连接／权值共享／池化操作／多层次结构。<br>局部连接使网络可以提取数据的局部特征；权值共享大大降低了网络的训练难度，一个Filter只提取一个特征，在整个图片（或者语音／文本） 中进行卷积；池化操作与多层次结构一起，实现了数据的降维，将低层次的局部特征组合成为较高层次的特征，从而对整个图片进行表示。如下图：<br><img src="/2017/10/16/机器学习常见问题/CNN2.png"></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/11/LR和SVM的联系与区别/" title="LR和SVM的联系与区别" itemprop="url">LR和SVM的联系与区别</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> Published 2017-10-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>联系：</strong></p>
-<ul>
-<li>LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）;</li>
-<li>两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的。 </li>
-</ul>
-<p><strong>区别：</strong></p>
-<ul>
-<li>LR是参数模型，SVM是非参数模型;</li>
-<li>从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss.这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重;</li>
-<li>SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重;</li>
-<li>逻辑回归相对来说模型更简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些，SVM转化为对偶问题后,分类只需要计算与少数几个支持向量的距离,这个在进行复杂核函数计算时优势很明显,能够大大简化模型和计算;</li>
-<li>logic 能做的 svm能做，但可能在准确率上有问题，svm能做的logic有的做不了。</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/11/合法的不等式数列/" title="合法的不等式数列" itemprop="url">合法的不等式数列</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-11T00:06:29.000Z" itemprop="datePublished"> Published 2017-10-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>度度熊最近对全排列特别感兴趣,对于1到n的一个排列,度度熊发现可以在中间根据大小关系插入合适的大于和小于符号(即 ‘&gt;’ 和 ‘&lt;’ )使其成为一个合法的不等式数列。但是现在度度熊手中只有k个小于符号即(‘&lt;’’)和n-k-1个大于符号(即’&gt;’),度度熊想知道对于1至n任意的排列中有多少个排列可以使用这些符号使其为合法的不等式数列。</p>
-<blockquote>
-<pre><code>import java.util.Scanner;
-public class Main {
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    while (sc.hasNext()) {
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        System.out.println(solve(n, k));
-    }
-}
-private static int solve(int n, int k) {
-    int[] ans = new int[n];
-    for (int i = 1; i &lt;= n; i++) {
-        ans[i-1] = 1;
-        for (int j = i-2; j &gt; 0; j--) {
-            ans[j] = ((j+1)*ans[j] + (i-j) * ans[j-1])%2017;
-            }
-        }
-    return ans[k];
-    }
-}
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/尽量少的次数使数组排完序/" title="尽量少的次数使数组排完序" itemprop="url">尽量少的次数使数组排完序</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> Published 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>度度熊有一个N个数的数组，他想将数组从小到大排好序，但是萌萌的度度熊只会下面这个操作：任取数组中的一个数然后将它放置在数组的最后一个位置。问最少操作多少次可以使得数组从小到大有序？</p>
-<p>思路：根据其大小的出数组的下表排序，比如num含有 [4, 3, 1, 5, 2]。 index得到的是[2, 4, 1, 0, 3]这样的。2说明最小的是num[2]，4说明第二小是num[4]。在num中，最小的数不用移动，然后第二小的数如果在最小的后面也不用移动。第三小的如果在第二小的后面则不用移动。那么就是看index中，增加到哪里，那就是保持上述规则不用移动的数。index里，4&gt;1，意味num里第三小的数在第二小的之前，所以必须移动一次。那么之后的都需要移动。<br>python代码如下：</p>
-<blockquote>
-<pre><code>n = int(raw_input())
-nums = map(int, raw_input().split())
-index = sorted(range(len(nums)), key = lambda i: nums[i])
-count = 1
-for i in range(1, len(index)):
-    if index[i] &gt; index[i-1]:
-        count += 1
-    else:
-        break
-print len(index) - count   
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/最大三角形面积/" title="最大三角形面积" itemprop="url">最大三角形面积</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> Published 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>三维空间中有N个点，每个点可能是三种颜色的其中之一，三种颜色分别是红绿蓝，分别用’R’, ‘G’, ‘B’表示。<br>现在要找出三个点，并组成一个三角形，使得这个三角形的面积最大。<br>但是三角形必须满足：三个点的颜色要么全部相同，要么全部不同。</p>
-<p>思路：构建一个三角形的类，判断是否形成三角形，是否满足颜色要求，求其最大值</p>
-<blockquote>
-<pre><code>class Node:                                       #构造Node类，每一个Node存储一行数据
-def __init__(self, l):
-    self.c = l[0]
-    self.x = int(l[1])
-    self.y = int(l[2])
-    self.z = int(l[3])
-class Solution():
-    def __init__(self, l):
-        self.l = l
-    def main(self, n):
-        i, j, k = 0, 1, 2
-        Max = 0
-        for i in range(n):
-            for j in range(i+1, n):
-                for k in range(j+1, n):
-                    if self.isSan(i, j, k) and self.isColour(i, j, k):
-                        Area = self.getArea(i, j, k)
-                        if Max &lt; Area:
-                            Max = Area
-        return Max
-    def isSan(self, i, j, k):                            
-        a = self.getlength(i, j)
-        b = self.getlength(i, k)
-        c = self.getlength(k, j)
-        if a &lt; b+c and b &lt; a+c and c &lt; a+b:
-            return True
-        return False
-    def getlength(self, i, j):
-        x = abs(self.l[i].x - self.l[j].x)
-        y = abs(self.l[i].y - self.l[j].y)
-        z = abs(self.l[i].z - self.l[j].z)
-        return (x*x+y*y+z*z)**0.5
-    def isColour(self, i, j, k):
-        if self.l[i].c == self.l[j].c and self.l[j].c == self.l[k].c:
-            return True
-        elif self.l[i].c != self.l[j].c and self.l[j].c != self.l[k].c /
-        and self.l[k].c != self.l[i].c:
-            return True
-        return False
-    def getArea(self, i, j, k):
-        a = self.getlength(i, j)
-        b = self.getlength(i, k)
-        c = self.getlength(k, j)
-        s = 0.5 * (a+b+c)
-        area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
-        return area
+<pre><code>def f(str1, v):
+    length = len(str1)
+    ret = length - 1
+    for i in range(length-1, -1, -1):
+        ret += v[i] * int(ord(str1[i]) - ord(&apos;a&apos;))  #扫描每个字符与‘a’的距离
+    return ret
 if __name__ == &apos;__main__&apos;:
-    n = input()
-    l = []
-    for i in range(n):
-    string = raw_input().split()
-    node = Node(string)
-    l.append(node)
-    s = Solution(l)
-    print(&quot;%.5f&quot;%s.main(n))
+    v1 = 25*25*25 + 25*25 + 25 + 1
+    v2 = 25*25 + 25 + 1
+    v3 = 25 + 1
+    v4 = 1
+    v = [v1, v2, v3, v4]
+    while 1:
+        try:
+            str1 = raw_input()
+        except:
+            break
+        print f(str1, v)
 </code></pre></blockquote>
 
         
@@ -705,37 +150,46 @@ if __name__ == &apos;__main__&apos;:
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/10/回家至少走多少距离/" title="回家至少走多少距离" itemprop="url">回家至少走多少距离</a>
+      <a href="/2017/10/09/找出最长公共子序列/" title="找出最长公共子序列" itemprop="url">找出最长公共子序列</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:12:39.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-09T07:28:24.000Z" itemprop="datePublished"> 发表于 2017-10-09</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>百度之一个数轴上共有N个点，第一个点的坐标是度度熊现在位置，第N-1个点是度度熊的家。现在他需要依次的从0号坐标走到N-1号坐标。但是除了0号坐标和N-1号坐标，他可以在其余的N-2个坐标中选择一个点删除使得回家走的距离最近。</p>
-<p>思路：没想到什么好的办法，就用了最基础的办法，分别从第二个和倒数第二个点之间去除一个点求其距离，距离最小的即为所求值。<br>python代码如下：</p>
+        <p>给定一个字符串s，你可以从中删除一些字符，使得剩下的串是一个回文串。如何删除才能使得回文串最长呢？<br>输出需要删除的字符个数。</p>
+<p>思路：其实就是求原字符串和其反串的最大公共子序列,用字符串长度减去其最大公共子序列长度即可,不同于连续公共子串，子序列可以不连续，采用动态规划的思想，双层循环，当str1[i-1]==str2[j-1]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=max(dp[i-1][j],dp[i][j-1]),java代码如下:</p>
 <blockquote>
-<pre><code>input()
-data=map(int,raw_input().split(&apos; &apos;))
-nearst=max(data)*len(data)
-def get_distance(x):
-    distance=0
-    current=data[0]
-    for i in range(1,len(x)):
-        distance+=abs(x[i]-current)
-        current=x[i]
-    return distance
-for i in range(1,len(data)-1):
-    tem=data[:i]+data[i+1:]
-    if get_distance(tem)&lt;nearst:
-        nearst=get_distance(tem)
-print nearst
+<pre><code>import java.util.Scanner; 
+    public class Main {    
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+            while(in.hasNext()){
+            // 相当于求原字符串和其反串的最大公共子序列
+                String str1 = in.nextLine();
+                String str2 = new StringBuilder(str1).reverse().toString();
+                // 动态规划部分
+                int[][] c = new int[str1.length()+1][str2.length()+1];
+                for(int i=1;i&lt;=str1.length();i++){
+                    for(int j=1;j&lt;=str2.length();j++){
+                        if(str1.charAt(i-1)==str2.charAt(j-1)){
+                            c[i][j]=c[i-1][j-1]+1;
+                        }else{
+                            c[i][j]=c[i-1][j]&gt;c[i][j-1]?c[i-1][j]:c[i][j-1];
+                    }
+                }
+            }
+        System.out.println(str1.length()-c[str1.length()][str2.length()]);
+        }
+
+    }
+}
 </code></pre></blockquote>
 
         
@@ -778,31 +232,35 @@ print nearst
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/10/第三便宜的帽子/" title="第三便宜的帽子" itemprop="url">第三便宜的帽子</a>
+      <a href="/2017/10/09/找出最长公共连续子串/" title="找出最长公共连续子串" itemprop="url">找出最长公共连续子串</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:08:14.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> 发表于 2017-10-09</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>度度熊想去商场买一顶帽子，商场里有N顶帽子，有些帽子的价格可能相同。度度熊想买一顶价格第三便宜的帽子，问第三便宜的帽子价格是多少？</p>
-<p>思路：本题相对简单些，将所有帽子价格进行排序，得出第三小的价格</p>
-<p>python代码如下：</p>
+        <p>给出两个字符串（可能包含空格），找出其中最长的公共连续子串，输出其长度</p>
+<p>思路：算法中常被提及的连续公共子串和连续公共子序列，子序列可以不连续，子串必须连续，采用动态规划的思想，双层循环，当str1[i]==str2[j]时，dp[i][j]=dp[i-1][j-1]+1,否则dp[i][j]=0,代码如下：</p>
 <blockquote>
-<pre><code>input()
-data=map(int,raw_input().split(&apos; &apos;))
-data=map(int,list(set(data)))
-data.sort()
-try:
-    print data[2]
-except:
-    print -1
+<pre><code>str1=&apos;_&apos;+raw_input()
+str2=&apos;_&apos;+raw_input()
+dp=[]
+for i in range(len(str2)):
+   dp.append([0]*len(str1))
+for i in range(1,len(str2)):
+    for j in range(len(str1)):
+        if str2[i]==str1[j]:
+            dp[i][j]=dp[i-1][j-1]+1
+        else:
+            dp[i][j]=0
+tmp=[max(x) for x in dp]
+print max(tmp)
 </code></pre></blockquote>
 
         
@@ -817,6 +275,250 @@ except:
 <div class="article-categories">
   <span></span>
   <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/柱子最大面积/" title="柱子最大面积" itemprop="url">柱子最大面积</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>给定一组非负整数组成的数组h，代表一组柱状图的高度，其中每个柱子的宽度都为1.在这组柱状图中找到能组成的最大矩形的面积（如图所示）入参h为一个整型数组，代表每个柱子的高度，返回面积的值。</p>
+<p>采用分治法，最大矩形面积只可能有三种情况：</p>
+<ul>
+<li>高度最小的柱子，面积即为最低高度乘以总长度；</li>
+<li>在最低柱子的左面；</li>
+<li>在最低柱子右面；</li>
+</ul>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>n = input()
+heights = map(int, raw_input().split())
+def largestarea(a):
+    leng = len(a)
+    minIndex = a.index(min(a))
+    tmp = a[minIndex] * leng  #高低最低时
+    if minIndex != 0:
+        left = largestarea(a[0:minIndex]) #在最低柱子左面
+    else:
+        left = 0
+    if minIndex != leng - 1:
+        right = largestarea(a[minIndex + 1:leng]) #在最低柱子右面
+    else:
+        right = 0
+    return max(left, tmp, right)
+print largestarea(heights)
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/大富翁游戏/" title="大富翁游戏" itemprop="url">大富翁游戏</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>大富翁游戏，玩家根据骰子的点数决定走的步数，即骰子点数为1时可以走一步，点数为2时可以走两步，点数为n时可以走n步。求玩家走到第n步（n&lt;=骰子最大点数且是方法的唯一入参）时，总共有多少种投骰子的方法。</p>
+<p>思路：设f(n)表示到第n步时总共有f(n)种投骰子的方法,那么到第n-1步时总共有f(n-1)种投骰子的方法;那么到第n-2步时总共有f(n-2)种投骰子的方法……<br>规律:</p>
+<ul>
+<li>从第n-1步到第n步，只有一种可能性（投骰子结果为 1 ），所以从第n-1步到第n步共有f(n-1)*1 种投骰子的方法；</li>
+<li>从第n-2步到第n步，只有一种可能性（投骰子结果为 2 ），所以从第n-2步到第n步共有f(n-2)*1 种投骰子的方法；</li>
+<li>从第n-3步到第n步，只有一种可能性（投骰子结果为 3 ），所以从第n-3步到第n步共有f(n-3)*1 种投骰子的方法；</li>
+<li>依次类推:f(n) = f(n-1)+f(n-2)+f(n-3)+….+f(1)+f(0),且f(1)=f(0)=1;<br>代码如下：<blockquote>
+<pre><code>import java.util.Scanner;
+public class Main{
+public static void main(String[] args){
+      Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    System.out.println(getSum(n));
+}
+public static int getSum(int n){
+        int count=0;
+    if(n==1)
+    count=1;//f(1) =1
+    else if(n==2)
+        count=2;//f(2)=2
+    else{
+        for(int i=1;i&lt;n;i++){
+            count+=getSum(n-i);//计算f(n) = f(n-1)+f(n-2)+f(n-3)+....+f(1)
+            }
+    count=count+1;//再加f(0) = 1
+        }
+return count;
+    }
+}
+</code></pre></blockquote>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/python谷歌专利文件爬取/" title="python谷歌专利文件爬取" itemprop="url">python谷歌专利文件爬取</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>google被称为世界最强大搜索引擎,其反爬虫技术做的也非常好，下面我们就来简单的谈下爬取google专利的一些技巧。</p>
+<ol>
+<li>本篇就用python语言讲述下爬虫的过程，自己写过爬虫程序的人都知道，通常程序有三大主要模块，url管理器，下载器，解析器，我们通常用BeautifulSoup解析器根据自己需求来解析下载好的网页，url管理器也是自己根据需求自己手写，本文章我们重点讲解所用到的下载器。</li>
+<li>通常我们直接访问google，是访问不了的，所以我们要先翻墙，GAE，免费软件和vpn是我们常用的方法，这次我们使用XX-NET代理，至于这个代理是怎么配的，网上有不少的教程，这里我们就不多说了，我们试着访问下google专利网址，<a href="https://www.google.com.hk/patents" target="_blank" rel="external">谷歌专利</a>，输入一个专利号即可得到专利全文(<strong>注意：不翻墙这个地址是访问不了的</strong>)<br>通过构建url，当专利号为’CN101011964‘时，url构建方法如下：</li>
+</ol>
+<blockquote>
+<pre><code>import urllib2 
+response = urllib2.urlopen(&apos;https://www.google.com.hk/patents/CN101011964B?cl=zh&amp;dq=CN101011964&apos;) 
+print response.getcode()
+</code></pre><p> 直接抛出401权限错误问题，由于谷歌检测到我们发送的请求并不是通过浏览器，因此尝试下最土的方式试试，每次爬取一个专利文本通过代码启动浏览器并发送请求，如下代码：</p>
+<pre><code>from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get(url)
+html_source = browser.page_source
+return (html_source.encode(&apos;utf-8&apos;))
+</code></pre></blockquote>
+<p><strong>注意事项:</strong></p>
+<ul>
+<li>该教程适合在winds系统适用；</li>
+<li>webdriver要去官网去<a href="http://chromedriver.storage.googleapis.comindex.html" target="_blank" rel="external">下载</a>,下载后的程序放在chrome浏览器安装目录的application目录下并且在环境变量path中加入路径；</li>
+<li>安装selenium，执行pip install selenium即可；</li>
+<li>获得一个专利文本后，sleep一段时间再下个专利文本。</li>
+<li>最后将获得到的内容使用BeautifulSoup解析即可。</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
 </div>
 
 
@@ -841,14 +543,14 @@ except:
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -856,11 +558,11 @@ except:
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>1</sup></a></li>
 		  
 		
 		  
@@ -878,7 +580,7 @@ except:
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
     </ul>
@@ -888,11 +590,11 @@ except:
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS</a>
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -1040,7 +742,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
