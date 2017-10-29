@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,7 +81,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> 发表于 2017-10-22</time>
+    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> Published 2017-10-22</time>
     
   </p>
 </header>
@@ -154,7 +154,7 @@ print maxnum
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
+    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> Published 2017-10-20</time>
     
   </p>
 </header>
@@ -229,7 +229,7 @@ if __name__==&apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
+    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> Published 2017-10-19</time>
     
   </p>
 </header>
@@ -311,7 +311,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
     
   </p>
 </header>
@@ -396,7 +396,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
     
   </p>
 </header>
@@ -414,8 +414,15 @@ def level_order(tree):  #按层次遍历
         else:
             j-=1
     return False
-</code></pre><p>当然也有效率不高的每行查找，代码如下：<br>    def search(arr,n):<br>         for x in arr:<br>             if n in x:<br>                 return True<br>         return False</p>
-</blockquote>
+</code></pre></blockquote>
+<p>当然也有效率不高的每行查找，代码如下：</p>
+<blockquote>
+<pre><code>def search(arr,n):
+    for x in arr:
+         if n in x:
+             return True
+     return False
+</code></pre></blockquote>
 <p>2.<strong>替换空格</strong><br>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。<br>有如下三个思路：</p>
 <p>思路一：创建新的字符串进行替换</p>
 <blockquote>
@@ -718,7 +725,7 @@ public static int maxAfterCutting(int length) {
 }
 </code></pre><p>}</p>
 </blockquote>
-<p>思路2:当n&gt;=5时尽可能多的剪长度为3的绳子，剩下剩下的绳子为4时，把绳子剪成两个长度为2的绳子<br>代码如下：</p>
+<p>思路2:贪婪算法，当n&gt;=5时尽可能多的剪长度为3的绳子，剩下剩下的绳子为4时，把绳子剪成两个长度为2的绳子<br>代码如下：</p>
 <blockquote>
 <pre><code>def long_cut(n):
     if n==3:
@@ -739,7 +746,118 @@ public static int maxAfterCutting(int length) {
     else:
         return pow(3,counts)
     print long_cut(0)
-</code></pre><p>12.<em>**</em></p>
+</code></pre></blockquote>
+<p>12.<strong>二进制中1的个数</strong><br>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。<br>思路1：先判断整数二进制表示中最右面一位是不是1，接着把输入的整数右移一位，如此反复，直到整数为0<br>代码如下：</p>
+<blockquote>
+<pre><code>def one_num(n):
+counts=0
+while n!=0:
+    if n&amp;1==1:
+        counts+=1
+    n=n&gt;&gt;1
+return  counts
+</code></pre></blockquote>
+<p>思路2:调用系统函数，代码如下：</p>
+<blockquote>
+<pre><code>print bin(n).count(&apos;1&apos;)
+</code></pre></blockquote>
+<p>思路3:把一个数和该数减一的数做与运算，有多少位1，进行多少次运算，如1100和1011与运算得到1000，代码如下：</p>
+<blockquote>
+<pre><code>def get_one(n):
+    counts=0
+    while n!=0:
+        counts+=1
+        n=n&amp;(n-1)
+    return counts
+</code></pre></blockquote>
+<p>拓展：判断一个数是不是2得整数次幂，代码如下：</p>
+<blockquote>
+<pre><code>def powerOf2(self, n):
+    if n&amp;(n-1) == 0:
+        return True
+    else:
+        return False
+</code></pre></blockquote>
+<p>拓展：判断两个数的二进制表示有多少位不一样, 直接比较两个数的二进制异或就可以 </p>
+<blockquote>
+<pre><code>def andOr( m, n):
+    diff = m ^ n
+    count = 0
+    while diff:
+        count += 1
+        diff = diff &amp; (diff - 1)
+    return count
+</code></pre></blockquote>
+<p>13.<strong>数值的整数次方</strong><br>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。<br>思路：<br>需要注意的地方:<br>当指数为负数的时候<br>当底数为零切指数为负数的情况<br>在判断底数base是不是等于0的时候,不能直接写base==0, 因为计算机内表示小数时有误差,只能判断他们的差的绝对值是不是在一个很小的范围内<br>当n为偶数, a^n = a^(n/2) <em> a^(n/2)<br>当n为奇数, a^n = a^((n-1)/2) </em> a^((n-1)/2)) * a<br>利用右移一位运算代替除以2<br>利用位与运算代替了求余运算法%来判断一个数是奇数还是偶数<br>优化代码速度<br>代码如下：</p>
+<blockquote>
+<pre><code>def Power( base, exponent):
+    if exponent == 0:
+        return 1
+    if exponent == 1:
+        return base
+    if exponent == -1:
+        return 1 / base
+    result = Power(base, exponent &gt;&gt; 1)
+    result *= result
+    if (exponent &amp; 0x1) == 1:
+        result *= base
+    return result
+</code></pre></blockquote>
+<p>14.<strong>打印从1到最大的n位整数</strong><br>输入数字n, 按顺序打印从1最大的n位十进制数<br>比如输入3, 则打印出1、2、3、到最大的3位数即999<br>思路：用字符串来存储数字</p>
+<blockquote>
+<pre><code>public class Main {
+public static void Print1ToMaxOfNDigits_2(int n) {
+    if (n &lt;= 0) {
+        return;
+    }
+    StringBuffer number = new StringBuffer();
+    for (int i = 0; i &lt; n; i++) {
+        number.append(&apos;0&apos;);
+    }
+    while (!Increment(number)) {
+        PrintNumber(number);
+    }
+}
+public static boolean Increment(StringBuffer s) {
+    boolean isOverflow = false;
+    int nTakeOver = 0;
+    int nLength = s.length();
+    for (int i = nLength - 1; i &gt;= 0; i--) {
+        int nSum = s.charAt(i) - &apos;0&apos; + nTakeOver;
+        if (i == nLength - 1) {
+            nSum++;
+        }
+        if (nSum &gt;= 10) {
+            if (i == 0) {
+                isOverflow = true;
+            } else {
+                nSum -= 10;
+                nTakeOver = 1;
+                s.setCharAt(i, (char) (&apos;0&apos; + nSum));
+            }
+        } else {
+            s.setCharAt(i, (char) (&apos;0&apos; + nSum));
+            break;
+        }
+    }
+    return isOverflow;
+}
+public static void PrintNumber(StringBuffer s) {
+    boolean isBeginning0 = true;
+    for (int i = 0; i &lt; s.length(); i++) {
+        if (isBeginning0 &amp;&amp; s.charAt(i) != &apos;0&apos;) {
+            isBeginning0 = false;
+        }
+        if (!isBeginning0) {
+            System.out.print(s.charAt(i));
+        }
+    }
+    System.out.println();
+}
+public static void main(String[] args) {
+    Print1ToMaxOfNDigits_2(2);
+}
+</code></pre><p>}</p>
 </blockquote>
 
         
@@ -789,7 +907,7 @@ public static int maxAfterCutting(int length) {
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -876,7 +994,7 @@ class Trie(object):       #树结构
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -1067,7 +1185,7 @@ def radix_sort(lists, radix=10):
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -1148,7 +1266,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -1212,7 +1330,7 @@ print count
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -1278,10 +1396,10 @@ print min(counts1,len(data)-counts1)
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -1289,11 +1407,11 @@ print min(counts1,len(data)-counts1)
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>1</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
 		  
 		
 		  
@@ -1311,7 +1429,7 @@ print min(counts1,len(data)-counts1)
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -1321,11 +1439,11 @@ print min(counts1,len(data)-counts1)
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -1473,7 +1591,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
