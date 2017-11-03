@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,7 +81,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
+    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> 发表于 2017-10-16</time>
     
   </p>
 </header>
@@ -152,7 +152,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> Published 2017-10-16</time>
+    <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> 发表于 2017-10-16</time>
     
   </p>
 </header>
@@ -233,7 +233,7 @@ public static void main(String args[]){
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T00:59:56.000Z" itemprop="datePublished"> Published 2017-10-16</time>
+    <time datetime="2017-10-16T00:59:56.000Z" itemprop="datePublished"> 发表于 2017-10-16</time>
     
   </p>
 </header>
@@ -264,7 +264,7 @@ public static void main(String args[]){
 <p>6.<strong>LR与线性回归的区别与联系</strong><br>逻辑回归的模型本质上是一个线性回归模型，逻辑回归都是以线性回归为理论支持的。但线性回归模型无法做到sigmoid的非线性形式，sigmoid可以轻松处理0/1分类问题。</p>
 <p>7.<strong>谈谈判别式模型和生成式模型？</strong><br>判别方法：由数据直接学习决策函数 Y = f（X），或者由条件分布概率 P（Y|X）作为预测模型，即判别模型。<br>生成方法：由数据学习联合概率密度分布函数 P（X,Y）,然后求出条件概率分布P(Y|X)作为预测的模型，即生成模型。<br>由生成模型可以得到判别模型，但由判别模型得不到生成模型。<br>常见的判别模型有：K近邻、SVM、决策树、感知机、线性判别分析（LDA）、线性回归、传统的神经网络、逻辑斯蒂回归、boosting、条件随机场<br>常见的生成模型有：朴素贝叶斯、隐马尔可夫模型、高斯混合模型、文档主题生成模型（LDA）、限制玻尔兹曼机</p>
 <p>8.<strong>L1和L2的区别</strong><br>L1范数（L1 norm）是指向量中各个元素绝对值之和，也有个美称叫“稀疏规则算子”（Lasso regularization）。<br>比如 向量A=[1，-1，3]， 那么A的L1范数为 |1|+|-1|+|3|.<br>简单总结一下就是：<br>L1范数: 为x向量各个元素绝对值之和。<br>L2范数: 为x向量各个元素平方和的1/2次方，L2范数又称Euclidean范数或者Frobenius范数<br>Lp范数: 为x向量各个元素绝对值p次方和的1/p次方.<br>在支持向量机学习过程中，L1范数实际是一种对于成本函数求解最优的过程，因此，L1范数正则化通过向成本函数中添加L1范数，使得学习得到的结果满足稀疏化，从而方便人类提取特征。<br>L1范数可以使权值稀疏，方便特征提取。<br>L2范数可以防止过拟合，提升模型的泛化能力。</p>
-<p>9.<strong>CNN最成功的应用是在CV，那为什么NLP和Speech的很多问题也可以用CNN解出来？为什么AlphaGo里也用了CNN？这几个不相关的问题的相似性在哪里？CNN通过什么手段抓住了这个共性？</strong><br>以上几个不相关问题的相关性在于，都存在局部与整体的关系，由低层次的特征经过组合，组成高层次的特征，并且得到不同特征之间的空间相关性。如下图：低层次的直线／曲线等特征，组合成为不同的形状，最后得到汽车的表示。<br><img width="800" src="/2017/10/16/机器学习常见问题/CNN1.png"><br>CNN抓住此共性的手段主要有四个：局部连接／权值共享／池化操作／多层次结构。<br>局部连接使网络可以提取数据的局部特征；权值共享大大降低了网络的训练难度，一个Filter只提取一个特征，在整个图片（或者语音／文本） 中进行卷积；池化操作与多层次结构一起，实现了数据的降维，将低层次的局部特征组合成为较高层次的特征，从而对整个图片进行表示。如下图：<br><img src="/2017/10/16/机器学习常见问题/CNN2.png"></p>
+<p>9.<strong>CNN最成功的应用是在CV，那为什么NLP和Speech的很多问题也可以用CNN解出来？为什么AlphaGo里也用了CNN？这几个不相关的问题的相似性在哪里？CNN通过什么手段抓住了这个共性？</strong><br>以上几个不相关问题的相关性在于，都存在局部与整体的关系，由低层次的特征经过组合，组成高层次的特征，并且得到不同特征之间的空间相关性。如下图：低层次的直线／曲线等特征，组合成为不同的形状，最后得到汽车的表示。<br><img width="800" src="/2017/10/16/机器学习常见问题/CNN1.png"><br>CNN抓住此共性的手段主要有四个：局部连接／权值共享／池化操作／多层次结构。<br>局部连接使网络可以提取数据的局部特征；权值共享大大降低了网络的训练难度，一个Filter只提取一个特征，在整个图片（或者语音／文本） 中进行卷积；池化操作与多层次结构一起，实现了数据的降维，将低层次的局部特征组合成为较高层次的特征，从而对整个图片进行表示。如下图：<br><img src="/2017/10/16/机器学习常见问题/CNN2.png"><br>上图中，如果每一个点的处理使用相同的Filter，则为全卷积，如果使用不同的Filter，则为Local-Conv。<br>10.<em>**</em></p>
 
         
         
@@ -313,7 +313,7 @@ public static void main(String args[]){
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> Published 2017-10-11</time>
+    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> 发表于 2017-10-11</time>
     
   </p>
 </header>
@@ -380,7 +380,7 @@ public static void main(String args[]){
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-11T00:06:29.000Z" itemprop="datePublished"> Published 2017-10-11</time>
+    <time datetime="2017-10-11T00:06:29.000Z" itemprop="datePublished"> 发表于 2017-10-11</time>
     
   </p>
 </header>
@@ -458,7 +458,7 @@ private static int solve(int n, int k) {
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
     
   </p>
 </header>
@@ -526,7 +526,7 @@ print len(index) - count
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
     
   </p>
 </header>
@@ -639,7 +639,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:12:39.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-10T13:12:39.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
     
   </p>
 </header>
@@ -712,7 +712,7 @@ print nearst
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:08:14.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-10T13:08:14.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
     
   </p>
 </header>
@@ -779,7 +779,7 @@ except:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
     
   </p>
 </header>
@@ -859,10 +859,10 @@ if __name__ == &apos;__main__&apos;:
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -870,7 +870,7 @@ if __name__ == &apos;__main__&apos;:
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -892,7 +892,7 @@ if __name__ == &apos;__main__&apos;:
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
     </ul>
@@ -902,11 +902,11 @@ if __name__ == &apos;__main__&apos;:
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS</a>
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -1054,7 +1054,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

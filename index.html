@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,7 +81,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> Published 2017-10-22</time>
+    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> 发表于 2017-10-22</time>
     
   </p>
 </header>
@@ -154,7 +154,7 @@ print maxnum
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> Published 2017-10-20</time>
+    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
     
   </p>
 </header>
@@ -229,7 +229,7 @@ if __name__==&apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> Published 2017-10-19</time>
+    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
     
   </p>
 </header>
@@ -304,91 +304,6 @@ def level_order(tree):  #按层次遍历
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
-<ol>
-<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
-<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
-<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
-<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
-</ol>
-<p>代码如下：</p>
-<blockquote>
-<pre><code>class Solution:
-# @return a list of lists of string
-    def solveNQueens(self, n):
-        def check(k,j,board):
-            for i in range(k):
-                if board[i]==j or abs(k-i)==abs(board[i]-j):
-                    return False
-            return True
-        def dfs(depth,board,valuelist,solution):
-        #for i in range(len(board)):
-            if depth==len(board):
-                solution.append(valuelist)
-            for row in range(len(board)):
-                if check(depth,row,board):
-                    s=&apos;.&apos;*len(board)
-                    board[depth]=row
-                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
-        board=[-1 for i in range(n)]
-        solution=[]
-        dfs(0,board,[],solution)
-        return solution
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/2017/10/18/剑指offer/" title="剑指offer" itemprop="url">剑指offer</a>
   </h1>
   <p class="article-author">By
@@ -396,7 +311,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
     
   </p>
 </header>
@@ -1433,6 +1348,1890 @@ print  S.printMatrix(matrix)
     def min(self):
         return self.minStack[-1]
 </code></pre></blockquote>
+<p>29.<strong>栈的压入、弹出序列</strong><br>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）<br>思路：创建一个辅助栈，压入数据，将该栈栈顶元素与弹出栈栈底元素比较，如果相等则均弹出，如果最后辅助栈为空则返回True否则返回False<br>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def IsPopOrder2(self, pushV, popV):
+        if pushV == [] or popV == []:
+            return False
+        stack = []
+        for i in pushV:
+            stack.append(i)
+            while len(stack) and stack[-1] == popV[0]:
+                stack.pop()
+                popV.pop(0)
+        if len(stack):
+            return False
+        else:
+            return True
+pushV = [1, 2, 3, 4, 5]
+popV = [4, 5, 3, 2, 1]
+popVF = [4, 5, 2, 1, 3]
+S = Solution()
+print(S.IsPopOrder2(pushV, popV))
+</code></pre></blockquote>
+<p>30.<strong>从上到下打印二叉树</strong><br>从上往下打印出二叉树的每个节点，同层节点从左至右打印。<br>思路：如果一个节点有子节点有子节点，则将节点存入到队列尾部，每次从队列的头部取出一个节点操作，重复上述操作，知道队列为空<br>代码如下：</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self,val,left=None,right=None):
+        self.val=val
+        self.left=left
+        self.right=right
+def printRow(tree):
+    q=[tree]
+    result=[]
+    while q:
+        node=q.pop(0)
+        result.append(node.val)
+        if node.left:
+            q.append(node.left)
+        if node.right:
+            q.append(node.right)
+    return result
+</code></pre></blockquote>
+<p>扩展：分行从上到下打印二叉树<br>思路：定义两个变量，一个表示当前层还没有打印的节点数，另一个表示下一层的节点数，代码如下：</p>
+<blockquote>
+<pre><code>class TreeNode:
+   def __init__(self, x):
+       self.val = x
+       self.left = None
+       self.right = None
+class Solution:
+    def Print(self, pRoot):
+        # write code here
+        if pRoot is None:
+            return []
+        p = [pRoot]
+        res = []
+        while p:
+            node = []
+            li = []
+            for x in p:
+                if x.left:
+                    node.append(x.left)
+                if x.right:
+                    node.append(x.right)
+                li.append(x.val)
+            p = node
+            res.append(li)
+        return res
+pNode1 = TreeNode(8)
+pNode2 = TreeNode(6)
+pNode3 = TreeNode(10)
+pNode4 = TreeNode(5)
+pNode5 = TreeNode(7)
+pNode6 = TreeNode(9)
+pNode7 = TreeNode(11)
+pNode1.left = pNode2
+pNode1.right = pNode3
+pNode2.left = pNode4
+pNode2.right = pNode5
+pNode3.left = pNode6
+pNode3.right = pNode7
+s=Solution()
+print(s.Print(pNode1))
+</code></pre></blockquote>
+<p>31.<strong>之字形打印二叉树</strong><br>请实现一个函数按照之字形打印二叉树，<br>即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。<br>思路：定义两个栈，如果打印的当前时奇数层，现保存左子树节点再保存右子树节点到第一个栈，如果是偶数层，先保存左子树节点再保存右子树节点到第二个栈，代码如下：</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution:
+    # 存储点的时候按照奇数层和偶数层分别存储
+    def Print(self, pRoot):
+        if not pRoot:
+            return []
+        result, nodes = [], [pRoot]
+        right = True
+        while nodes:
+            curStack, nextStack = [], []
+            if right:
+                for node in nodes:
+                    curStack.append(node.val)
+                    if node.left:
+                        nextStack.append(node.left)
+                    if node.right:
+                        nextStack.append(node.right)
+            else:
+                for node in nodes:
+                    curStack.append(node.val)
+                    if node.right:
+                        nextStack.append(node.right)
+                    if node.left:
+                        nextStack.append(node.left)
+            nextStack.reverse()
+            right = not right
+            result.append(curStack)
+            nodes = nextStack
+        return result
+</code></pre></blockquote>
+<p>思路2:将树进行层次遍历，每行存储到数组里，打印的时候，判断如果下表为奇数则reverse，代码如下</p>
+<blockquote>
+<pre><code>class TreeNode:
+   def __init__(self, x):
+       self.val = x
+       self.left = None
+       self.right = None
+class Solution:
+    def Print(self, pRoot):
+        # write code here
+        if pRoot is None:
+            return []
+        p = [pRoot]
+        res = []
+        while p:
+            node = []
+            li = []
+            for x in p:
+                if x.left:
+                    node.append(x.left)
+                if x.right:
+                    node.append(x.right)
+                li.append(x.val)
+            p = node
+            res.append(li)
+        return res
+pNode1 = TreeNode(8)
+pNode2 = TreeNode(6)
+pNode3 = TreeNode(10)
+pNode4 = TreeNode(5)
+pNode5 = TreeNode(7)
+pNode6 = TreeNode(9)
+pNode7 = TreeNode(11)
+pNode1.left = pNode2
+pNode1.right = pNode3
+pNode2.left = pNode4
+pNode2.right = pNode5
+pNode3.left = pNode6
+pNode3.right = pNode7
+S = Solution()
+aList = S.Print(pNode1)
+for i in range(len(aList)):
+    if i&amp;1==1:
+        print   aList[i].reservse() 
+    else:
+        print aList[i]     
+</code></pre></blockquote>
+<p>32.<strong>二叉搜索树的后序遍历序列</strong><br>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。<br>思路：在后序遍历的序列中，最后一个数字是树的根节点，数组中前面的数字分为两部分，第一部分是左子树节点的值，他们都比根节点的值小，第二部分是是右子树节点的值，他们都比根节点大，递归的重复上述操作，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def VerifySquenceOfBST(self, sequence):
+        if sequence == []:
+            return False
+        root = sequence[-1]
+        length = len(sequence)
+        if min(sequence) &gt; root or max(sequence) &lt; root:
+            return True
+        index = 0
+        # 二叉搜索树的左子树结点小于根节点
+        &apos;&apos;&apos;
+        下面这个for循环特别需要主要index=i必须写在if语句外面,
+        否则就会发生当root结点前的所有元素小于root的时候, 正确判断应该为True,
+        但是因为if语句没有进入, index = 0 ,
+        在进入二叉搜索树的右子树结点大于根结点的for循环的时候, 因为sequence的数都小于root, 就会判断出错
+        &apos;&apos;&apos;
+        for i in range(length-1):
+            index = i
+            if sequence[i] &gt; root:
+                break
+        # 二叉搜索树的右子树结点大于根结点
+        # 这个循环中范围起始点必须是index+1, 不能为index
+        # 因为当root结点前的所有元素小于root的时候,index=length-2,
+        # 此时sequence[index]&lt;root, 但是按照range(index, length-1), 第一个元素sequence[j]==sequence[index] &lt; root, 返回False, 实际应该返回True才对
+        # 而使用index+1, 因为已经默认index&gt;root, 所以从后面一个开始盘算右子树结点是否大于root, 也不会影响结果
+        for j in range(index+1, length-1):
+            if sequence[j] &lt; root:
+                return False
+        left = True
+        if index &gt; 0:
+            left = self.VerifySquenceOfBST(sequence[:index])
+        right = True
+        if index &lt; length-1:
+            right = self.VerifySquenceOfBST(sequence[index:length-1])
+        return left and right
+array = [5, 7, 6, 9, 11, 10, 8]
+array2 = [4, 6, 7, 5]
+array3 = [1, 2, 3, 4, 5]
+S = Solution()
+print(S.VerifySquenceOfBST(array))
+print(S.VerifySquenceOfBST(array2))
+print(S.VerifySquenceOfBST(array3))
+</code></pre></blockquote>
+<p>33.<strong>二叉树中和为某一值的路径</strong><br>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。<br>思路：用前序遍历访问到某一节点时，把节点添加到路径上，并累加该节点的值，如果该节点为叶子结点，并且路径节点值刚好等于输入的整数，则符合符合要求，我们把打印出来，如果当前节点不是叶子结点，则继续访问他的叶子结点，当节点访问结束后，递归函数自动回到他的父节点。代码如下:</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution:
+    # 优化写法
+    def pathSum(self, root, sum):
+        if not root: return []
+        if root.left == None and root.right == None:
+            if sum == root.val:
+                return [[root.val]]
+            else:
+                return []
+        a = self.pathSum(root.left, sum - root.val) + self.pathSum(root.right, sum - root.val)
+        return [[root.val] + i for i in a]
+</code></pre></blockquote>
+<p>34.<strong>复杂链表的复制</strong><br>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）<br>思路：将复杂链表中每个节点N创建N‘，并且把N’链接到N的后面，然后把该链表拆分成两个，偶数数位置上的节点组成新的链表。代码如下：</p>
+<blockquote>
+<pre><code>class RandomListNode:
+    def __init__(self, x):
+        self.label = x
+        self.next = None
+        self.random = None
+class Solution:
+    # 返回 RandomListNode
+    def Clone(self, pHead):
+        if pHead == None:
+            return None
+        self.CloneNodes(pHead)
+        self.ConnectRandomNodes(pHead)
+        return self.ReconnectNodes(pHead)
+    # 复制原始链表的每个结点, 将复制的结点链接在其原始结点的后面
+    def CloneNodes(self, pHead):
+        pNode = pHead
+        while pNode:
+            pCloned = RandomListNode(0)
+            pCloned.label = pNode.label
+            pCloned.next = pNode.next
+            # pCloned.random = None         #不需要写这句话, 因为创建新的结点的时候,random自动指向None
+            pNode.next = pCloned
+            pNode = pCloned.next
+    # 将复制后的链表中的复制结点的random指针链接到被复制结点random指针的后一个结点
+    def ConnectRandomNodes(self, pHead):
+        pNode = pHead
+        while pNode:
+            pCloned = pNode.next
+            if pNode.random != None:
+                pCloned.random = pNode.random.next
+            pNode = pCloned.next
+    # 拆分链表, 将原始链表的结点组成新的链表, 复制结点组成复制后的链表
+    def ReconnectNodes(self, pHead):
+        pNode = pHead
+        pClonedHead = pClonedNode = pNode.next
+        pNode.next = pClonedHead.next
+        pNode = pNode.next
+        while pNode:
+            pClonedNode.next = pNode.next
+            pClonedNode = pClonedNode.next
+            pNode.next = pClonedNode.next
+            pNode = pNode.next
+        return pClonedHead
+node1 = RandomListNode(1)
+node2 = RandomListNode(3)
+node3 = RandomListNode(5)
+node1.next = node2
+node2.next = node3
+node1.random = node3
+S = Solution()
+clonedNode = S.Clone(node1)
+print(clonedNode.random.label)
+</code></pre></blockquote>
+<p>35.<strong>二叉搜索树与双向链表</strong><br>输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution:
+    def Convert(self, pRootOfTree):
+        if pRootOfTree == None:
+            return None
+        if not pRootOfTree.left and not pRootOfTree.right:
+            return pRootOfTree
+        # 处理左子树
+        self.Convert(pRootOfTree.left)
+        left = pRootOfTree.left
+        # 连接根与左子树最大结点
+        if left:
+            while left.right:
+                left = left.right
+            pRootOfTree.left, left.right = left, pRootOfTree
+        # 处理右子树
+        self.Convert(pRootOfTree.right)
+        right = pRootOfTree.right
+        # 连接根与右子树最小结点
+        if right:
+            while right.left:
+                right = right.left
+            pRootOfTree.right, right.left = right, pRootOfTree
+        while pRootOfTree.left:
+            pRootOfTree = pRootOfTree.left
+        return pRootOfTree
+</code></pre></blockquote>
+<p>36.<strong>序列化二叉树</strong><br>请实现两个函数，分别用来序列化和反序列化二叉树。这里没有规定序列化的方式。<br>思路：二叉树的序列化就是采用前序遍历二叉树输出节点，再碰到左子节点或者右子节点为None的时候输出一个特殊字符”#”。对于反序列化，就是针对输入的一个序列构建一棵二叉树，我们可以设置一个指针先指向序列的最开始，然后把指针指向位置的数字转化为二叉树的结点，后移一个数字，继续转化为左子树和右子树。当遇到当前指向的字符为特殊字符”#”或者指针超出了序列的长度，则返回None，指针后移，继续遍历。</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution:
+    def Serialize(self, root):
+        serializeStr = &apos;&apos;
+        if root == None:
+            return &apos;#&apos;
+        stack = []
+        while root or stack:
+            while root:
+                serializeStr += str(root.val) + &apos;,&apos;
+                stack.append(root)
+                root = root.left
+            serializeStr += &apos;#,&apos;
+            root = stack.pop()
+            root = root.right
+        serializeStr = serializeStr[:-1]
+        return serializeStr
+    def Deserialize(self, s):
+        serialize = s.split(&apos;,&apos;)
+        tree, sp = self.deserialize(serialize, 0)
+        return tree
+    def deserialize(self, s, sp):
+        if sp &gt;= len(s) or s[sp] == &apos;#&apos;:
+            return None, sp + 1
+        node = TreeNode(int(s[sp]))
+        sp += 1
+        node.left, sp = self.deserialize(s, sp)
+        node.right, sp = self.deserialize(s, sp)
+        return node, sp
+</code></pre></blockquote>
+<p>37.<strong>字符串的排列</strong><br>输入一个字符串,按字典序打印出该字符串中字符的所有排列。<br>例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。<br>结果请按字母顺序输出。<br>输入描述:<br>输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。<br>思路1：先固定一个字符，然后对该字符进行替换，然后再固定两个，直至固定所有</p>
+<blockquote>
+<pre><code>class Solution:
+    def Permutation(self, ss):
+        if not len(ss):
+            return []
+        if len(ss) == 1:
+            return list(ss)
+        charList = list(ss)
+        charList.sort()
+        pStr = []
+        for i in range(len(charList)):
+            if i &gt; 0 and charList[i] == charList[i-1]:
+                continue
+            temp = self.Permutation(&apos;&apos;.join(charList[:i])+&apos;&apos;.join(charList[i+1:]))
+            for j in temp:
+                pStr.append(charList[i]+j)
+        return pStr
+</code></pre></blockquote>
+<p>思路2：使用库函数，代买如下：<br>from itertools import permutations<br>def per(ss):<br>    for x in permutations(ss):<br>        print x</p>
+<p>扩展：扩展习题, 生成字符的所有组合，比如输入abc, 则他们的组合有[‘a’, ‘ab’, ‘abc’, ‘ac’, ‘b’, ‘bc’, ‘c’], ab和ba属于不同的排列, 但属于同一个组合</p>
+<blockquote>
+<pre><code>def group(self, ss):
+    if not len(ss):
+        return []
+    if len(ss) == 1:
+        return list(ss)
+    charList = list(ss)
+    charList.sort()
+    pStr = []
+    for i in range(len(charList)):
+        pStr.append(charList[i])
+        if i &gt; 0 and charList[i] == charList[i - 1]:
+            continue
+        temp = self.group(&apos;&apos;.join(charList[i + 1:]))
+        for j in temp:
+            pStr.append(charList[i] + j)
+        pStr = list(set(pStr))
+        pStr.sort()
+    return pStr
+</code></pre></blockquote>
+<p>38.<strong>数组中出现次数超过半的数字</strong><br>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。<br>思路：保存两个变量，一个是数组中的数字，一个是次数，进行遍历，当下一个数字和保存的数字相同，则次数加一，否则减一，如果次数为零，我们需要保存下一个数字，并把次数设为1，那么要找的数字一定是最后一次把次数设为1对应的数字，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+# 检查查找到中位数的元素出现次数是否超过所有元素数量的一半    
+    def CheckMoreThanHalf(self, numbers, length, number):
+                times = 0
+                for i in range(length):
+                    if numbers[i] == number:
+                        times += 1
+                if times*2 &lt;= length:
+                    return False
+                return True
+    # 根据数组特点找出O(n)的算法
+    def MoreThanHalfNum(self, numbers):
+        length = len(numbers)
+        if numbers == None or length &lt;= 0:
+            return 0
+        result = numbers[0]
+        times = 1
+        for i in range(1, length):
+            if times == 0:
+                result = numbers[i]
+                times = 1
+            elif numbers[i] == result:
+                times += 1
+            else:
+                times -= 1
+        if not self.CheckMoreThanHalf(numbers, length, result):
+            result = 0
+        return result
+S = Solution()
+</code></pre></blockquote>
+<p>思路2：基于快速排序思想，代码如下：<br>基于Partition函数的O(n)算法</p>
+<blockquote>
+<pre><code>   def MoreThanHalfNum_Solution(self, numbers):
+        length = len(numbers)
+        if length == 1:
+            return numbers[0]
+        if self.CheckInvalidArray(numbers, length):
+            return 0
+        middle = length &gt;&gt; 1
+        start = 0
+        end = length - 1
+        index = self.Partition(numbers, length, start, end)
+        while index != middle:
+            if index &gt; middle:
+                end = index - 1
+                index = self.Partition(numbers, length, start, end)
+            else:
+                start = index + 1
+                index = self.Partition(numbers, length, start, end)
+        result = numbers[middle]
+        if not self.CheckMoreThanHalf(numbers, length, result):
+            result = 0
+        return result
+    # 划分算法
+    def Partition(self, numbers, length, start, end):
+        if numbers == None or length &lt;= 0 or start &lt; 0 or end &gt;= length:
+            return None
+        if end == start:
+            return end
+        pivotvlue = numbers[start]
+        leftmark = start + 1
+        rightmark = end
+        done = False
+        while not done:
+            while numbers[leftmark] &lt;= pivotvlue and leftmark &lt;= rightmark:
+                leftmark += 1
+            while numbers[rightmark] &gt;= pivotvlue and rightmark &gt;= leftmark:
+                rightmark -= 1
+            if leftmark &gt; rightmark:
+                done = True
+            else:
+                numbers[leftmark], numbers[rightmark] = numbers[rightmark], numbers[leftmark]
+        numbers[rightmark], numbers[start] = numbers[start], numbers[rightmark]
+        return rightmark
+    # 检查输入的数组是否合法
+    def CheckInvalidArray(self, numbers, length):
+        InputInvalid = False
+        if numbers == None or length &lt;= 0:
+            InputInvalid = True
+        return InputInvalid
+print(S.MoreThanHalfNum_Solution([1, 2, 3, 2, 2, 2, 5, 4, 2]))
+print(S.MoreThanHalfNum_Solution([1, 2, 3, 3, 3, 3, 4]))
+print(S.MoreThanHalfNum_Solution([1, 2]))
+print(S.MoreThanHalfNum([1, 2, 3, 2, 2, 2, 5, 4, 2]))
+print(S.MoreThanHalfNum([1, 2, 3, 3, 3, 3, 4]))
+print(S.MoreThanHalfNum([1, 2]))
+</code></pre></blockquote>
+<p>39.<strong>最小的k个数字</strong><br>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。<br>思路1：基于partion函数，基于数组第k个数字来调整，使得比第k个数字打的数字都位于数组右边，比第k个数字小的所有数字都位于数组左边，数组左边的k个数字就是最小的k个数字（结果不一定是排序的）O（n），代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+# O(n)的算法, 只有当我们可以修改输入的数组时可用
+# 基于Partition的方法
+    def GetLeastNumbers_Solution(self, tinput, k):
+        if tinput == None or len(tinput) &lt; k or len(tinput) &lt;= 0 or k &lt;=0:
+            return []
+        n = len(tinput)
+        start = 0
+        end = n - 1
+        index = self.Partition(tinput, n, start, end)
+        while index != k-1:
+            if index &gt; k-1:
+                end = index - 1
+                index = self.Partition(tinput, n, start, end)
+            else:
+                start = index + 1
+                index = self.Partition(tinput, n, start, end)
+        output = tinput[:k]
+        output.sort()
+        return output
+    def Partition(self, numbers, length, start, end):
+        if numbers == None or length &lt;= 0 or start &lt; 0 or end &gt;= length:
+            return None
+        if end == start:
+            return end
+        pivotvlue = numbers[start]
+        leftmark = start + 1
+        rightmark = end
+        done = False
+        while not done:
+            while numbers[leftmark] &lt;= pivotvlue and leftmark &lt;= rightmark:
+                leftmark += 1
+            while numbers[rightmark] &gt;= pivotvlue and rightmark &gt;= leftmark:
+                rightmark -= 1
+            if leftmark &gt; rightmark:
+                done = True
+            else:
+                numbers[leftmark], numbers[rightmark] = numbers[rightmark], numbers[leftmark]
+        numbers[rightmark], numbers[start] = numbers[start], numbers[rightmark]
+        return rightmark
+</code></pre></blockquote>
+<p>思路2：定义一个大小为k的容器，每次从输入读入一个数，如果容器中已有数字少于k个，直接将这次读入放入容器中，如果已经有k个了，找出已有的k个数中最大值，然后拿待插入的的数字和最大值比较，如果插入值小于该最大值，则替换，否则不替换，用二叉树存储，需要O(logk)时间内完成删除计插入操作。代码如下：</p>
+<blockquote>
+<pre><code>def GetLeastNumbers(self, tinput, k):
+     import heapq
+     if tinput == None or len(tinput) &lt; k or len(tinput) &lt;= 0 or k &lt;= 0:
+         return []
+     output = []
+     for number in tinput:
+         if len(output) &lt; k:
+             output.append(number)
+         else:
+             # 构造最小堆， 不推荐
+             # output = heapq.nsmallest(k, output)
+             # if number &gt;= output[-1]:
+             #     continue
+             # else:
+             #     output[-1] = number
+             # 构造最大堆， 推荐
+             output = heapq.nlargest(k, output)
+             if number &gt;= output[0]:
+                 continue
+             else:
+                 output[0] = number
+     return output[::-1]     # 最小堆用 return output
+</code></pre></blockquote>
+<p>40.<strong>数据流中的中位数</strong><br>如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。<br>如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。<br>思路：将数据用容器存储，中位数把数据分为两部分，用最大堆实现左面的数据容器，用最小堆实现右面的数据容器，插入一个数据的时间效率是O(logn)，得到堆顶的时间效率为O（1），数据要平均分配到两个堆中，数目之差不能超过1，数据总数如果是偶数是插入最小堆，否则插入最大堆， 代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def __init__(self):
+        self.left = []
+        self.right = []
+        self.count = 0
+    def Insert(self, num):
+        if self.count &amp; 1 == 0:
+            self.left.append(num)
+        else:
+            self.right.append(num)
+        self.count += 1
+    def GetMedian(self, x):
+        if self.count == 1:
+            return self.left[0]
+        self.MaxHeap(self.left)
+        self.MinHeap(self.right)
+        if self.left[0] &gt; self.right[0]:
+            self.left[0], self.right[0] = self.right[0], self.left[0]
+        self.MaxHeap(self.left)
+        self.MinHeap(self.right)
+        if self.count &amp; 1 == 0:
+            return (self.left[0] + self.right[0])/2.0
+        else:
+            return self.left[0]
+    def MaxHeap(self, alist):
+        length = len(alist)
+        if alist == None or length &lt;= 0:
+            return
+        if length == 1:
+            return alist
+        for i in range(length//2-1, -1, -1):
+            k = i; temp = alist[k]; heap = False
+            while not heap and 2*k &lt; length-1:
+                index = 2*k+1
+                if index &lt; length - 1:
+                    if alist[index] &lt; alist[index + 1]: index += 1
+                if temp &gt;= alist[index]: heap = True
+                else:
+                    alist[k] = alist[index]
+                    k = index
+            alist[k] = temp
+  def MinHeap(self, alist):
+        length = len(alist)
+        if alist == None or length &lt;= 0:
+            return
+        if length == 1:
+            return alist
+        for i in range(length//2-1, -1, -1):
+            k = i; temp = alist[k]; heap = False
+            while not heap and 2 * k &lt; length - 1:
+                index = 2 * k+1
+                if index &lt; length - 1:
+                    if alist[index] &gt; alist[index + 1]: index += 1
+                if temp &lt;= alist[index]:
+                    heap = True
+                else:
+                    alist[k] = alist[index]
+                    k = index
+            alist[k] = temp
+a=[1,3,2,6,4,7,8,5]
+s=Solution()
+for x in a:
+    s.Insert(x)
+print s.GetMedian(a)
+</code></pre></blockquote>
+<p>41.<strong>连续子数组的最大和</strong><br>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1)<br>思路：动态规划，定义一个变量存储最大子数组和，遍历将每个数据相加到一块，如果当前和大于0，则将当前和进入下一轮的求和，否则和为0，并将每个和与最大子数组和比较，如果临时的加和大于最大和则更新最大和，代码如下：</p>
+<blockquote>
+<pre><code>def max_add(lists):
+    maxsums=0
+    tmp=0
+    for i in range(len(lists)):
+        tmp+=lists[i]
+        if tmp&gt;maxsums:
+            maxsums=tmp
+        if tmp&lt;0:
+            tmp=0
+    return maxsums
+print max_add([1,-2,3,10,-4,7,2,-5])
+</code></pre></blockquote>
+<p>42.<strong>整数中1出现的次数（1到n整数中1出现的次数）</strong><br>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。<br>思路1：从1-n判断每个整数中含有1的个数</p>
+<blockquote>
+<pre><code>def num(n):
+    counts=0
+    while n:
+        if n%10==1:
+            counts+=1
+        n/=10
+    return counts
+def get_num(n):
+    sums=0
+    for i in range(1,n+1):
+        sums+=num(i)
+    return sums
+print get_num(13)
+</code></pre></blockquote>
+<p>或者：</p>
+<blockquote>
+<pre><code>def get_num(n):
+    sums=0
+    for i in range(1,n+1):
+        sums+=str(i).count(&apos;1&apos;)
+    return sums
+print get_num(13)
+</code></pre></blockquote>
+<p>思路2:上述复杂度较高，找规律</p>
+<blockquote>
+<pre><code>class Solution:
+    def NumberOf1Between1AndN_Solution(self, n):
+        ones, m = 0, 1
+        while m &lt;= n:
+            ones += (n // m + 8) // 10 * m + (n // m % 10 == 1) * (n % m + 1)
+            m *= 10
+        return ones
+    def NumberOf1Between1AndN2(self, n):
+        ones, m = 0, 1
+        while m &lt;= n:
+            if ((n // m) % 10) != 0 and ((n // m) % 10) != 1:
+                ones += (n // 10 // m + 1) * m
+            elif ((n // m) % 10) == 1:
+                ones += (n // m // 10) * m + n % m + 1
+            m *= 10
+        return ones
+s = Solution()
+print(s.NumberOf1Between1AndN_Solution(526))
+print(s.NumberOf1Between1AndN2(526))
+</code></pre></blockquote>
+<p>43.<strong>数字序列中某一位的数字</strong><br>思路1：枚举法，效率低，代码如下：</p>
+<blockquote>
+<pre><code>def get_numb(n):
+    if n&lt;0:
+        return -1
+    s=&apos;&apos;
+    i=0
+    while len(s)&lt;=n:
+        s+=str(i)
+        i+=1
+    return s[n]
+print get_numb(309)
+</code></pre></blockquote>
+<p>思路2：根据规律，代码如下：</p>
+<blockquote>
+<pre><code>class Solution(object):
+    def findNthDigit(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: int
+        &quot;&quot;&quot;
+        if n &gt; 0:
+            k = 1  # k:记录n对应的数字的位数
+            while n &gt; k * 9 * 10 ** (k - 1):
+                n -= k * 9 * 10 ** (k - 1)
+                k += 1
+            if n % k == 0:  # t:记录n为第k位上的第几个数
+                t = n / k
+            else:
+                t = n / k + 1
+            num = 10 ** (k - 1) + t - 1  # num:记录n对应的十进制数
+            temp = n - (t - 1) * k  # temp:记录n对应十进制数num上的第几个数字
+            num_list = [0]  # 将num各个数字分解到num_list中
+            while num / 10 &gt; 0:
+                num_list.append(num % 10)
+                num = num / 10
+            num_list.append(num)
+            num_list = num_list[::-1]
+            return num_list[temp - 1]  # 返回num中的第temp个数字
+s=Solution()
+print s.findNthDigit(100)
+</code></pre></blockquote>
+<p>44.<strong>把数组排成最小的数</strong><br>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。<br>思路：找出一个排序的比较规则，代码如下：</p>
+<blockquote>
+<pre><code>def cmp(s1,s2):
+    t=str(s1)+str(s2)
+    m=str(s2)+str(s1)
+    if t&gt;m:
+        return 1
+    elif t&lt;m:
+        return -1
+    return 0
+def PrintMinNumber( numbers):
+    if numbers is None:
+        return &quot;&quot;
+    lens = len(numbers)
+    if lens ==0 :
+        return &quot;&quot;
+    tmpNumbers = sorted(numbers,cmp=cmp)
+    return int(&apos;&apos;.join(str(x)for x in tmpNumbers))
+a=[3,32,321]
+print PrintMinNumber(a)
+</code></pre></blockquote>
+<p>45.<strong>把数字翻译成字符串</strong><br>给定一个数字，按照如下规则翻译成字符串：0翻译成“a”，1翻译成“b”…25翻译成“z”。一个数字有多种翻译可能，例如12258一共有5种，分别是bccfi，bwfi，bczi，mcfi，mzi。实现一个函数，用来计算一个数字有多少种不同的翻译方法。<br>思路：自下而上，动态规划，从最小的问题开始 ：<br>f(r)表示以r为开始（r最小取0）到最右端所组成的数字能够翻译成字符串的种数。对于长度为n的数字，f(n)=0,f(n-1)=1,求f(0)。<br>递推公式为 f(r-2) = f(r-1)+g(r-2,r-1)*f(r)；<br>其中，如果r-2，r-1能够翻译成字符，则g(r-2,r-1)=1，否则为0。<br>因此，对于12258：<br>f(5) = 0<br>f(4) = 1<br>f(3) = f(4)+0 = 1<br>f(2) = f(3)+f(4) = 2<br>f(1) = f(2)+f(3) = 3<br>f(0) = f(1)+f(2) = 5<br> 代码如下：</p>
+<blockquote>
+<pre><code>def counts(s):
+    f1,f2,g=0,1,0
+    tmp=0
+    for i in range(len(s)-2,-1,-1):
+        if int(s[i]+s[i+1])&lt;26:
+            g=1
+        else:
+            g=0
+        tmp=f2
+        f2=f2+g*f1
+        f1=tmp
+    return f2
+def get_counts(n):
+    if n&lt;0:
+        return 0
+    if n==1:
+        return 1
+    return counts(str(n))
+print get_counts(-10)
+</code></pre></blockquote>
+<p>46.<strong>礼物的最大价值</strong><br>在一个m*n的棋盘的每一格都放有一个礼物，每个礼物具有一定价值（大于0）。从棋盘的左上角开始拿礼物，并每次向右或者向下移动一个，直到达到棋盘的右下角。实现一个函数，给定一个棋盘和上面的礼物，计算能最多拿走多大价值的礼物。<br>思路：这是一个动态规划问题，可用递归的思路来分析；f(i,j)代表到达位置(i,j)时最大礼物价值，则f(i,j)=max[f(i-1,j),f(i,j-1)]+gift(i,j)；</p>
+<pre><code>2.    用循环代码来实现。维护一个辅助的二维数组maxValues[rows][cols]，maxValues[i][j]=max(maxValues[i-1][j],maxValues[i][j-1])+giftValues[i][j]。用二重循环最终得到maxValues[rows-1][cols-1]就是最大的礼物价值。
+</code></pre><blockquote>
+<pre><code>import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int m = input.nextInt();
+        int n = input.nextInt();
+        int[][] index = new int[m][n];
+        index[0][0] = input.nextInt();
+        for (int i = 1; i &lt; m; i++) {
+            index[0][i] = input.nextInt() + index[0][i - 1];
+        }
+        for (int i = 1; i &lt; m; i++) {
+            index[i][0] = input.nextInt() + index[i - 1][0];
+            for (int j = 1; j &lt; n; j++) {
+                if (index[i][j - 1] &gt; index[i - 1][j]) {
+                    index[i][j] = input.nextInt() + index[i][j - 1];
+                } else {
+                    index[i][j] = input.nextInt() + index[i - 1][j];
+                }
+            }
+        }
+        System.out.println(index[m - 1][n - 1]);
+    }
+}
+</code></pre></blockquote>
+<p>47.<strong>最长不含重复数自字符的子字符串</strong><br>思路：动态规划，如果第i个字符之前没有出现过，那么f（i）=f（i-1）+1，如果第i个字符出现过，计算第i个字符上次出现在字符串中的位置的距离d，如果d小于f（i-1）则</p>
+<blockquote>
+<pre><code>class Solution:
+    def lengthOfLongestSubstring(self, s):
+        start = maxLength = 0
+        usedChar = {}
+        for i in range(len(s)):
+            if s[i] in usedChar and start &lt;= usedChar[s[i]]:
+                start = usedChar[s[i]] + 1
+            else:
+                maxLength = max(maxLength, i - start + 1)
+            usedChar[s[i]] = i
+        return maxLength
+s=Solution()
+print s.lengthOfLongestSubstring(&apos;arabcacfr&apos;)
+</code></pre></blockquote>
+<p>48.<strong>丑数</strong><br>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。<br>思路1：按照顺序判断是否为丑数，如果为丑数则统计加一，当统计数为N是返回当前的丑数，代码如下：</p>
+<blockquote>
+<pre><code>def ugly(n):
+    if n&lt;=0:
+        return False
+    for i in [2,3,5]:
+        while n%i==0:
+            n/=i
+    if n==1:
+        return True
+    else:
+        return False
+def get_ugly(m):
+    j=0
+    counts=0
+    while  counts&lt;m:
+        j+=1
+        if ugly(j):
+            counts+=1
+    return j
+print get_ugly(7)
+</code></pre></blockquote>
+<p>思路2：上个思路需要大量求余和除法，同时也计算了非丑数的数据，浪费时间，空间换时间，创建数组。里面的数字是排好序的丑数，每个丑数都是前面的丑数乘以2、3或者5得到的。把最大的丑数记为M，接下来分析如何生成下一个丑数，该丑数肯定是前面的某个丑数乘以2、3或者5的结果，先考虑把已有的每个丑数乘以2，能得到若干个小于或者等于M的结果和大于M的结果，小于的M的已经在数组里不再考虑，我们只需要第一个大于M的丑数，我们把第一个乘以2大约M的丑数记为M2,同样把每个已有的丑数乘以3和5得到大于M的M3和M5，那么下一个丑数应该是M2、M3和M5中的最小的。在已有的丑数中存在T2乘以2仍然小于当前最大丑数，所以乘以2时，用T2以后的丑数生成新的丑数，T3和T5也存在，生成新的丑数时更新T2，T3，T5，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def GetUglyNumber_Solution(self, index):
+        if index &lt;= 0:
+            return 0
+        uglyNumbers = [1]*index
+        nextIndex = 1
+        index2 = 0
+        index3 = 0
+        index5 = 0
+        while nextIndex &lt; index:
+            minVal = min(uglyNumbers[index2]*2, uglyNumbers[index3]*3, uglyNumbers[index5]*5)
+            uglyNumbers[nextIndex] = minVal
+            while uglyNumbers[index2]*2 &lt;= uglyNumbers[nextIndex]:
+                index2 += 1
+            while uglyNumbers[index3]*3 &lt;= uglyNumbers[nextIndex]:
+                index3 += 1
+            while uglyNumbers[index5]*5 &lt;= uglyNumbers[nextIndex]:
+                index5 += 1
+            nextIndex += 1
+        return uglyNumbers[-1]
+s = Solution()
+print(s.GetUglyNumber_Solution(7))
+</code></pre></blockquote>
+<p>49.<strong>第一次只出现一次的字符</strong><br>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置<br>思路：扫描一遍字符串中的字符并使用hashmap存储，key为字符，value为字符在字符串中出现的次数，第二次扫描，即可找到出现一次的字符，复杂度为O（n），代码如下：</p>
+<blockquote>
+<pre><code>def first_appear(s):
+    if len(s)==0 or s==None:
+        return None
+    dic={}
+    for i in s:
+        dic[i]=dic.get(i,0)+1
+    for i in s:
+        if dic[i]==1:
+            return i
+    return None
+print first_appear(&apos;aabbdbdrgd&apos;)
+</code></pre></blockquote>
+<p>扩展：字符流中第一个只出现一次的字符,代码如下;</p>
+<blockquote>
+<pre><code>class Solution:
+    def __init__(self):  
+        self.string_all = {}  
+        self.ch = []  
+    def FirstAppearingOnce(self):  
+        # write code here  
+        if self.string_all is None:  
+            return &apos;#&apos;  
+        for i in self.ch:  
+            if self.string_all[i] == 1:  
+                return i  
+        return &apos;#&apos;  
+    def Insert(self, char):  
+        # write code here  
+        self.ch.append(char)  
+        if char in self.string_all:  
+            self.string_all[char] = self.string_all[char] + 1  
+        else:  
+            self.string_all[char] = 1
+s=Solution()
+a=&apos;bcbsbdbc&apos;
+for x in a:
+    s.Insert(x)
+print s.FirstAppearingOnce()
+</code></pre></blockquote>
+<p>50.<strong>数组中的逆序对</strong><br>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007<br>思路1：我们要找到数组中的逆序对，可以看做对数据进行排序，需要交换数组中的元素的次数，但是防止相同大小的元素发生交换，因此需要选择一个稳定的排序方法，记录发生交换的次数。那么，基于比较的稳定的排序方法中，最快的方法就是归并了，所以直接按照归并排序的思路，将数组分解、合并、排序即可。但是需要注意的是，在常规归并排序的时候，如果前一个元素大于后一个元素，直接进行交换即可，只进行了一次操作，但是对于这道题来讲，对于每一次的归并段，我们选择从后向前遍历，前面的归并段的某一个数值left[i]如果大于后面的某一个数值right[j]，因为在right自己独自排序的过程中，已经保证了right是有序的，所以j位置前面的数字全部小于right[j]，所以在这里逆序对的个数就会是 j-start-length，其中start是整个数组的起点，length是left的长度，然后再进行交换。<br>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def InversePairs(self, data):
+        length = len(data)
+        if data == None or length &lt;= 0:
+            return 0
+        copy = [0]*length
+        for i in range(length):
+            copy[i] = data[i]
+        count = self.InversePairsCore(data, copy, 0, length-1)
+        return count
+    def InversePairsCore(self, data, copy, start, end):
+        if start == end:
+            copy[start] = data[start]
+            return 0
+        length = (end - start)//2
+        left = self.InversePairsCore(copy, data, start, start+length)
+        right = self.InversePairsCore(copy, data, start+length+1, end)
+        # i初始化为前半段最后一个数字的下标
+        i = start + length
+        # j初始化为后半段最后一个数字的下标
+        j = end
+        indexCopy = end
+        count = 0
+        while i &gt;= start and j &gt;= start+length+1:
+            if data[i] &gt; data[j]:
+                copy[indexCopy] = data[i]
+                indexCopy -= 1
+                i -= 1
+                count += j - start - length
+            else:
+                copy[indexCopy] = data[j]
+                indexCopy -= 1
+                j -= 1
+        while i &gt;= start:
+            copy[indexCopy] = data[i]
+            indexCopy -= 1
+            i -= 1
+        while j &gt;= start+length+1:
+            copy[indexCopy] = data[j]
+            indexCopy -= 1
+            j -= 1
+        return left + right + count
+print(s.InversePairs([364,637,256,936,275,401,497,82,935,874,80,45,848,38,811,267,575]))
+</code></pre></blockquote>
+<p>思路2：使用数据的index求解，对原数组进行排序并保存为新的数组，然后在新的数组中，求每个数字在原数组的位置，也就是说前面的数字都比该数字大，然后将前面的数字个数相加，知道排完序的数组遍历完成。代码如下：</p>
+<blockquote>
+<pre><code>    def InversePairs2(self, data):
+        if len(data) &lt;= 0:
+            return 0
+        count = 0
+        copy = []
+        for i in range(len(data)):
+            copy.append(data[i])
+        copy.sort()
+        i = 0
+        while len(copy) &gt; i:
+            count += data.index(copy[i])
+            data.remove(copy[i])
+            i += 1
+        return count
+s = Solution()
+</code></pre></blockquote>
+<p>51.<strong>两个链表的第一个公共结点</strong><br>输入两个链表，找出它们的第一个公共结点。<br>思路1：单链表在某个相同的节点后，他们的后续节点都相同，因此我们可以从后向前比较，将两个链表的节点存入栈中，然后比较栈顶元素，如果相同则弹出，最后相同的节点，即为他们的公共节点。代码如下：</p>
+<blockquote>
+<pre><code>class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+class Solution:
+    def FindFirstCommonNode(self, pHead1, pHead2):
+        if pHead1==None or pHead2==None:
+            return None
+        stack1=[]
+        stack2=[]
+        while pHead1!=None:
+            stack1.append(pHead1)
+            pHead1=pHead1.next
+        while pHead2!=None:
+            stack2.append(pHead2)
+            pHead2=pHead2.next
+        while stack1 and stack2:
+            t=stack1.pop()
+            q=stack2.pop()
+            if stack2[-1]!=stack1[-1]:
+                return t
+        return None
+</code></pre></blockquote>
+<p>思路2：求出两个链表的长度差n，让长的链表指针向后移动n次，然后同时移动两个指针，知道找到公共节点，代码如下：</p>
+<blockquote>
+<pre><code>class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+class Solution:
+    def FindFirstCommonNode(self, pHead1, pHead2):
+        nLength1 = self.GetListLength(pHead1)
+        nLength2 = self.GetListLength(pHead2)
+        nLengthDiff = abs(nLength1 - nLength2)
+        if nLength1 &gt; nLength2:
+            pListHeadLong = pHead1
+            pListHeadShort = pHead2
+        else:
+            pListHeadLong = pHead2
+            pListHeadShort = pHead1
+        for i in range(nLengthDiff):
+            pListHeadLong = pListHeadLong.next
+        while pListHeadLong != None and pListHeadShort != None and pListHeadLong != pListHeadShort:
+            pListHeadLong = pListHeadLong.next
+            pListHeadShort = pListHeadShort.next
+        pFirstCommonNode = pListHeadLong
+        return pFirstCommonNode
+    def GetListLength(self, pHead):
+        nLength = 0
+        while pHead != None:
+            pHead = pHead.next
+            nLength += 1
+        return nLength
+</code></pre></blockquote>
+<p>52.<strong>在排序数组中查找数字</strong><br>假设给定一个有序的整型数组arr，以及一个整数 k，问 k在数组中出现了几次？<br>思路1：采用二分查找，找到k第一次出现的下标和最后一次出现的下标，两个相减加一即为k出现的次数，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def GetNumberOfK(self, data, k):
+        # write code here
+        if not data:
+            return 0
+        if len(data) == 1 and data[0] != k:
+            return 0
+        left = 0
+        right = len(data) - 1
+        first_k = 0
+        while left &lt;= right:
+            mid = (left + right) // 2
+            if data[mid] &lt; k:
+                left = mid + 1
+            elif data[mid] &gt; k:
+                right = mid - 1
+            else:
+                if mid == 0:
+                    first_k = 0
+                    break;
+                elif data[mid-1] != k:
+                    first_k = mid
+                    break;
+                else:
+                    right = mid - 1       
+        left = 0
+        right = len(data) - 1
+        last_k = -1
+        while left &lt;= right:
+            mid = (left + right) // 2
+            if data[mid] &lt; k:
+                left = mid + 1
+            elif data[mid] &gt; k:
+                right = mid - 1
+            else:               
+                if mid == len(data) - 1:
+                    last_k = len(data) - 1
+                    break;
+                elif data[mid+1] != k:
+                    last_k = mid
+                    break;
+                else:
+                    left = mid + 1       
+        return last_k - first_k + 1
+s=Solution()
+print s.GetNumberOfK([1, 2, 3, 3, 3, 3, 4, 5],3)
+</code></pre></blockquote>
+<p>思路2：用二分查找，找到一个k的位置，然后在该位置上进行前后查找，效率比思路1差</p>
+<p>扩展：0~N-1中缺失的数字<br>一个长度为n-1的递增排序数组中的数字都是唯一的，并且每个数字都在范围之内0~n-1之内，在范围0~n-1内的n个数字中有且仅有一个不再该数组内，请找出改数字。<br>思路1：先用公式n（n-1）/2求出数字0~n-1的所有数字之和，记为s1，然后求出数组之和s2，s1-s2即为缺失的数字，复杂度为O(n)，代码如下：</p>
+<blockquote>
+<pre><code>def lack(lists):
+    s1=len(lists)*(len(lists)+1)/2
+    s2=sum(lists)
+    return s1-s2
+print lack([0,1,2,3,5,6,7])
+</code></pre></blockquote>
+<p>思路2：数组是排好序的，因此数字和其下标相等，采用二分查找，如果中间元素和下标相等，那么缺失值在后半部分，如果中间元素和下标不相等，它前面的一个元素和下标相等，则中间元素就是第一个和下标不相等的元素，该数字即为所求，如果中间元素和下标不相等且它前面的元素也和下标不相等，则在左面查找，代码如下：</p>
+<blockquote>
+<pre><code>def lack(lists):
+    if len(lists)==0 or lists==None:
+        return None
+    left=0
+    right=len(lists)-1
+    while left&lt;=right:
+        mid=(left+right)/2
+        if lists[mid]==mid:
+            left=mid+1
+        else:
+            if  lists[mid-1]==mid-1:
+                return mid
+            elif lists[mid-1]!=mid-1:
+                right=mid-1
+    return lists[mid]
+print lack([0,1,2,3,5,6,7])
+</code></pre></blockquote>
+<p>扩展：数组中数值和下标相等的元素<br>给定一个升序的整数数组A，每个数字唯一，让你在数组中找到任意下标x，使得A[x]== x。（数组下标从0开始）<br>思路：采用二分查找，如果第i个数字大于i，其后面的数字都大于其下标，所以要在左面找，代码如下：</p>
+<blockquote>
+<pre><code>def equal(lists):
+    left=0
+    right=len(lists)-1
+    while left&lt;=right:
+        mid=(left+right)/2
+        if lists[mid]==mid:
+            return mid
+        elif lists[mid]&gt;mid:
+            right=mid-1
+        else:
+            left=mid+1
+print equal([-2,0,1,2,3,5,6,7])
+</code></pre></blockquote>
+<p>53.<strong>二叉搜索树的第k大节点</strong><br>给定一颗二叉搜索树，请找出其中的第k大的结点<br>思路：二叉搜索树的中序遍历是递增的，所以只需要中序便利下树，即可求得第k大的节点<br>代码如下：</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution:
+    # 返回对应节点TreeNode
+    def __init__(self):
+        self.treeNode = []
+    def inOrder(self, pRoot):
+        if len(self.treeNode) &lt; 0:
+            return None
+        if pRoot.left:
+            self.inOrder(pRoot.left)
+        self.treeNode.append(pRoot)
+        if pRoot.right:
+            self.inOrder(pRoot.right)
+    def KthNode(self, pRoot, k):
+        if k == 0 or pRoot == None:
+            return
+        self.inOrder(pRoot)
+        if len(self.treeNode) &lt; k:
+            return None
+        return self.treeNode[k-1]
+    def KthNode2(self, pRoot, k):
+        if k &lt;= 0 or not pRoot:
+            return None
+        treeStack, nodesQue = [], []
+        pNode = pRoot
+        while pNode or len(treeStack):
+            while pNode:
+                treeStack.append(pNode)
+                pNode = pNode.left
+            if len(treeStack):
+                pNode = treeStack.pop()
+                nodesQue.append(pNode)
+                pNode = pNode.right
+        if k &gt; len(nodesQue):
+            return None
+        return nodesQue[k-1]
+node1=TreeNode(1)
+node2=TreeNode(2)
+node3=TreeNode(3)
+node4=TreeNode(4)
+node5=TreeNode(5)
+node6=TreeNode(6)
+node7=TreeNode(7)
+node1.left=node2
+node1.right=node3
+node2.left=node4
+node2.right=node5
+node3.left=node6
+node3.right=node7
+s=Solution()
+node=s.KthNode2(node1,3)
+print node.val
+</code></pre></blockquote>
+<p>54.<strong>二叉树的深度</strong><br>输入一棵二叉树，求该树的深度。<br>从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度<br>思路：利用递归实现。如果一棵树只有一个结点，那么它的深度为1。递归的时候无需判断左右子树是否存在，因为如果该节点为叶节点，它的左右子树不存在，那么在下一级递归的时候，直接return 0。同时，记得每次递归返回值的时候，深度加一操作。</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution:
+    # 递归解法, 简单直接, 时间复杂度O(n), 空间复杂度O(logn)
+    def depth(self,root):
+        if root == None:
+            return 0
+        return max(self.depth(root.left), self.depth(root.right)) + 1
+    # 非递归算法，利用一个栈以及一个标志位栈
+    def TreeDepth2(self, pRoot):
+        if not pRoot:
+            return 0
+        depth = 0
+        stack, tag = [], []
+        pNode = pRoot
+        while pNode or stack:
+            while pNode:
+                stack.append(pNode)
+                tag.append(0)
+                pNode = pNode.left
+            if tag[-1] == 1:
+                depth = max(depth, len(stack))
+                stack.pop()
+                tag.pop()
+                pNode = None
+            else:
+                pNode = stack[-1]
+                pNode = pNode.right
+                tag.pop()
+                tag.append(1)
+        return depth
+node1=TreeNode(1)
+node2=TreeNode(2)
+node3=TreeNode(3)
+node4=TreeNode(4)
+node5=TreeNode(5)
+node6=TreeNode(6)
+node7=TreeNode(7)
+node1.left=node2
+node1.right=node3
+node2.left=node4
+node2.right=node5
+node3.left=node6
+node3.right=node7
+s=Solution()
+print s.depth(node1)
+</code></pre></blockquote>
+<p>扩展：平衡二叉树<br>思路1：基于二叉树的深度，再次进行递归。以此判断左子树的高度和右子树的高度差是否大于1，若是则不平衡，反之平衡。<br>代码如下：</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution2:
+    def getDepth(self, pRoot):
+        if pRoot == None:
+            return 0
+        return max(self.getDepth(pRoot.left), self.getDepth(pRoot.right)) + 1
+    def IsBalanced_Solution(self, pRoot):
+        if pRoot == None:
+            return True
+        if abs(self.getDepth(pRoot.left)-self.getDepth(pRoot.right)) &gt; 1:
+            return False
+        return self.IsBalanced_Solution(pRoot.left) and self.IsBalanced_Solution(pRoot.right)
+pNode1 = TreeNode(1)
+pNode2 = TreeNode(2)
+pNode3 = TreeNode(3)
+pNode4 = TreeNode(4)
+pNode5 = TreeNode(5)
+pNode6 = TreeNode(6)
+pNode7 = TreeNode(7)
+pNode1.left = pNode2
+pNode1.right = pNode3
+pNode2.left = pNode4
+pNode2.right = pNode5
+pNode3.right = pNode6
+pNode5.left = pNode7
+S = Solution2()
+print(S.IsBalanced_Solution(pNode1))
+</code></pre></blockquote>
+<p>思路2：思路1中同一个节点会重复求深度，影响性能， 代码如下：</p>
+<blockquote>
+<pre><code>class Solution(object):
+    def isBalanced(self, root):
+        stack, node, last, depths = [], root, None, {}
+        while stack or node:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack[-1]
+                if not node.right or last == node.right:
+                    node = stack.pop()
+                    left, right  = depths.get(node.left, 0), depths.get(node.right, 0)
+                    if abs(left - right) &gt; 1: return False
+                    depths[node] = 1 + max(left, right)
+                    last = node
+                    node = None
+                else:
+                    node = node.right
+        return True
+</code></pre></blockquote>
+<p>55.<strong>数组中只出现一次的数字</strong><br>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字,要求空间复杂度o（1）时间复杂度o（n）.<br>代码如下：</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    # 返回[a,b] 其中ab是出现一次的两个数字
+    def FindNumsAppearOnce(self, array):
+        if array == None or len(array) &lt;= 0:
+            return []
+        resultExclusiveOr = 0
+        for i in array:
+            resultExclusiveOr ^= i
+        indexOf1 = self.FindFirstBitIs1(resultExclusiveOr)
+        num1, num2 = 0,0
+        for j in range(len(array)):
+            if self.IsBit1(array[j], indexOf1):
+                num1 ^= array[j]
+            else:
+                num2 ^= array[j]
+        return [num1, num2]
+    def FindFirstBitIs1(self, num):
+        indexBit = 0
+        while num &amp; 1 == 0 and indexBit &lt;= 32:
+            indexBit += 1
+            num = num &gt;&gt; 1
+        return indexBit
+    def IsBit1(self, num, indexBit):
+        num = num &gt;&gt; indexBit
+        return num &amp; 1
+class Solution2:
+    # 返回[a,b] 其中ab是出现一次的两个数字
+    def FindNumsAppearOnce(self, array):
+        if array == None or len(array) &lt;= 0:
+            return []
+        resultExOr = self.ExOr(array)
+        i = 0
+        while resultExOr and i &lt;= 32:
+            i += 1
+            resultExOr = resultExOr&gt;&gt;1
+        num1, num2 = [], []
+        for num in array:
+            if self.bitIs1(num, i):
+                num1.append(num)
+            else:
+                num2.append(num)
+        first = self.ExOr(num1)
+        second = self.ExOr(num2)
+        return [first, second]
+    def ExOr(self, aList):
+        ExOrNum = 0
+        for i in aList:
+            ExOrNum = ExOrNum ^ i
+        return ExOrNum
+    def bitIs1(self, n, i):
+        n = n &gt;&gt; (i-1)
+        return n &amp; 1
+aList = [2, 4, 3, 6, 3, 2, 5, 5]
+s = Solution()
+print(s.FindNumsAppearOnce(aList))
+</code></pre></blockquote>
+<p>扩展：数组中唯一只出现一次的数字<br>在一个数组中除一个数只出现一次外，其他数字都出现了三次，请找出只出现一次的数字</p>
+<blockquote>
+<pre><code>public int singleNumber(int[] A) {  
+       int ones=0;  
+       int twos=0;  
+       int xthrees=0;  
+       for(int i = 0;i &lt;A.length;i++){  
+               twos ^= (ones&amp;A[i]);  
+               ones ^= A[i];  
+               xthrees = ~(ones&amp;twos);  
+               twos &amp;= xthrees;  
+               ones &amp;=xthrees;  
+        }  
+        return ones;  
+   }  
+</code></pre></blockquote>
+<p>56.<strong>和为s的两个数字</strong><br>输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，<br>如果有多对数字的和等于S，输出两个数的乘积最小的。<br>对应每个测试案例，输出两个数，小的先输出。<br>思路：定义两个指针，前面的指针指向第一个数字，第二个指针指向最后一个数字，当这两个指针指向的数字和大于s时，后面的指针向前移动，如果她们的和小于s时，前面的指针向后移动，O(n),代码如下：</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    # 从左右一起查找
+    # 因为当两个数的和一定的时候, 两个数字的间隔越大, 乘积越小
+    # 所以直接输出查找到的第一对数即可
+    def FindNumbersWithSum(self, array, tsum):
+        if array == None or len(array) &lt;= 0 or array[-1] + array[-2] &lt; tsum:
+            return []
+        start = 0
+        end = len(array)-1
+        while start &lt; end:
+            sum = array[start] + array[end]
+            if sum &lt; tsum:
+                start += 1
+            elif sum &gt; tsum:
+                end -= 1
+            else:
+                return [array[start], array[end]]
+        return []
+test = [1,2,4,7,11,15]
+s = Solution()
+print(s.FindNumbersWithSum(test, 15))
+</code></pre></blockquote>
+<p>扩展：和为s的连续整数序列<br>思路：设定两个指针，先分别指向数字1和数字2，并设这两个指针为small和big，对small和big求和，如果和大于目标值，则从当前和中删除small值，并把small值加一，如果和小于目标值，则把big值加一，再把新的big值加入和中。如果和等于目标值，就输出small到big的序列，同时把big加一并加入和中，继续之前的操作。</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    def FindContinuousSequence(self, tsum):
+        # write code here
+        A=[]
+        for i in range(1,tsum):
+            sum=i
+            B=[]
+            B.append(i)
+            i=i+1
+            sum+=i
+            B.append(i)
+            while sum&lt;tsum:
+                i+=1
+                sum=i+sum
+                B.append(i)
+            if sum==tsum:
+                A.append(B)
+        return A
+test = [1,2,4,7,11,15]
+s = Solution()
+print(s.FindContinuousSequence(100))
+</code></pre></blockquote>
+<p>57.<strong>翻转单词顺序</strong><br>输入一个英文句子, 翻转句子中单词的顺序,但单词内字符的顺序不变，为简单起见, 标点符号和普通字母一样处理，I am a student. 输出student. a am I<br>思路1：先反转所有字符，然后再以单词为单位翻转单词内部字符，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    # 按照书上的方法进行编写
+    # 因为Python的字符串结束没有结束符, 所以需要判断最后的pEnd是否已经指到最后一个字符
+    # 如果已经指到最后一个字符, 则直接在复制之后跳出循环
+    # 测试用例&apos;I am a student.&apos;和&apos; &apos;和&apos;&apos;
+    def ReverseSentence(self, s):
+        if s == None or len(s) &lt;= 0:
+            return &apos;&apos;
+        strList = list(s)
+        strList = self.Reverse(strList)
+        pBegin = 0
+        pEnd = 0
+        resultStr = &apos;&apos;
+        listTemp = []
+        while pEnd &lt; len(s):
+            # 如果字符串长度为1, 直接跳出循环
+            # 如果pEnd指针指到最后一个字符, 跳出循环
+            if pEnd == len(s)-1:
+                listTemp.append(self.Reverse(strList[pBegin:]))
+                break
+            # 这个判断语句位置需要靠前, 用来鉴定字符串开头是否是空格的情况
+            if strList[pBegin] == &apos; &apos;:
+                pBegin += 1
+                pEnd += 1
+                listTemp.append(&apos; &apos;)
+            elif strList[pEnd] == &apos; &apos;:
+                listTemp.append(self.Reverse(strList[pBegin:pEnd]))
+                pBegin = pEnd
+            else:
+                pEnd += 1
+        # print(listTemp)
+        for i in listTemp:
+            resultStr += &apos;&apos;.join(i)
+        return resultStr
+    # 翻转字符list
+    def Reverse(self, alist):
+        if alist == None or len(alist) &lt;= 0:
+            return &apos;&apos;
+        startIndex = 0
+        endIndex = len(alist) - 1
+        while startIndex &lt; endIndex:
+            alist[startIndex], alist[endIndex] = alist[endIndex], alist[startIndex]
+            startIndex += 1
+            endIndex -= 1
+        return alist
+</code></pre></blockquote>
+<p>思路2:使用pythonic</p>
+<blockquote>
+<pre><code>def ReverseSentence2(self, s):
+    l = s.split(&apos; &apos;)
+    return &apos; &apos;.join(l[::-1])
+</code></pre></blockquote>
+<p>扩展：坐旋转字符串<br>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。<br>对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。<br>例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。<br>思路1：把字符串分成两个部分，一部分是要后移的，一部分后面不动的，分别将两个进行反转，然后整体翻转，代码如下：</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    def LeftRotateString(self, s, n):
+        if len(s) &lt;= 0 or len(s) &lt; n or n &lt; 0:
+            return &apos;&apos;
+        strList= list(s)
+        self.Reverse(strList)
+        length = len(s)
+        pivot = length - n
+        frontList = self.Reverse(strList[:pivot])
+        behindList = self.Reverse(strList[pivot:])
+        resultStr = &apos;&apos;.join(frontList) + &apos;&apos;.join(behindList)
+        return resultStr
+    def Reverse(self, alist):
+        if alist == None or len(alist) &lt;= 0:
+            return &apos;&apos;
+        startIndex = 0
+        endIndex = len(alist) - 1
+        while startIndex &lt; endIndex:
+            alist[startIndex], alist[endIndex] = alist[endIndex], alist[startIndex]
+            startIndex += 1
+            endIndex -= 1
+        return alist
+test = &apos;abcdefg&apos;
+s = Solution()
+print(s.LeftRotateString(test, 2))
+</code></pre></blockquote>
+<p>思路2:pythonic</p>
+<blockquote>
+<pre><code>class Solution:
+    def Reverse(self, alist,k):
+        return alist[k:]+alist[:k]
+test = &apos;abcdefg&apos;
+s = Solution()
+print(s.Reverse(test, 2))
+</code></pre></blockquote>
+<p>58.<strong>队列的最大值</strong><br>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。<br>例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，<br>他们的最大值分别为{4,4,6,6,6,5}；针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个：<br>{[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    def maxInWindows(self, num, size):
+        if not num or size &lt;= 0:
+            return []
+        deque = []
+        if len(num) &gt;= size:
+            index = []
+            for i in range(size):
+                while len(index) &gt; 0 and num[i] &gt; num[index[-1]]:
+                    index.pop()
+                index.append(i)
+            for i in range(size, len(num)):
+                deque.append(num[index[0]])
+                while len(index) &gt; 0 and num[i] &gt;= num[index[-1]]:
+                    index.pop()
+                if len(index) &gt; 0 and index[0] &lt;= i - size:
+                    index.pop(0)
+                index.append(i)
+            deque.append(num[index[0]])
+        return deque
+test = [2, 3, 4, 2, 6, 2, 5, 1]
+s = Solution()
+print(s.maxInWindows(test, 3))
+</code></pre></blockquote>
+<p>扩展：队列的最大值<br>思路：滑动窗口可以看成一个队列，上题的解法可以用来实现带max函数的队列，用两个栈设计一个新的数据类型（数据类型定义为MyStack），其中一个栈用来存放数据,另一个栈用来存放最大值，</p>
+<p>当插入数据时，第一个栈接受数据进行入栈操作，第二栈首先判断一下栈顶元素和插入元素的大小，如果栈顶元素小于新插入的元素，那么，第二个堆栈进行入栈操作，如果栈顶元素小于新插入的元素的大小，第二个栈不做操作！！！</p>
+<p>当删除元素时，第一个栈直接进行出栈操作，第二个栈拿出栈顶元素和第一个栈中出栈元素进行比较，如果相等，第二个栈进行出栈操作，否则不做操作，第二个栈的栈顶元素就是最大值，代码如下：</p>
+<blockquote>
+<pre><code>import java.util.Stack;
+public class MyStack {
+    private Stack&lt;integer&gt; stack1 = new Stack&lt;integer&gt;();
+    private Stack&lt;integer&gt; stack2 = new Stack&lt;integer&gt;();
+    public void push(int e) {
+        stack1.push(e);
+        if (stack2.size() == 0 || stack2.peek() &lt; e) {
+            stack2.push(e);
+        }
+    }
+    public int pop() {
+        int temp = stack1.pop();
+        if (temp == stack2.peek()) {
+            stack2.pop();
+        }
+        return temp;
+    }
+    public int max() {
+        if (stack2.size() != 0) {
+            return stack2.peek();
+        } else {
+            return 0;
+        }
+    }
+    public int size() {
+        return stack1.size();
+    }
+    public static void main(String[] args) {
+        MyStack myStack = new MyStack();
+        myStack.push(4);
+        myStack.push(8);
+        myStack.push(6);
+        myStack.push(5);
+        myStack.push(3);
+        myStack.push(9);
+        myStack.push(3);
+        myStack.push(14);
+        System.out.println(myStack.max());
+        myStack.pop();
+        myStack.pop();
+        myStack.pop();
+        System.out.println(myStack.max());
+    }
+}
+</code></pre></blockquote>
+<p>59.<strong>n个骰子的点数</strong><br>把n个骰子扔在地上, 所有骰子朝上一面的点数和为s。输入n, 打印出s的所有可能的值出现的概率<br>思路：用两个数组来存储骰子点数的每一个总数出现次数。在一次循环中，第一个数组中的第n个数字表示骰子和为n出现的次数。在下一次循环中加入一个新的骰子，此时和为n的骰子出现的次数应该等于上一次循环中骰子点数和为n-1，n-2，n-3，n-4，n-5，n-6的次数的总和，也就是把另一个数组的第n个数字对应上一个数组的n-1，n-2，n-3，n-4，n-5，n-6的次数的总和。同时需要注意的是，每次使用新数组的时候，需要把数组所有位置清零，因为我们对于第n位进行的累加操作，如果之前第n位有数字但不清零的话，会导致结果偏大。代码如下：</p>
+<blockquote>
+<pre><code># 基于循环求点数, 时间性能好
+def PrintProbability(number):
+    if number &lt; 1:
+        return
+    maxVal = 6
+    # 构造两个数组来存储骰子点数的每一个总数出现的次数
+    # 在一次循环中, 第一个数组中的第n个数字表示骰子和为n出现的次数
+    # 在下次循环中, 另一个数组的第n个数字设为前一个数组对应的第n-1、n-2、n-3、n-4、n-5、n-6之和
+    probStorage = [[], []]
+    probStorage[0] = [0]*(maxVal * number + 1)
+    flag = 0
+    for i in range(1, maxVal+1):
+        probStorage[flag][i] = 1
+    for time in range(2, number+1):
+        probStorage[1-flag] = [0]*(maxVal * number + 1)
+        for pCur in range(time, maxVal*time+1):
+            diceNum = 1
+            while diceNum &lt; pCur and diceNum &lt;= maxVal:
+                probStorage[1-flag][pCur] += probStorage[flag][pCur-diceNum]
+                diceNum += 1
+        flag = 1 - flag
+    total = maxVal ** number
+    for i in range(number, maxVal*number+1):
+        ratio = probStorage[flag][i] / float(total)
+        print(&quot;{}: {:e}&quot;.format(i, ratio))
+s = PrintProbability(5)
+</code></pre></blockquote>
+<p>60.<strong>扑克排中的顺子</strong><br>随机从扑克牌中抽出了5张牌,判断是不是顺子,<br>决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。<br>思路：先置换特殊字符AJQK为数字，排序，然后求出大小王即0的个数，然后求出除去0之外的，数组间的数字间隔(求间隔的时候记得减去1，比如4和5的间隔为5-4-1，表示4和5是连续的数字)，同时求间隔的时候需要鉴别是否出现对。最后比较0的个数和间隔的大小即可。<br>代码如下：</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    def IsContinuous(self, numbers):
+        if numbers == None or len(numbers) &lt;= 0:
+            return False
+        # 把A、J、Q、K转化一下
+        transDict = {&apos;A&apos;: 1, &apos;J&apos;: 11, &apos;Q&apos;: 12, &apos;K&apos;: 13}
+        for i in range(len(numbers)):
+            if numbers[i] in transDict.keys():
+                numbers[i] = transDict[numbers[i]]
+        numbers = sorted(numbers)
+        numberOfzero = 0
+        numberOfGap = 0
+        # 统计0的个数
+        i = 0
+        while i &lt; len(numbers) and numbers[i] == 0:
+            numberOfzero += 1
+            i += 1
+        # 统计间隔的数目
+        small = numberOfzero
+        big = small + 1
+        while big &lt; len(numbers):
+            # 出现对子, 不可能是顺子
+            if numbers[small] == numbers[big]:
+                return False
+            numberOfGap += numbers[big] - numbers[small] - 1
+            small = big
+            big += 1
+        return False if numberOfGap &gt; numberOfzero else True
+test = [&apos;A&apos;, 3, 2, 5, 0]
+test2 = [0, 3, 1, 6, 4]
+s = Solution()
+print(s.IsContinuous(test))
+</code></pre></blockquote>
+<p>61.<strong>圆圈中最后剩下的数字</strong><br>0, 1, 2, n-1这n个数字排成一个圆环, 从数字0开始每次从这个圆圈里删除第m个数字求这个圆圈中最后剩下的一个数字<br>思路1:使用环形链表存储，每次删除第m个节点，o（mn）</p>
+<p>思路2:找规律，删除第k个数字后，将剩余的数字重新映射成0～n-2上，重复上述操作，直到剩下一个数字，O（n），代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def LastRemaining_Solution(self, n, m):
+        if n &lt; 1 or m &lt; 1:
+            return -1
+        remainIndex = 0
+        for i in range(1, n+1):
+            remainIndex = (remainIndex + m) % i
+        return remainIndex
+s=Solution()
+print s.LastRemaining_Solution(8,3)
+</code></pre></blockquote>
+<p>62.<strong>股票的最大利润</strong><br>思路：定义两个变量，最低价格，和最大收益，每次扫描股票价格，用当前的价格减去最低价格，如果收益大于最大收益，更新最大收益，同时如果当前股票价格比最低价格低，则更新最低价格，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def best_benifit(self,lists):
+        if lists==None or len(lists)==0:
+            return 0
+        mins,maxs=lists[0],lists[0]
+        for i in range(1,len(lists)):
+            tmp=lists[i]-mins
+            if tmp&gt;maxs:
+                maxs=tmp
+            if lists[i]&lt;mins:
+                mins=lists[i]
+        return maxs
+s=Solution()
+print s.best_benifit([9,11,8,5,7,12,16,14])
+</code></pre></blockquote>
+<p>63.<strong>求1+2+….+n</strong><br>求1+2+3+…+n，<br>要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）<br>思路：利用两个函数，一个函数充当递归函数的角色，另一个函数处理终止递归的情况。如果对n连续进行两次反运算，那么非零的n转换为True，0转换为False。利用这一特性终止递归。注意考虑测试用例为0的情况。代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def Sum_Solution(self, n):
+        return self.sumN(n)
+    def sum0(self, n):
+        return 0
+    # 利用非0值作两次非运算返回false, 0作两次非运算返回True
+    def sumN(self, n):
+        fun = {False: self.sum0, True: self.sumN}
+        # 此处的fun[not not n] 不能写作func[not not n-1], 否则测试用例为0的话, 就会无限次迭代
+        return n + fun[not not n](n - 1)
+    def Sum_Solution2(self, n):
+        return n and self.Sum_Solution(n - 1) + n
+s = Solution()
+print(s.Sum_Solution(5))
+</code></pre></blockquote>
+<p>64.<strong>不用加减乘除做加法</strong><br>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。<br>思路：将两个数的加法看作两步，第一步是两个数相加但是不进位，第二步是记录之前的两数相加应该进位的地方加上前一个相加但是不进位的数。对于具体的两个不小于0的数m和n，第一步可以看做m和n的异或运算m^n，第二步可以看做m和n的与运算然后左移一位得到实际的进位位置(m&amp;n)&lt;&lt;1。然后把两个得到的数字加起来继续操作，指到carry进位为0终止操作，代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+    def Add(self, num1, num2):
+        while num2:
+            sum = num1 ^ num2
+            carry = (num1 &amp; num2) &lt;&lt; 1
+            num1 = sum
+            num2 = carry
+        return num1
+s = Solution()
+print(s.Add(4, 2))
+</code></pre></blockquote>
+<p>65.<strong>构建乘积数组</strong><br>给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1]<br>其中B中的元素B[i]=A[0]<em>A[1]</em>…<em>A[i-1]</em>A[i+1]<em>…</em>A[n-1]。不能使用除法。</p>
+<blockquote>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    def multiply(self, A):
+        if A == None or len(A) &lt;= 0:
+            return
+        length = len(A)
+        aList = [1] * length
+        for i in range(1, length):
+            aList[i] = aList[i-1] * A[i-1]
+        temp = 1
+        for i in range(length-2, -1, -1):
+            temp = temp * A[i+1]
+            aList[i] *= temp
+        return aList
+test = [1, 2, 3, 4]
+s = Solution()
+print(s.multiply(test))
+</code></pre></blockquote>
+<p>66.<strong>把字符串转换为整数</strong><br>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数</p>
+<pre><code># -*- coding:utf-8 -*-
+class Solution:
+    # 如果输出是0, 通过检查flag判断输入不合法还是输入直接是&apos;0&apos;
+    def StrToInt(self, s):
+        flag = False
+        if s == None or len(s) &lt; 1:
+            return 0
+        numStack = []
+        dict = {&apos;0&apos;: 0, &apos;1&apos;: 1, &apos;2&apos;: 2, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;5&apos;: 5, &apos;6&apos;: 6, &apos;7&apos;: 7, &apos;8&apos;: 8, &apos;9&apos;: 9}
+        for i in s:
+            if i in dict.keys():
+                numStack.append(dict[i])
+            elif i == &apos;+&apos;:
+                continue
+            elif i == &apos;-&apos;:
+                continue
+            else:
+                return 0
+        print(numStack)
+        ans = 0
+        if len(numStack) == 1 and numStack[0] == 0:
+            flag = True
+            return 0
+        for i in numStack:
+            ans = ans*10 + i
+        if s[0] == &apos;-&apos;:
+            ans = 0 - ans
+        return ans
+test = &apos;-123-56&apos;
+s = Solution()
+print(s.StrToInt(test))
+</code></pre><p>65.<strong>二叉树的最低公共祖先</strong><br>代码如下：</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+class Solution:
+    &quot;&quot;&quot;
+    @param root: The root of the binary search tree.
+    @param A and B: two nodes in a Binary.
+    @return: Return the least common ancestor(LCA) of the two nodes.
+    &quot;&quot;&quot;
+    def lowestCommonAncestor(self, root, A, B):
+        # write your code here
+        if root == None:
+            return False
+        pathA = self.storeNodes(root, A)[0]
+        pathB = self.storeNodes(root, B)[0]
+        if pathA and pathB:
+            lenA, lenB = len(pathA), len(pathB)
+            diff = abs(lenA - lenB)
+            if lenA &gt; lenB:
+                markA = lenA - diff - 1
+                markB = lenB - 1
+            else:
+                markA = lenA - 1
+                markB = lenB - diff - 1
+            while markA &gt;= 0 and markB &gt;= 0:
+                if pathA[markA] == pathB[markB]:
+                    return pathA[markA]
+                markA -= 1
+                markB -= 1
+    def storeNodes(self, root, targetNode):
+        if root == None or targetNode == None:
+            return []
+        elif root.val == targetNode.val:
+            return [[targetNode]]
+        stack = []
+        if root.left:
+            stackLeft = self.storeNodes(root.left, targetNode)
+            for i in stackLeft:
+                i.insert(0, root)
+                stack.append(i)
+        if root.right:
+            stackRight = self.storeNodes(root.right, targetNode)
+            for i in stackRight:
+                i.insert(0, root)
+                stack.append(i)
+        return stack
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
+<ol>
+<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
+<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
+<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
+<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
+</ol>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+# @return a list of lists of string
+    def solveNQueens(self, n):
+        def check(k,j,board):
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth,board,valuelist,solution):
+        #for i in range(len(board)):
+            if depth==len(board):
+                solution.append(valuelist)
+            for row in range(len(board)):
+                if check(depth,row,board):
+                    s=&apos;.&apos;*len(board)
+                    board[depth]=row
+                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
+        board=[-1 for i in range(n)]
+        solution=[]
+        dfs(0,board,[],solution)
+        return solution
+</code></pre></blockquote>
 
         
         
@@ -1481,7 +3280,7 @@ print  S.printMatrix(matrix)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -1568,7 +3367,7 @@ class Trie(object):       #树结构
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -1759,7 +3558,7 @@ def radix_sort(lists, radix=10):
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -1840,7 +3639,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -1904,7 +3703,7 @@ print count
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -1970,10 +3769,10 @@ print min(counts1,len(data)-counts1)
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -1981,7 +3780,7 @@ print min(counts1,len(data)-counts1)
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -2003,7 +3802,7 @@ print min(counts1,len(data)-counts1)
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
     </ul>
@@ -2013,11 +3812,11 @@ print min(counts1,len(data)-counts1)
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS</a>
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -2165,7 +3964,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
