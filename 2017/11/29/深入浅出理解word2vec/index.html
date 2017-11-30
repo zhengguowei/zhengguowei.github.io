@@ -4,23 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>实现一个包含insert、search、和startWith的前缀树 | Cindy</title>
+    <title>深入浅出理解word2vec | Cindy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="Tri树，又称为词典树，单词查找树活着前缀树，是一种用于快速检索的多叉树结构，insert、search、和startWith方法实现代码如下：  class TrieNode(object):   #节点结构     def __init__(self):         self.children = {}         self.IsWord = False class Trie(obje">
+    <meta name="description" content="传统表示文本的模型有以下几个缺点：数据稀疏、词表维度随着语料库增长膨胀，无法衡量词与词之间的语义关系，word2vec模型的提出可以很好的解决这个问题，word2vec是Google在2013年年中开源的一款将词表征为实数值向量的高效工具，采用的模型有CBOW(Continuous Bag-Of-Words，即连续的词袋模型） 和Skip-Gram两种。  共现矩阵 首先就是共现矩阵，局域窗口中的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现一个包含insert、search、和startWith的前缀树">
-<meta property="og:url" content="http://yoursite.com/2017/10/17/实现一个包含insert、search、和startWith的前缀树/index.html">
+<meta property="og:title" content="深入浅出理解word2vec">
+<meta property="og:url" content="http://yoursite.com/2017/11/29/深入浅出理解word2vec/index.html">
 <meta property="og:site_name" content="Cindy">
-<meta property="og:description" content="Tri树，又称为词典树，单词查找树活着前缀树，是一种用于快速检索的多叉树结构，insert、search、和startWith方法实现代码如下：  class TrieNode(object):   #节点结构     def __init__(self):         self.children = {}         self.IsWord = False class Trie(obje">
-<meta property="og:updated_time" content="2017-10-17T08:11:53.000Z">
+<meta property="og:description" content="传统表示文本的模型有以下几个缺点：数据稀疏、词表维度随着语料库增长膨胀，无法衡量词与词之间的语义关系，word2vec模型的提出可以很好的解决这个问题，word2vec是Google在2013年年中开源的一款将词表征为实数值向量的高效工具，采用的模型有CBOW(Continuous Bag-Of-Words，即连续的词袋模型） 和Skip-Gram两种。  共现矩阵 首先就是共现矩阵，局域窗口中的">
+<meta property="og:image" content="http://yoursite.com/2017/11/29/深入浅出理解word2vec/nnlm.png">
+<meta property="og:image" content="http://yoursite.com/2017/11/29/深入浅出理解word2vec/voc.png">
+<meta property="og:image" content="http://yoursite.com/2017/11/29/深入浅出理解word2vec/model.png">
+<meta property="og:image" content="http://yoursite.com/2017/11/29/深入浅出理解word2vec/nnlm_com.png">
+<meta property="og:updated_time" content="2017-11-30T06:48:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现一个包含insert、search、和startWith的前缀树">
-<meta name="twitter:description" content="Tri树，又称为词典树，单词查找树活着前缀树，是一种用于快速检索的多叉树结构，insert、search、和startWith方法实现代码如下：  class TrieNode(object):   #节点结构     def __init__(self):         self.children = {}         self.IsWord = False class Trie(obje">
+<meta name="twitter:title" content="深入浅出理解word2vec">
+<meta name="twitter:description" content="传统表示文本的模型有以下几个缺点：数据稀疏、词表维度随着语料库增长膨胀，无法衡量词与词之间的语义关系，word2vec模型的提出可以很好的解决这个问题，word2vec是Google在2013年年中开源的一款将词表征为实数值向量的高效工具，采用的模型有CBOW(Continuous Bag-Of-Words，即连续的词袋模型） 和Skip-Gram两种。  共现矩阵 首先就是共现矩阵，局域窗口中的">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/29/深入浅出理解word2vec/nnlm.png">
 
     
     
@@ -76,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/" title="实现一个包含insert、search、和startWith的前缀树" itemprop="url">实现一个包含insert、search、和startWith的前缀树</a>
+      <a href="/2017/11/29/深入浅出理解word2vec/" title="深入浅出理解word2vec" itemprop="url">深入浅出理解word2vec</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-11-29T02:21:23.000Z" itemprop="datePublished"> Published 2017-11-29</time>
     
   </p>
 </header>
@@ -96,39 +101,11 @@
 		
 		</div>
 		
-		<p>Tri树，又称为词典树，单词查找树活着前缀树，是一种用于快速检索的多叉树结构，insert、search、和startWith方法实现代码如下：</p>
-<blockquote>
-<pre><code>class TrieNode(object):   #节点结构
-    def __init__(self):
-        self.children = {}
-        self.IsWord = False
-class Trie(object):       #树结构
-    def __init__(self):
-        self.root = TrieNode()
-    def insert(self, word):   #插入方法
-        node = self.root
-        for letter in word:
-            child = node.children.get(letter)
-            if child is None:
-                child = TrieNode()
-                node.children[letter] = child
-            node = child
-        node.IsWord = True
-    def search(self, word):  #查询方法
-        node = self.root
-        for letter in word:
-            node = node.children.get(letter)
-            if node is None:
-                return False
-        return node.IsWord
-    def startsWith(self, prefix):   #是否含有以prefix开头的方法
-        node = self.root
-        for letter in prefix:
-            node = node.children.get(letter)
-            if node is None:
-                return False
-        return True
-</code></pre></blockquote>
+		<p>传统表示文本的模型有以下几个缺点：数据稀疏、词表维度随着语料库增长膨胀，无法衡量词与词之间的语义关系，word2vec模型的提出可以很好的解决这个问题，word2vec是Google在2013年年中开源的一款将词表征为实数值向量的高效工具，采用的模型有CBOW(Continuous Bag-Of-Words，即连续的词袋模型） 和Skip-Gram两种。</p>
+<ol>
+<li>共现矩阵<br> 首先就是共现矩阵，局域窗口中的word-word共现矩阵可以挖掘语法和语义信息，通常表示在一个窗口中常出现词的关系，windows length 一般设为5-10，且使用对称的窗函数，共现矩阵为对称矩阵，该表示方法仍然存在以下问题：向量维数随着词典的大小线性增长、存储词典空间消耗非常大、文本模型面临稀疏性问题和模型欠稳定，解决以上问题，提出使用降维，如SVD降维，SVD降维存在以下问题：计算量太大( 对X(n,n)矩阵降纬计算量为O(n^3))、难以为辞典中加入的次分配词向量、与其他深度学习模型框架差异大。</li>
+<li>NNLM(Neural Network Languuage model)<br> 直接从语言模型出发，将模型最优化过程转换为求词向量表示的过程，目标函数如下：<br> <center><img width="500" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/nnlm.png"></center><br> 模型使用非对称前向窗口函数，窗长度为n-1，通过滑动窗口遍历整个语料库求和，计算量正比于语料库大小，概率P满足归一化条件，这样不同位置t处的概率才能相加，如下式：<center><img width="500" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/voc.png"></center><br> 模型结构如下：<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/model.png"></center><br> 计算具体流程如下：<br> （1）将C投影矩阵进行初始化；<br> （2）输入层表示为one-hot，并将该向量和prejection layer的投影矩阵进行映射取出对应的列向量；<br> （3）将得到的每个列向量进行拼接，把拼接好的向量和隐藏层进行全联接计算（激活函数一般为tanh）；<br> （4）将上一步得到的量进行一些w组合进行softmax分类，使待预测值的概率最大；<br> （5）使用BP和SGD进行优化（设一个cross-entropy的loss），最终得到投影矩阵C的各个值，训练结束。<br> 计算复杂度：<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/nnlm_com.png"></center><br> 每个训练样本的计算复杂度:N×D+N×D×H+H×V， 一个简单模型在大数据量上的表现比复杂模型在少数据量上的表现会好</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -146,7 +123,7 @@ class Trie(object):       #树结构
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/17/实现一个包含insert、search、和startWith的前缀树/" data-title="实现一个包含insert、search、和startWith的前缀树 | Cindy" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/11/29/深入浅出理解word2vec/" data-title="深入浅出理解word2vec | Cindy" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -159,19 +136,11 @@ class Trie(object):       #树结构
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/18/剑指offer/" title="剑指offer">
-  <strong>上一篇：</strong><br/>
-  <span>
-  剑指offer</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/17/常用八大排序算法/"  title="常用八大排序算法">
+<a href="/2017/10/22/身高差最小/"  title="身高差最小">
  <strong>下一篇：</strong><br/> 
- <span>常用八大排序算法
+ <span>身高差最小
 </span>
 </a>
 </div>

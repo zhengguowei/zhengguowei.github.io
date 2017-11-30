@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -74,6 +74,65 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/11/29/深入浅出理解word2vec/" title="深入浅出理解word2vec" itemprop="url">深入浅出理解word2vec</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-29T02:21:23.000Z" itemprop="datePublished"> Published 2017-11-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>传统表示文本的模型有以下几个缺点：数据稀疏、词表维度随着语料库增长膨胀，无法衡量词与词之间的语义关系，word2vec模型的提出可以很好的解决这个问题，word2vec是Google在2013年年中开源的一款将词表征为实数值向量的高效工具，采用的模型有CBOW(Continuous Bag-Of-Words，即连续的词袋模型） 和Skip-Gram两种。</p>
+<ol>
+<li>共现矩阵<br> 首先就是共现矩阵，局域窗口中的word-word共现矩阵可以挖掘语法和语义信息，通常表示在一个窗口中常出现词的关系，windows length 一般设为5-10，且使用对称的窗函数，共现矩阵为对称矩阵，该表示方法仍然存在以下问题：向量维数随着词典的大小线性增长、存储词典空间消耗非常大、文本模型面临稀疏性问题和模型欠稳定，解决以上问题，提出使用降维，如SVD降维，SVD降维存在以下问题：计算量太大( 对X(n,n)矩阵降纬计算量为O(n^3))、难以为辞典中加入的次分配词向量、与其他深度学习模型框架差异大。</li>
+<li>NNLM(Neural Network Languuage model)<br> 直接从语言模型出发，将模型最优化过程转换为求词向量表示的过程，目标函数如下：<br> <center><img width="500" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/nnlm.png"></center><br> 模型使用非对称前向窗口函数，窗长度为n-1，通过滑动窗口遍历整个语料库求和，计算量正比于语料库大小，概率P满足归一化条件，这样不同位置t处的概率才能相加，如下式：<center><img width="500" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/voc.png"></center><br> 模型结构如下：<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/model.png"></center><br> 计算具体流程如下：<br> （1）将C投影矩阵进行初始化；<br> （2）输入层表示为one-hot，并将该向量和prejection layer的投影矩阵进行映射取出对应的列向量；<br> （3）将得到的每个列向量进行拼接，把拼接好的向量和隐藏层进行全联接计算（激活函数一般为tanh）；<br> （4）将上一步得到的量进行一些w组合进行softmax分类，使待预测值的概率最大；<br> （5）使用BP和SGD进行优化（设一个cross-entropy的loss），最终得到投影矩阵C的各个值，训练结束。<br> 计算复杂度：<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/nnlm_com.png"></center><br> 每个训练样本的计算复杂度:N×D+N×D×H+H×V， 一个简单模型在大数据量上的表现比复杂模型在少数据量上的表现会好</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/22/身高差最小/" title="身高差最小" itemprop="url">身高差最小</a>
   </h1>
   <p class="article-author">By
@@ -81,7 +140,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> 发表于 2017-10-22</time>
+    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> Published 2017-10-22</time>
     
   </p>
 </header>
@@ -154,7 +213,7 @@ print maxnum
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
+    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> Published 2017-10-20</time>
     
   </p>
 </header>
@@ -229,7 +288,7 @@ if __name__==&apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
+    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> Published 2017-10-19</time>
     
   </p>
 </header>
@@ -304,6 +363,91 @@ def level_order(tree):  #按层次遍历
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
+<ol>
+<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
+<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
+<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
+<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
+</ol>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+# @return a list of lists of string
+    def solveNQueens(self, n):
+        def check(k,j,board):
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth,board,valuelist,solution):
+        #for i in range(len(board)):
+            if depth==len(board):
+                solution.append(valuelist)
+            for row in range(len(board)):
+                if check(depth,row,board):
+                    s=&apos;.&apos;*len(board)
+                    board[depth]=row
+                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
+        board=[-1 for i in range(n)]
+        solution=[]
+        dfs(0,board,[],solution)
+        return solution
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/18/剑指offer/" title="剑指offer" itemprop="url">剑指offer</a>
   </h1>
   <p class="article-author">By
@@ -311,7 +455,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
     
   </p>
 </header>
@@ -457,33 +601,33 @@ if __name__==&apos;__main__&apos;:
 <p>6.<strong>二叉树的下一个结点</strong><br>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
 <blockquote>
 <pre><code>class Solution2:
-def GetNext(self, pNode):
-    # 输入是一个空节点
-    if pNode == None:
-        return None
-    # 注意当前节点是根节点的情况。所以在最开始设定pNext = None, 如果下列情况都不满足, 说明当前结点为根节点, 直接输出None
-    pNext = None
-    # 如果输入节点有右子树，则下一个结点是当前节点右子树中最左节点
-    if pNode.right:
-        pNode = pNode.right
-        while pNode.left:
-            pNode = pNode.left
-        pNext = pNode
-    else:
-        # 如果当前节点有父节点且当前节点是父节点的左子节点, 下一个结点即为父节点
-        if pNode.next and pNode.next.left == pNode:
-            pNext = pNode.next
-        # 如果当前节点有父节点且当前节点是父节点的右子节点, 那么向上遍历
-        # 当遍历到当前节点为父节点的左子节点时, 输入节点的下一个结点为当前节点的父节点
-        elif pNode.next and pNode.next.right == pNode:
-            pNode = pNode.next
-            while pNode.next and pNode.next.right == pNode:
-                pNode = pNode.next
-            # 遍历终止时当前节点有父节点, 说明当前节点是父节点的左子节点, 输入节点的下一个结点为当前节点的父节点
-            # 反之终止时当前节点没有父节点, 说明当前节点在位于根节点的右子树, 没有下一个结点
-            if pNode.next:
+    def GetNext(self, pNode):
+        # 输入是一个空节点
+        if pNode == None:
+            return None
+        # 注意当前节点是根节点的情况。所以在最开始设定pNext = None, 如果下列情况都不满足, 说明当前结点为根节点, 直接输出None
+        pNext = None
+        # 如果输入节点有右子树，则下一个结点是当前节点右子树中最左节点
+        if pNode.right:
+            pNode = pNode.right
+            while pNode.left:
+                pNode = pNode.left
+            pNext = pNode
+        else:
+            # 如果当前节点有父节点且当前节点是父节点的左子节点, 下一个结点即为父节点
+            if pNode.next and pNode.next.left == pNode:
                 pNext = pNode.next
-    return pNext
+            # 如果当前节点有父节点且当前节点是父节点的右子节点, 那么向上遍历
+            # 当遍历到当前节点为父节点的左子节点时, 输入节点的下一个结点为当前节点的父节点
+            elif pNode.next and pNode.next.right == pNode:
+                pNode = pNode.next
+                while pNode.next and pNode.next.right == pNode:
+                    pNode = pNode.next
+                # 遍历终止时当前节点有父节点, 说明当前节点是父节点的左子节点, 输入节点的下一个结点为当前节点的父节点
+                # 反之终止时当前节点没有父节点, 说明当前节点在位于根节点的右子树, 没有下一个结点
+                if pNode.next:
+                    pNext = pNode.next
+        return pNext
 </code></pre></blockquote>
 <p>7.<strong>斐波那契数列</strong><br>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。<br>思路1:采用循环，时间复杂度为O(n），代码如下：</p>
 <blockquote>
@@ -517,32 +661,32 @@ def GetNext(self, pNode):
          tempArray[(i + 1) % 2] = tempArray[0] + tempArray[1]
  return tempArray[(number + 1) % 2]
 </code></pre></blockquote>
-<p>8.<strong>旋转数组的最小数字</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。给出的所有元素都大于0，若数组大小为0，请返回0。<br>思路：如果遍历一遍，复杂度太高，可以采用二分查找，用两个指针分别指向第一个值和最后一个值，取中间的数，如果该数小于最前面的数，则该数在后面递增的数组里，将前面的指针指向该数，否则在前面递增的数组里，将后面的指针指向该数，将更新后的数组重复做以上操作，当两个指针距离是1时结束，返回后面的指针指向的数字。代码如下：</p>
+<p>8.<strong>旋转数组的最小数字</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。给出的所有元素都大于0，若数组大小为0，请返回0。<br>思路：如果遍历一遍，复杂度太高，可以采用二分查找，用两个指针分别指向第一个值和最后一个值，取中间的数，如果该数小于最前面的数，则该数在后面递增的数组里，将后面的指针指向该数，否则在前面递增的数组里，将前面的指针指向该数，将更新后的数组重复做以上操作，当两个指针距离是1时结束，返回后面的指针指向的数字。代码如下：</p>
 <blockquote>
 <pre><code>def minNumberInRotateArray2(rotateArray):
-if len(rotateArray) == 0:
-    return 0
-front, rear = 0, len(rotateArray) - 1
-midIndex = 0  #如果数组把前0个数移到后面，则直接返回第一个
-while rotateArray[front] &gt;= rotateArray[rear]:
-    if rear - front == 1:
-        midIndex = rear
-        break
-    midIndex = (front + rear) // 2
-    if rotateArray[front] == rotateArray[rear] and rotateArray[front] == rotateArray[midIndex]:
-        return MinInOrder(rotateArray, front, rear)
-    if rotateArray[midIndex] &gt;= rotateArray[front]:
-        front = midIndex
-    elif rotateArray[midIndex] &lt;= rotateArray[rear]:
-        rear = midIndex
-return rotateArray[midIndex]
-def MinInOrder( array, front, end):
-    result = array[0]
-    for i in array[front:end + 1]:
-        if i &lt; result:
-            result = i
-    return result
-print minNumberInRotateArray2([3,4,5,1,2])
+    if len(rotateArray) == 0:
+        return 0
+    front, rear = 0, len(rotateArray) - 1
+    midIndex = 0  #如果数组把前0个数移到后面，则直接返回第一个
+    while rotateArray[front] &gt;= rotateArray[rear]:
+        if rear - front == 1:
+            midIndex = rear
+            break
+        midIndex = (front + rear) // 2
+        if rotateArray[front] == rotateArray[rear] and rotateArray[front] == rotateArray[midIndex]:
+            return MinInOrder(rotateArray, front, rear)
+        if rotateArray[midIndex] &gt;= rotateArray[front]:
+            front = midIndex
+        elif rotateArray[midIndex] &lt;= rotateArray[rear]:
+            rear = midIndex
+    return rotateArray[midIndex]
+    def MinInOrder( array, front, end):
+        result = array[0]
+        for i in array[front:end + 1]:
+            if i &lt; result:
+                result = i
+        return result
+    print minNumberInRotateArray2([3,4,5,1,2])
 </code></pre></blockquote>
 <p>9.矩阵中的路径<br>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。例如 [[a b c e], [s f c s], [a d e e]]矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。<br>思路：递归的采用回溯法</p>
 <blockquote>
@@ -1510,7 +1654,8 @@ S = Solution()
 aList = S.Print(pNode1)
 for i in range(len(aList)):
     if i&amp;1==1:
-        print   aList[i].reservse() 
+        aList[i].reservse()
+        print  aList[i]
     else:
         print aList[i]     
 </code></pre></blockquote>
@@ -1721,7 +1866,10 @@ class Solution:
                 pStr.append(charList[i]+j)
         return pStr
 </code></pre></blockquote>
-<p>思路2：使用库函数，代买如下：<br>from itertools import permutations<br>def per(ss):<br>    for x in permutations(ss):<br>        print x</p>
+<p>思路2：使用库函数，代码如下：</p>
+<blockquote>
+<p>  from itertools import permutations<br>    def per(ss):<br>        for x in permutations(ss):<br>            print x</p>
+</blockquote>
 <p>扩展：扩展习题, 生成字符的所有组合，比如输入abc, 则他们的组合有[‘a’, ‘ab’, ‘abc’, ‘ac’, ‘b’, ‘bc’, ‘c’], ab和ba属于不同的排列, 但属于同一个组合</p>
 <blockquote>
 <pre><code>def group(self, ss):
@@ -3188,91 +3336,6 @@ class Solution:
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
-<ol>
-<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
-<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
-<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
-<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
-</ol>
-<p>代码如下：</p>
-<blockquote>
-<pre><code>class Solution:
-# @return a list of lists of string
-    def solveNQueens(self, n):
-        def check(k,j,board):
-            for i in range(k):
-                if board[i]==j or abs(k-i)==abs(board[i]-j):
-                    return False
-            return True
-        def dfs(depth,board,valuelist,solution):
-        #for i in range(len(board)):
-            if depth==len(board):
-                solution.append(valuelist)
-            for row in range(len(board)):
-                if check(depth,row,board):
-                    s=&apos;.&apos;*len(board)
-                    board[depth]=row
-                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
-        board=[-1 for i in range(n)]
-        solution=[]
-        dfs(0,board,[],solution)
-        return solution
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/" title="实现一个包含insert、search、和startWith的前缀树" itemprop="url">实现一个包含insert、search、和startWith的前缀树</a>
   </h1>
   <p class="article-author">By
@@ -3280,7 +3343,7 @@ class Solution:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -3367,7 +3430,7 @@ class Trie(object):       #树结构
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -3478,23 +3541,37 @@ def heap_sort(lists):
      adjust_heap(lists, 0, i)
 </code></pre></blockquote>
 </li>
-<li>归并排序<br><strong>思想：</strong>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。代码如下：<blockquote>
-<pre><code>def merge(left, right):
- i, j = 0, 0
- result = []
- while i &lt; len(left) and j &lt; len(right):
-     if left[i] &lt;= right[j]:
-         result.append(left[i])
-         i += 1
-     else:
-         result.append(right[j])
+<li><p>归并排序<br><strong>思想：</strong>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。代码如下：</p>
+<blockquote>
+<pre><code>def merge(a, b):
+ c = []
+ h = j = 0
+ while j &lt; len(a) and h &lt; len(b):
+     if a[j] &lt; b[h]:
+         c.append(a[j])
          j += 1
- result += left[i:]
- result += right[j:]
- return resu
+     else:
+         c.append(b[h])
+         h += 1
+ if j == len(a):
+     for i in b[h:]:
+         c.append(i)
+ else:
+     for i in a[j:]:
+         c.append(i)
+ return c
+def merge_sort(lists):
+ if len(lists) &lt;= 1:
+     return lists
+ mid = len(lists)/2
+ left = merge_sort(lists[:mid])
+ right = merge_sort(lists[mid:])
+ return merge(left, right)
+print merge_sort([1,3,2,6,4,9,7,8,11,23])
 </code></pre></blockquote>
 </li>
-<li>基数排序<br><strong>思想：</strong>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序     法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。代码如下：<blockquote>
+<li><p>基数排序<br><strong>思想：</strong>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序     法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。代码如下：</p>
+<blockquote>
 <pre><code>import math
 def radix_sort(lists, radix=10):
      k = int(math.ceil(math.log(max(lists), radix)))
@@ -3558,7 +3635,7 @@ def radix_sort(lists, radix=10):
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -3639,7 +3716,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -3690,89 +3767,16 @@ print count
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/17/黑白卡片翻转/" title="黑白卡片翻转" itemprop="url">黑白卡片翻转</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>牛牛有n张卡片排成一个序列.每张卡片一面是黑色的,另一面是白色的。初始状态的时候有些卡片是黑色朝上,有些卡片是白色朝上。牛牛现在想要把一些卡片翻过来,得到一种交替排列的形式,即每对相邻卡片的颜色都是不一样的。牛牛想知道最少需要翻转多少张卡片可以变成交替排列的形式。</p>
-<p><strong>思路：</strong><br>要得到交替排列形式，只有BWBWBW….或者WBWBWB…两种可能，只需要用两个变量记录得到这两种形式串所需要的步数即可，输出最小值</p>
-<blockquote>
-<pre><code>data=raw_input()
-counts1=0
-counts2=0
-for i in range(len(data)):
-    if i%2==0:
-        if data[i]==&apos;B&apos;:
-            continue
-        else:
-            counts1+=1
-    else:
-        if data[i]==&apos;W&apos;:
-            continue
-        else:
-            counts1+=1
-print min(counts1,len(data)-counts1)
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -3780,7 +3784,7 @@ print min(counts1,len(data)-counts1)
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -3792,7 +3796,7 @@ print min(counts1,len(data)-counts1)
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>24</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
 		  
 		
 		</ul>
@@ -3802,7 +3806,7 @@ print min(counts1,len(data)-counts1)
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -3812,11 +3816,11 @@ print min(counts1,len(data)-counts1)
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -3964,7 +3968,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

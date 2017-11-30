@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Cindy">
 <meta property="og:description" content="排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。排序分类如下图所示  排序分类有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序各排序算法思想和代码如下  快速排序思想：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的">
 <meta property="og:image" content="http://yoursite.com/2017/10/17/常用八大排序算法/sort.png">
-<meta property="og:updated_time" content="2017-10-17T06:41:46.000Z">
+<meta property="og:updated_time" content="2017-11-05T23:36:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用八大排序算法">
 <meta name="twitter:description" content="排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。排序分类如下图所示  排序分类有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序各排序算法思想和代码如下  快速排序思想：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -62,7 +62,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -85,14 +85,14 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			
 		
@@ -203,23 +203,37 @@ def heap_sort(lists):
      adjust_heap(lists, 0, i)
 </code></pre></blockquote>
 </li>
-<li>归并排序<br><strong>思想：</strong>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。代码如下：<blockquote>
-<pre><code>def merge(left, right):
- i, j = 0, 0
- result = []
- while i &lt; len(left) and j &lt; len(right):
-     if left[i] &lt;= right[j]:
-         result.append(left[i])
-         i += 1
-     else:
-         result.append(right[j])
+<li><p>归并排序<br><strong>思想：</strong>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。代码如下：</p>
+<blockquote>
+<pre><code>def merge(a, b):
+ c = []
+ h = j = 0
+ while j &lt; len(a) and h &lt; len(b):
+     if a[j] &lt; b[h]:
+         c.append(a[j])
          j += 1
- result += left[i:]
- result += right[j:]
- return resu
+     else:
+         c.append(b[h])
+         h += 1
+ if j == len(a):
+     for i in b[h:]:
+         c.append(i)
+ else:
+     for i in a[j:]:
+         c.append(i)
+ return c
+def merge_sort(lists):
+ if len(lists) &lt;= 1:
+     return lists
+ mid = len(lists)/2
+ left = merge_sort(lists[:mid])
+ right = merge_sort(lists[mid:])
+ return merge(left, right)
+print merge_sort([1,3,2,6,4,9,7,8,11,23])
 </code></pre></blockquote>
 </li>
-<li>基数排序<br><strong>思想：</strong>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序     法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。代码如下：<blockquote>
+<li><p>基数排序<br><strong>思想：</strong>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序     法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。代码如下：</p>
+<blockquote>
 <pre><code>import math
 def radix_sort(lists, radix=10):
      k = int(math.ceil(math.log(max(lists), radix)))
@@ -288,17 +302,17 @@ def radix_sort(lists, radix=10):
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -306,7 +320,7 @@ def radix_sort(lists, radix=10):
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -318,7 +332,7 @@ def radix_sort(lists, radix=10):
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>24</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
 		  
 		
 		</ul>
@@ -328,7 +342,7 @@ def radix_sort(lists, radix=10):
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -338,11 +352,11 @@ def radix_sort(lists, radix=10):
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -567,7 +581,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

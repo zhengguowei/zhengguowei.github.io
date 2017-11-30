@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -74,6 +74,93 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/10/地理散列编码/" title="地理散列编码" itemprop="url">地理散列编码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>地理散列编码：地理散列常用于将二维的经纬度转换为字符串，分为两步：第一步是经纬度的二进制编码，第二步是base32转码。此题考察纬度的二进制编码：算法对纬度[ -90，90]通过二分法进行无限逼近（取决于所需精度，本题精度为6）。注意，本题进行二分法近近过程中只采用向下取整进来二分，针对二分中间值属于右区间。算法举例如下：针对纬度为80进行二进制编码过程：</p>
+<ol>
+<li>区间[-90，90]进行二分为[-90，0），[0，90]，成为左右区间，可以确定80为右区间，标记为1; </li>
+<li>针对上一步的右区间[0，90]进行二分为[0，45]，[45，90]，可以确定80是右区间，标记为1; </li>
+<li>针对[45，90 ]进行二分为[45，67]，[67,90]，可以确定80为右区间，标记为1; </li>
+<li>针对[67,90]进行二分为[67，78]，[78,90]可以确定80为右区间，标记为1; </li>
+<li>针对[78，90]进行二分为[78，84），[84，90]，可以确定80为左区间，标记 0; </li>
+<li>针对[78，84）进行二分为[78，81），[81，84），可以确定80为左区间，标记为0;</li>
+</ol>
+<p>思路：本题思路相对简单，类似于数组的二分查找，根据规则向结果里添加‘1’或‘0’<br>python代码如下：</p>
+<blockquote>
+<pre><code>from __future__ import division
+def f(num):
+    values = [-90, 90]
+    ret = &apos;&apos;
+    for i in range(6):
+        mid = int((values[0] + values[1])/2)
+        if num &gt;= mid:
+            values = [mid, values[1]]
+            ret += &apos;1&apos;
+        else:
+            values = [values[0], mid]
+            ret += &apos;0&apos;
+    return ret
+if __name__ == &apos;__main__&apos;:
+    while 1:
+        try:
+            num = int(raw_input())
+        except:
+            break
+        print f(num)
+</code></pre></blockquote>
+<p><strong>注意:</strong>在使用python语言时，需倒入division模块，否则会有少量测试用例无法通过</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/10/求满足整数内质数和为该数的个数/" title="求满足整数内质数和为该数的个数" itemprop="url">求满足整数内质数和为该数的个数</a>
   </h1>
   <p class="article-author">By
@@ -81,7 +168,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T12:50:27.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T12:50:27.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -158,7 +245,7 @@ print counts+1 if n/2 in zhishu else counts
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -234,7 +321,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-09T07:28:24.000Z" itemprop="datePublished"> 发表于 2017-10-09</time>
+    <time datetime="2017-10-09T07:28:24.000Z" itemprop="datePublished"> Published 2017-10-09</time>
     
   </p>
 </header>
@@ -316,7 +403,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> 发表于 2017-10-09</time>
+    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> Published 2017-10-09</time>
     
   </p>
 </header>
@@ -387,7 +474,7 @@ print max(tmp)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> Published 2017-10-07</time>
     
   </p>
 </header>
@@ -467,7 +554,7 @@ print largestarea(heights)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
     
   </p>
 </header>
@@ -553,7 +640,7 @@ return count;
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
     
   </p>
 </header>
@@ -624,10 +711,10 @@ return (html_source.encode(&apos;utf-8&apos;))
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -635,7 +722,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -647,7 +734,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>24</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
 		  
 		
 		</ul>
@@ -657,7 +744,7 @@ return (html_source.encode(&apos;utf-8&apos;))
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -667,11 +754,11 @@ return (html_source.encode(&apos;utf-8&apos;))
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -819,7 +906,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
