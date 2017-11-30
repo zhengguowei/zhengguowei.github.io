@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Cindy">Cindy</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,7 +81,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-29T02:21:23.000Z" itemprop="datePublished"> Published 2017-11-29</time>
+    <time datetime="2017-11-29T02:21:23.000Z" itemprop="datePublished"> 发表于 2017-11-29</time>
     
   </p>
 </header>
@@ -104,7 +104,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
 </div>
 
 
@@ -140,7 +140,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> Published 2017-10-22</time>
+    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> 发表于 2017-10-22</time>
     
   </p>
 </header>
@@ -213,7 +213,7 @@ print maxnum
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> Published 2017-10-20</time>
+    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
     
   </p>
 </header>
@@ -288,7 +288,7 @@ if __name__==&apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> Published 2017-10-19</time>
+    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
     
   </p>
 </header>
@@ -363,91 +363,6 @@ def level_order(tree):  #按层次遍历
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
-<ol>
-<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
-<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
-<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
-<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
-</ol>
-<p>代码如下：</p>
-<blockquote>
-<pre><code>class Solution:
-# @return a list of lists of string
-    def solveNQueens(self, n):
-        def check(k,j,board):
-            for i in range(k):
-                if board[i]==j or abs(k-i)==abs(board[i]-j):
-                    return False
-            return True
-        def dfs(depth,board,valuelist,solution):
-        #for i in range(len(board)):
-            if depth==len(board):
-                solution.append(valuelist)
-            for row in range(len(board)):
-                if check(depth,row,board):
-                    s=&apos;.&apos;*len(board)
-                    board[depth]=row
-                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
-        board=[-1 for i in range(n)]
-        solution=[]
-        dfs(0,board,[],solution)
-        return solution
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/2017/10/18/剑指offer/" title="剑指offer" itemprop="url">剑指offer</a>
   </h1>
   <p class="article-author">By
@@ -455,7 +370,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
     
   </p>
 </header>
@@ -3336,6 +3251,91 @@ class Solution:
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/18/N皇后问题/" title="N皇后问题" itemprop="url">N皇后问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>N皇后问题是一个经典的问题，在一个N<em>N的棋盘上放置N个皇后，每行一个并使其不能互相攻击（同一行、同一列、同一斜线上的皇后都会自动攻击）。<br><em>*思路：</em></em><br>回溯算法也叫试探法，它是一种系统地搜索问题的解的方法。回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。流程如下：</p>
+<ol>
+<li>算法开始, 清空棋盘，当前行设为第一行，当前列设为第一列</li>
+<li>在当前行，当前列的位置上判断是否满足条件(即保证经过这一点的行,列与斜线上都没有两个皇后)，若不满足，跳到第4步</li>
+<li>在当前位置上满足条件的情形：<br>  在当前位置放一个皇后，若当前行是最后一行，记录一个解；<br>  若当前行不是最后一行，当前行设为下一行, 当前列设为当前行的第一个待测位置；<br>  若当前行是最后一行，当前列不是最后一列，当前列设为下一列；<br>  若当前行是最后一行，当前列是最后一列，回溯，即清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置；<br>  以上返回到第2步</li>
+<li>在当前位置上不满足条件的情形：<br>  若当前列不是最后一列，当前列设为下一列，返回到第2步;<br>  若当前列是最后一列了，回溯，即，若当前行已经是第一行了，算法退出，否则，清空当前行及以下各行的棋盘，然后，当前行设为上一行，当前列设为当前行的下一个待测位置，返回到第2步; </li>
+</ol>
+<p>代码如下：</p>
+<blockquote>
+<pre><code>class Solution:
+# @return a list of lists of string
+    def solveNQueens(self, n):
+        def check(k,j,board):
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth,board,valuelist,solution):
+        #for i in range(len(board)):
+            if depth==len(board):
+                solution.append(valuelist)
+            for row in range(len(board)):
+                if check(depth,row,board):
+                    s=&apos;.&apos;*len(board)
+                    board[depth]=row
+                    dfs(depth+1,board,valuelist+[s[:row]+&apos;Q&apos;+s[row+1:]],solution)
+        board=[-1 for i in range(n)]
+        solution=[]
+        dfs(0,board,[],solution)
+        return solution
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/" title="实现一个包含insert、search、和startWith的前缀树" itemprop="url">实现一个包含insert、search、和startWith的前缀树</a>
   </h1>
   <p class="article-author">By
@@ -3343,7 +3343,7 @@ class Solution:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -3430,7 +3430,7 @@ class Trie(object):       #树结构
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -3635,7 +3635,7 @@ def radix_sort(lists, radix=10):
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -3716,7 +3716,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
     
   </p>
 </header>
@@ -3773,10 +3773,10 @@ print count
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -3784,11 +3784,11 @@ print count
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>2</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>3</sup></a></li>
 		  
 		
 		  
@@ -3796,7 +3796,7 @@ print count
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>24</sup></a></li>
 		  
 		
 		</ul>
@@ -3806,7 +3806,7 @@ print count
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
     </ul>
@@ -3816,11 +3816,11 @@ print count
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS</a>
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -3968,7 +3968,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
