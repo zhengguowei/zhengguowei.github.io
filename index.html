@@ -91,6 +91,19 @@
 <ol>
 <li>共现矩阵<br> 首先就是共现矩阵，局域窗口中的word-word共现矩阵可以挖掘语法和语义信息，通常表示在一个窗口中常出现词的关系，windows length 一般设为5-10，且使用对称的窗函数，共现矩阵为对称矩阵，该表示方法仍然存在以下问题：向量维数随着词典的大小线性增长、存储词典空间消耗非常大、文本模型面临稀疏性问题和模型欠稳定，解决以上问题，提出使用降维，如SVD降维，SVD降维存在以下问题：计算量太大( 对X(n,n)矩阵降纬计算量为O(n^3))、难以为辞典中加入的次分配词向量、与其他深度学习模型框架差异大。</li>
 <li>NNLM(Neural Network Languuage model)<br> 直接从语言模型出发，将模型最优化过程转换为求词向量表示的过程，目标函数如下：<br> <center><img width="500" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/nnlm.png"></center><br> 模型使用非对称前向窗口函数，窗长度为n-1，通过滑动窗口遍历整个语料库求和，计算量正比于语料库大小，概率P满足归一化条件，这样不同位置t处的概率才能相加，如下式：<center><img width="500" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/voc.png"></center><br> 模型结构如下：<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/model.png"></center><br> 计算具体流程如下：<br> （1）将C投影矩阵进行初始化；<br> （2）输入层表示为one-hot，并将该向量和prejection layer的投影矩阵进行映射取出对应的列向量；<br> （3）将得到的每个列向量进行拼接，把拼接好的向量和隐藏层进行全联接计算（激活函数一般为tanh）；<br> （4）将上一步得到的量进行一些w组合进行softmax分类，使待预测值的概率最大；<br> （5）使用BP和SGD进行优化（设一个cross-entropy的loss），最终得到投影矩阵C的各个值，训练结束。<br> 计算复杂度：<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/nnlm_com.png"></center><br> 每个训练样本的计算复杂度:N×D+N×D×H+H×V， 一个简单模型在大数据量上的表现比复杂模型在少数据量上的表现会好</li>
+<li>CBOW(连续词袋)<br> <center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/cbow.jpeg"></center><br> CBOW模型是简化版的NNLM，该模型通过前后的词来预测当前的词，projection layer被省略，将输入的one-hot进行求和而不是链接从而减少计算量，同时去除hidden layer，最后进行一个softmax操作。<br> 优化：采用层次话softmax和负例采样</li>
+<li>Skip-Gram<center><img width="600" height="100" align="center" src="/2017/11/29/深入浅出理解word2vec/skip.jpeg"></center>
+
+
+
+
+
+
+
+
+
+
+</li>
 </ol>
 
         
