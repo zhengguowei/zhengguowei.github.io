@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Passion">Passion</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -74,6 +74,87 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/17/长度为n的数组选取k个数据所有组合/" title="长度为n的数组选取k个数据所有组合" itemprop="url">长度为n的数组选取k个数据所有组合</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>一个长度为n的数组或字符串，打印选取k个数据所组成的可能性(不要求排列循序，如123和132为一种可能性)</p>
+<p><strong>思路：</strong><br>由于k的值不确定，有可能很大，如果采用k层循环的话，时间复杂度会非常大。采取先固定前k-1位，从后面选取一位组合，从前向后递归<br>代码如下</p>
+<blockquote>
+<pre><code>ans=[]
+Count = 0
+def combination(data, t, vl):
+    _kk = len(data)
+    for _i in range(_kk - t + 1):
+        vl.append(data[_i])
+        new_data = data[_i + 1:]
+        if t - 1 == 1:
+            for _j in range(len(new_data)):
+                ans.append(&apos;&apos;.join(map(str, vl)) + str(new_data[_j]))
+                global Count
+                Count += 1
+        else:
+            combination(new_data, t - 1, vl)
+        vl.pop()
+    return ans
+if __name__ == &apos;__main__&apos;:
+    n = input()  # 总数
+    k = input()  # 选取个数
+    vl = []  # 用于存放选中的数字
+    data = range(1, n + 1)  # [1, 2, 3, 4,..n]
+    result=combination(data, k, vl)
+    print result
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/17/牛牛最多需要尝试多少次密码/" title="牛牛最多需要尝试多少次密码" itemprop="url">牛牛最多需要尝试多少次密码</a>
   </h1>
   <p class="article-author">By
@@ -81,7 +162,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T00:50:17.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -145,7 +226,7 @@ print count
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-16T16:35:38.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -218,7 +299,7 @@ print min(counts1,len(data)-counts1)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> 发表于 2017-10-16</time>
+    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
     
   </p>
 </header>
@@ -289,7 +370,7 @@ print min(counts1,len(data)-counts1)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> 发表于 2017-10-16</time>
+    <time datetime="2017-10-16T01:13:19.000Z" itemprop="datePublished"> Published 2017-10-16</time>
     
   </p>
 </header>
@@ -370,7 +451,7 @@ public static void main(String args[]){
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T00:59:56.000Z" itemprop="datePublished"> 发表于 2017-10-16</time>
+    <time datetime="2017-10-16T00:59:56.000Z" itemprop="datePublished"> Published 2017-10-16</time>
     
   </p>
 </header>
@@ -450,7 +531,7 @@ public static void main(String args[]){
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> 发表于 2017-10-11</time>
+    <time datetime="2017-10-11T00:21:36.000Z" itemprop="datePublished"> Published 2017-10-11</time>
     
   </p>
 </header>
@@ -517,7 +598,7 @@ public static void main(String args[]){
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-11T00:06:29.000Z" itemprop="datePublished"> 发表于 2017-10-11</time>
+    <time datetime="2017-10-11T00:06:29.000Z" itemprop="datePublished"> Published 2017-10-11</time>
     
   </p>
 </header>
@@ -595,7 +676,7 @@ private static int solve(int n, int k) {
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -663,7 +744,7 @@ print len(index) - count
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -763,89 +844,16 @@ if __name__ == &apos;__main__&apos;:
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/回家至少走多少距离/" title="回家至少走多少距离" itemprop="url">回家至少走多少距离</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T13:12:39.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>百度之一个数轴上共有N个点，第一个点的坐标是度度熊现在位置，第N-1个点是度度熊的家。现在他需要依次的从0号坐标走到N-1号坐标。但是除了0号坐标和N-1号坐标，他可以在其余的N-2个坐标中选择一个点删除使得回家走的距离最近。</p>
-<p>思路：没想到什么好的办法，就用了最基础的办法，分别从第二个和倒数第二个点之间去除一个点求其距离，距离最小的即为所求值。<br>python代码如下：</p>
-<blockquote>
-<pre><code>input()
-data=map(int,raw_input().split(&apos; &apos;))
-nearst=max(data)*len(data)
-def get_distance(x):
-    distance=0
-    current=data[0]
-    for i in range(1,len(x)):
-        distance+=abs(x[i]-current)
-        current=x[i]
-    return distance
-for i in range(1,len(data)-1):
-    tem=data[:i]+data[i+1:]
-    if get_distance(tem)&lt;nearst:
-        nearst=get_distance(tem)
-print nearst
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -853,7 +861,7 @@ print nearst
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -865,7 +873,7 @@ print nearst
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>26</sup></a></li>
 		  
 		
 		</ul>
@@ -875,7 +883,7 @@ print nearst
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -885,11 +893,11 @@ print nearst
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -1037,7 +1045,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

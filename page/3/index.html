@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Passion">Passion</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -74,6 +74,79 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/10/回家至少走多少距离/" title="回家至少走多少距离" itemprop="url">回家至少走多少距离</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T13:12:39.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>百度之一个数轴上共有N个点，第一个点的坐标是度度熊现在位置，第N-1个点是度度熊的家。现在他需要依次的从0号坐标走到N-1号坐标。但是除了0号坐标和N-1号坐标，他可以在其余的N-2个坐标中选择一个点删除使得回家走的距离最近。</p>
+<p>思路：没想到什么好的办法，就用了最基础的办法，分别从第二个和倒数第二个点之间去除一个点求其距离，距离最小的即为所求值。<br>python代码如下：</p>
+<blockquote>
+<pre><code>input()
+data=map(int,raw_input().split(&apos; &apos;))
+nearst=max(data)*len(data)
+def get_distance(x):
+    distance=0
+    current=data[0]
+    for i in range(1,len(x)):
+        distance+=abs(x[i]-current)
+        current=x[i]
+    return distance
+for i in range(1,len(data)-1):
+    tem=data[:i]+data[i+1:]
+    if get_distance(tem)&lt;nearst:
+        nearst=get_distance(tem)
+print nearst
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/10/第三便宜的帽子/" title="第三便宜的帽子" itemprop="url">第三便宜的帽子</a>
   </h1>
   <p class="article-author">By
@@ -81,7 +154,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T13:08:14.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T13:08:14.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -148,7 +221,7 @@ except:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T12:59:28.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -235,7 +308,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T12:50:27.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T12:50:27.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -312,7 +385,7 @@ print counts+1 if n/2 in zhishu else counts
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> 发表于 2017-10-10</time>
+    <time datetime="2017-10-10T12:36:13.000Z" itemprop="datePublished"> Published 2017-10-10</time>
     
   </p>
 </header>
@@ -388,7 +461,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-09T07:28:24.000Z" itemprop="datePublished"> 发表于 2017-10-09</time>
+    <time datetime="2017-10-09T07:28:24.000Z" itemprop="datePublished"> Published 2017-10-09</time>
     
   </p>
 </header>
@@ -470,7 +543,7 @@ if __name__ == &apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> 发表于 2017-10-09</time>
+    <time datetime="2017-10-09T02:45:26.000Z" itemprop="datePublished"> Published 2017-10-09</time>
     
   </p>
 </header>
@@ -541,7 +614,7 @@ print max(tmp)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    <time datetime="2017-10-07T15:09:59.000Z" itemprop="datePublished"> Published 2017-10-07</time>
     
   </p>
 </header>
@@ -621,7 +694,7 @@ print largestarea(heights)
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
     
   </p>
 </header>
@@ -707,7 +780,7 @@ return count;
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> 发表于 2017-10-07</time>
+    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
     
   </p>
 </header>
@@ -780,10 +853,10 @@ return (html_source.encode(&apos;utf-8&apos;))
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -791,7 +864,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -803,7 +876,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>26</sup></a></li>
 		  
 		
 		</ul>
@@ -813,7 +886,7 @@ return (html_source.encode(&apos;utf-8&apos;))
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -823,11 +896,11 @@ return (html_source.encode(&apos;utf-8&apos;))
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -975,7 +1048,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

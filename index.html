@@ -42,7 +42,7 @@
 				<h1 class="site-name"><a href="/" title="Passion">Passion</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -74,6 +74,84 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/12/11/二叉树中两个节点的最低公共祖先/" title="二叉树中两个节点的最低公共祖先" itemprop="url">二叉树中两个节点的最低公共祖先</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-12-11T07:36:37.000Z" itemprop="datePublished"> Published 2017-12-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>思路：从根节点找起，通过比较两个节点的值与根节点值差的积，如果小于或者等于零则返回该节点，否则分情况，如果两个节点的值均大于根节点的值则查找根节点的右子树否则查找根节点的左子树，代码如下：</p>
+<blockquote>
+<pre><code>class TreeNode:
+    def __init__(self,x):
+        self.val=x
+        self.left=None
+        self.right=None
+class Solution:
+    def find_parent(self,node1,node2,root):
+        if node1==None or node2==None:
+            return
+        if node1==node2:
+            return
+        val1=node1.val
+        val2=node2.val
+        while root!=None:
+            if (val1-root.val)*(val2-root.val)&lt;=0:
+                return root.val
+            elif root.val&lt;val1 and root.val&lt;val2:
+                root=root.right
+            else:
+                root=root.left
+        return False
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/12/07/对仅含有0-1-2的数组尽可能低的时间复杂度内进行排序/" title="对仅含有0,1,2的数组尽可能低的时间复杂度内进行排序" itemprop="url">对仅含有0,1,2的数组尽可能低的时间复杂度内进行排序</a>
   </h1>
   <p class="article-author">By
@@ -81,7 +159,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-12-07T08:00:17.000Z" itemprop="datePublished"> 发表于 2017-12-07</time>
+    <time datetime="2017-12-07T08:00:17.000Z" itemprop="datePublished"> Published 2017-12-07</time>
     
   </p>
 </header>
@@ -151,7 +229,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-29T02:21:23.000Z" itemprop="datePublished"> 发表于 2017-11-29</time>
+    <time datetime="2017-11-29T02:21:23.000Z" itemprop="datePublished"> Published 2017-11-29</time>
     
   </p>
 </header>
@@ -223,7 +301,7 @@
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> 发表于 2017-10-22</time>
+    <time datetime="2017-10-22T15:47:10.000Z" itemprop="datePublished"> Published 2017-10-22</time>
     
   </p>
 </header>
@@ -296,7 +374,7 @@ print maxnum
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
+    <time datetime="2017-10-20T02:48:48.000Z" itemprop="datePublished"> Published 2017-10-20</time>
     
   </p>
 </header>
@@ -371,7 +449,7 @@ if __name__==&apos;__main__&apos;:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
+    <time datetime="2017-10-19T00:42:32.000Z" itemprop="datePublished"> Published 2017-10-19</time>
     
   </p>
 </header>
@@ -453,7 +531,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
     
   </p>
 </header>
@@ -538,7 +616,7 @@ def level_order(tree):  #按层次遍历
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> 发表于 2017-10-18</time>
+    <time datetime="2017-10-18T00:07:58.000Z" itemprop="datePublished"> Published 2017-10-18</time>
     
   </p>
 </header>
@@ -3426,7 +3504,7 @@ class Solution:
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -3513,7 +3591,7 @@ class Trie(object):       #树结构
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
     
   </p>
 </header>
@@ -3705,97 +3783,16 @@ def radix_sort(lists, radix=10):
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/17/长度为n的数组选取k个数据所有组合/" title="长度为n的数组选取k个数据所有组合" itemprop="url">长度为n的数组选取k个数据所有组合</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-17T02:44:19.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>一个长度为n的数组或字符串，打印选取k个数据所组成的可能性(不要求排列循序，如123和132为一种可能性)</p>
-<p><strong>思路：</strong><br>由于k的值不确定，有可能很大，如果采用k层循环的话，时间复杂度会非常大。采取先固定前k-1位，从后面选取一位组合，从前向后递归<br>代码如下</p>
-<blockquote>
-<pre><code>ans=[]
-Count = 0
-def combination(data, t, vl):
-    _kk = len(data)
-    for _i in range(_kk - t + 1):
-        vl.append(data[_i])
-        new_data = data[_i + 1:]
-        if t - 1 == 1:
-            for _j in range(len(new_data)):
-                ans.append(&apos;&apos;.join(map(str, vl)) + str(new_data[_j]))
-                global Count
-                Count += 1
-        else:
-            combination(new_data, t - 1, vl)
-        vl.pop()
-    return ans
-if __name__ == &apos;__main__&apos;:
-    n = input()  # 总数
-    k = input()  # 选取个数
-    vl = []  # 用于存放选中的数字
-    data = range(1, n + 1)  # [1, 2, 3, 4,..n]
-    result=combination(data, k, vl)
-    print result
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -3803,7 +3800,7 @@ if __name__ == &apos;__main__&apos;:
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -3815,7 +3812,7 @@ if __name__ == &apos;__main__&apos;:
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>25</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>26</sup></a></li>
 		  
 		
 		</ul>
@@ -3825,7 +3822,7 @@ if __name__ == &apos;__main__&apos;:
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
     </ul>
@@ -3835,11 +3832,11 @@ if __name__ == &apos;__main__&apos;:
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
+	<a href="" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -3987,7 +3984,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

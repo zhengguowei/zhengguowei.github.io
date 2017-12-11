@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>无序数组中最长连续数长度 | Passion</title>
+    <title>二叉树中两个节点的最低公共祖先 | Passion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Liberty_zheng">
     
 
     
-    <meta name="description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
+    <meta name="description" content="思路：从根节点找起，通过比较两个节点的值与根节点值差的积，如果小于或者等于零则返回该节点，否则分情况，如果两个节点的值均大于根节点的值则查找根节点的右子树否则查找根节点的左子树，代码如下：  class TreeNode:     def __init__(self,x):         self.val=x         self.left=None         self.right=N">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无序数组中最长连续数长度">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/无序数组中最长连续数长度/index.html">
+<meta property="og:title" content="二叉树中两个节点的最低公共祖先">
+<meta property="og:url" content="http://yoursite.com/2017/12/11/二叉树中两个节点的最低公共祖先/index.html">
 <meta property="og:site_name" content="Passion">
-<meta property="og:description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
-<meta property="og:updated_time" content="2017-10-16T09:12:09.000Z">
+<meta property="og:description" content="思路：从根节点找起，通过比较两个节点的值与根节点值差的积，如果小于或者等于零则返回该节点，否则分情况，如果两个节点的值均大于根节点的值则查找根节点的右子树否则查找根节点的左子树，代码如下：  class TreeNode:     def __init__(self,x):         self.val=x         self.left=None         self.right=N">
+<meta property="og:updated_time" content="2017-12-11T07:40:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无序数组中最长连续数长度">
-<meta name="twitter:description" content="leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n) 思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：  def longestConsecutive(nums):     dic={}     ans=0">
+<meta name="twitter:title" content="二叉树中两个节点的最低公共祖先">
+<meta name="twitter:description" content="思路：从根节点找起，通过比较两个节点的值与根节点值差的积，如果小于或者等于零则返回该节点，否则分情况，如果两个节点的值均大于根节点的值则查找根节点的右子树否则查找根节点的左子树，代码如下：  class TreeNode:     def __init__(self,x):         self.val=x         self.left=None         self.right=N">
 
     
     
@@ -76,14 +76,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/16/无序数组中最长连续数长度/" title="无序数组中最长连续数长度" itemprop="url">无序数组中最长连续数长度</a>
+      <a href="/2017/12/11/二叉树中两个节点的最低公共祖先/" title="二叉树中两个节点的最低公共祖先" itemprop="url">二叉树中两个节点的最低公共祖先</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-16T08:09:37.000Z" itemprop="datePublished"> Published 2017-10-16</time>
+    <time datetime="2017-12-11T07:36:37.000Z" itemprop="datePublished"> Published 2017-12-11</time>
     
   </p>
 </header>
@@ -96,22 +96,29 @@
 		
 		</div>
 		
-		<p>leetcode 128  无序整形数组，求最长连续数组，要求时间复杂度O(n)</p>
-<p>思路:由于时间复杂度的要求，我们不能对数组进行排序，所以我们选用词典数据结构进行存储(java语言中对应的是hashmap)，只需要对所有的扫描一遍，对数的前一个数和后一个数进行统计，然后相加后再加一，代码如下：</p>
+		<p>思路：从根节点找起，通过比较两个节点的值与根节点值差的积，如果小于或者等于零则返回该节点，否则分情况，如果两个节点的值均大于根节点的值则查找根节点的右子树否则查找根节点的左子树，代码如下：</p>
 <blockquote>
-<pre><code>def longestConsecutive(nums):
-    dic={}
-    ans=0
-    for i in  nums:
-        if i not in dic:
-            left=dic.get(i-1,0)
-            right=dic.get(i+1,0)
-            tmp=left+right+1
-            ans=max(ans,tmp)
-            dic[i]=tmp
-            dic[i-left]=tmp
-            dic[i+right]=tmp
-    return ans
+<pre><code>class TreeNode:
+    def __init__(self,x):
+        self.val=x
+        self.left=None
+        self.right=None
+class Solution:
+    def find_parent(self,node1,node2,root):
+        if node1==None or node2==None:
+            return
+        if node1==node2:
+            return
+        val1=node1.val
+        val2=node2.val
+        while root!=None:
+            if (val1-root.val)*(val2-root.val)&lt;=0:
+                return root.val
+            elif root.val&lt;val1 and root.val&lt;val2:
+                root=root.right
+            else:
+                root=root.left
+        return False
 </code></pre></blockquote>
   
 	</div>
@@ -130,7 +137,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/16/无序数组中最长连续数长度/" data-title="无序数组中最长连续数长度 | Passion" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/12/11/二叉树中两个节点的最低公共祖先/" data-title="二叉树中两个节点的最低公共祖先 | Passion" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +150,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/17/黑白卡片翻转/" title="黑白卡片翻转">
-  <strong>上一篇：</strong><br/>
-  <span>
-  黑白卡片翻转</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/16/纸币的不同组合/"  title="纸币的不同组合">
+<a href="/2017/12/07/对仅含有0-1-2的数组尽可能低的时间复杂度内进行排序/"  title="对仅含有0,1,2的数组尽可能低的时间复杂度内进行排序">
  <strong>下一篇：</strong><br/> 
- <span>纸币的不同组合
+ <span>对仅含有0,1,2的数组尽可能低的时间复杂度内进行排序
 </span>
 </a>
 </div>
