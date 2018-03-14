@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/18/剑指offer/index.html">
 <meta property="og:site_name" content="Passion">
 <meta property="og:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
-<meta property="og:updated_time" content="2017-11-06T02:09:15.000Z">
+<meta property="og:updated_time" content="2018-03-14T05:12:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer">
 <meta name="twitter:description" content="1.二维数组的查找在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。思路：首先选取右上角的数字，如果相等，返回查找结果，结束查找，如果该数字大于查找的数字，则剔除该列，如果数字小于要查找数字，则剔除该行，这样每次都可以在数组的查找范围中剔除一行或一列。代码如下：  def searc">
@@ -289,12 +289,12 @@ if __name__==&apos;__main__&apos;:
 <p>青蛙跳台阶, 每次可以跳1级或2级<br>思路：其实就是斐波那契数列问题，每次可以跳1级或者两级，则下次的可能性为前两次可能性之和</p>
 <blockquote>
 <pre><code>def jumpFloor(self, number):
- # write code here
- tempArray = [1, 2]
- if number &gt;= 3:
-     for i in range(3, number + 1):
-         tempArray[(i + 1) % 2] = tempArray[0] + tempArray[1]
- return tempArray[(number + 1) % 2]
+     # write code here
+     tempArray = [1, 2]
+     if number &gt;= 3:
+         for i in range(3, number + 1):
+             tempArray[(i + 1) % 2] = tempArray[0] + tempArray[1]
+     return tempArray[(number + 1) % 2]
 </code></pre></blockquote>
 <p>8.<strong>旋转数组的最小数字</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。给出的所有元素都大于0，若数组大小为0，请返回0。<br>思路：如果遍历一遍，复杂度太高，可以采用二分查找，用两个指针分别指向第一个值和最后一个值，取中间的数，如果该数小于最前面的数，则该数在后面递增的数组里，将后面的指针指向该数，否则在前面递增的数组里，将前面的指针指向该数，将更新后的数组重复做以上操作，当两个指针距离是1时结束，返回后面的指针指向的数字。代码如下：</p>
 <blockquote>
@@ -326,32 +326,32 @@ if __name__==&apos;__main__&apos;:
 <p>9.矩阵中的路径<br>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。例如 [[a b c e], [s f c s], [a d e e]]矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。<br>思路：递归的采用回溯法</p>
 <blockquote>
 <pre><code>class Solution:
-def hasPath(self, matrix, rows, cols, path):
-    if matrix == None or rows &lt; 1 or cols &lt; 1 or path == None:
+    def hasPath(self, matrix, rows, cols, path):
+        if matrix == None or rows &lt; 1 or cols &lt; 1 or path == None:
+            return False
+        visited = [0] * (rows * cols)
+        pathLength = 0
+        for row in range(rows):
+            for col in range(cols):
+                if self.hasPathCore(matrix, rows, cols, row, col, path, pathLength, visited):
+                    return True
         return False
-    visited = [0] * (rows * cols)
-    pathLength = 0
-    for row in range(rows):
-        for col in range(cols):
-            if self.hasPathCore(matrix, rows, cols, row, col, path, pathLength, visited):
-                return True
-    return False
-def hasPathCore(self, matrix, rows, cols, row, col, path, pathLength, visited):
-    if len(path) == pathLength:
-        return True
-    hasPath = False
-    if row &gt;= 0 and row &lt; rows and col &gt;= 0 and col &lt; cols and matrix[row * cols + col] == path[pathLength] and not \
-    visited[row * cols + col]:
-        pathLength += 1
-        visited[row * cols + col] = True
-        hasPath = self.hasPathCore(matrix, rows, cols, row, col - 1, path, pathLength, visited) or \
-                  self.hasPathCore(matrix, rows, cols, row - 1, col, path, pathLength, visited) or \
-                  self.hasPathCore(matrix, rows, cols, row, col + 1, path, pathLength, visited) or \
-                  self.hasPathCore(matrix, rows, cols, row + 1, col, path, pathLength, visited)
-        if not hasPath:
-            pathLength -= 1
-            visited[row * cols + col] = False
-    return hasPath
+    def hasPathCore(self, matrix, rows, cols, row, col, path, pathLength, visited):
+        if len(path) == pathLength:
+            return True
+        hasPath = False
+        if row &gt;= 0 and row &lt; rows and col &gt;= 0 and col &lt; cols and matrix[row * cols + col] == path[pathLength] and not \
+        visited[row * cols + col]:
+            pathLength += 1
+            visited[row * cols + col] = True
+            hasPath = self.hasPathCore(matrix, rows, cols, row, col - 1, path, pathLength, visited) or \
+                      self.hasPathCore(matrix, rows, cols, row - 1, col, path, pathLength, visited) or \
+                      self.hasPathCore(matrix, rows, cols, row, col + 1, path, pathLength, visited) or \
+                      self.hasPathCore(matrix, rows, cols, row + 1, col, path, pathLength, visited)
+            if not hasPath:
+                pathLength -= 1
+                visited[row * cols + col] = False
+        return hasPath
 </code></pre></blockquote>
 <p>10.<strong>机器人的运动范围</strong><br>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子？<br>思路：机器人从（0，0）开始运动，当它准备进入为（i，j）位置时，判断坐标要求能否进入，如果可以进入，然后递归的进入它相邻的4个格子（i,j-1）,（i-1,j）（i,j+1）,（i+1,j）,采用回溯法，代码如下：</p>
 <blockquote>
@@ -384,41 +384,41 @@ print(s.movingCount(5, 10, 10))
 </code></pre></blockquote>
 <p>11.<strong>剪绳子</strong><br>给你一根长度为n的绳子，请把绳子剪成m段 (m和n都是整数，n&gt;1并且m&gt;1)每段绳子的长度记为k[0],k[1],…,k[m].请问k[0]<em>k[1]</em>…<em>k[m]可能的最大乘积是多少？例如，当绳子的长度为8时，我们把它剪成长度分别为2,3,3的三段，此时得到的最大乘积是18.<br>思路1：首先定义函数f(n)为把长度为n的绳子剪成若干段后各段长度乘积的最大值。在剪第一刀时，我们有n-1种选择，也就是说第一段绳子的可能长度分别为1,2,3…..，n-1。因此f(n)=max(f(i)</em>f(n-i))，其中0&lt;i&lt;n。这是一个自上而下的递归公式。由于递归会有大量的不必要的重复计算。一个更好的办法是按照从下而上的顺序计算，也就是说我们先得到f(2),f(3)，再得到f(4),f(5)，直到得到f(n)。当绳子的长度为2的时候，只能剪成长度为1的两段，所以f(2) = 1，当n = 3时，容易得出f(3) = 2;代码如下：</p>
 <blockquote>
-<pre><code> public class Main {
-public static void main(String[] args) {
-    System.out.println(maxAfterCutting(8));
-}
-/**
- * 常规的需要O(n2)的时间复杂度和O(n)的空间复杂度的动态规划思路 题目的意思是:绳子至少是2米，并且必须最少剪一刀。
- */
-public static int maxAfterCutting(int length) {
-    if (length &lt; 2)
-        return 0;
-    if (length == 2)
-        return 1;
-    if (length == 3)
-        return 2;
-    // 子问题的最优解存储在f数组中，数组中的第i个元素表示把长度为i的绳子剪成若干段后各段长度乘积的最大值。
-    int[] f = new int[length + 1];
-    f[0] = 0;
-    f[1] = 1;
-    f[2] = 2;
-    f[3] = 3;
-    int result = 0;
-    for (int i = 4; i &lt;= length; i++) {
-        int max = 0;
-        for (int j = 1; j &lt;= i / 2; j++) {
-            int num = f[j] * f[i - j];
-            if (max &lt; num)
-                max = num;
-        }
-        f[i] = max;
+<pre><code>  public class Main {
+    public static void main(String[] args) {
+        System.out.println(maxAfterCutting(8));
     }
-    result = f[length];
-    return result;
+    /**
+     * 常规的需要O(n2)的时间复杂度和O(n)的空间复杂度的动态规划思路 题目的意思是:绳子至少是2米，并且必须最少剪一刀。
+     */
+    public static int maxAfterCutting(int length) {
+        if (length &lt; 2)
+            return 0;
+        if (length == 2)
+            return 1;
+        if (length == 3)
+            return 2;
+        // 子问题的最优解存储在f数组中，数组中的第i个元素表示把长度为i的绳子剪成若干段后各段长度乘积的最大值。
+        int[] f = new int[length + 1];
+        f[0] = 0;
+        f[1] = 1;
+        f[2] = 2;
+        f[3] = 3;
+        int result = 0;
+        for (int i = 4; i &lt;= length; i++) {
+            int max = 0;
+            for (int j = 1; j &lt;= i / 2; j++) {
+                int num = f[j] * f[i - j];
+                if (max &lt; num)
+                    max = num;
+            }
+            f[i] = max;
+        }
+        result = f[length];
+        return result;
+    }
 }
-</code></pre><p>}</p>
-</blockquote>
+</code></pre></blockquote>
 <p>思路2:贪婪算法，当n&gt;=5时尽可能多的剪长度为3的绳子，剩下剩下的绳子为4时，把绳子剪成两个长度为2的绳子<br>代码如下：</p>
 <blockquote>
 <pre><code>def long_cut(n):
@@ -444,12 +444,12 @@ public static int maxAfterCutting(int length) {
 <p>12.<strong>二进制中1的个数</strong><br>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。<br>思路1：先判断整数二进制表示中最右面一位是不是1，接着把输入的整数右移一位，如此反复，直到整数为0<br>代码如下：</p>
 <blockquote>
 <pre><code>def one_num(n):
-counts=0
-while n!=0:
-    if n&amp;1==1:
-        counts+=1
-    n=n&gt;&gt;1
-return  counts
+    counts=0
+    while n!=0:
+        if n&amp;1==1:
+            counts+=1
+        n=n&gt;&gt;1
+    return  counts
 </code></pre></blockquote>
 <p>思路2:调用系统函数，代码如下：</p>
 <blockquote>
@@ -828,9 +828,9 @@ class Solution:
 <p>22.<strong>翻转链表</strong><br>输入一个链表，反转链表后</p>
 <blockquote>
 <pre><code>class ListNode:
-def __init__(self, x):
-    self.val = x
-    self.next = None
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 class Solution:
     # 返回ListNode
     def ReverseList(self, pHead):
@@ -1503,7 +1503,7 @@ class Solution:
 </code></pre></blockquote>
 <p>思路2：使用库函数，代码如下：</p>
 <blockquote>
-<p>  from itertools import permutations<br>    def per(ss):<br>        for x in permutations(ss):<br>            print x</p>
+<p>  from itertools import permutations<br>  def per(ss):<br>        for x in permutations(ss):<br>            print x</p>
 </blockquote>
 <p>扩展：扩展习题, 生成字符的所有组合，比如输入abc, 则他们的组合有[‘a’, ‘ab’, ‘abc’, ‘ac’, ‘b’, ‘bc’, ‘c’], ab和ba属于不同的排列, 但属于同一个组合</p>
 <blockquote>
@@ -1896,9 +1896,8 @@ def get_counts(n):
     return counts(str(n))
 print get_counts(-10)
 </code></pre></blockquote>
-<p>46.<strong>礼物的最大价值</strong><br>在一个m*n的棋盘的每一格都放有一个礼物，每个礼物具有一定价值（大于0）。从棋盘的左上角开始拿礼物，并每次向右或者向下移动一个，直到达到棋盘的右下角。实现一个函数，给定一个棋盘和上面的礼物，计算能最多拿走多大价值的礼物。<br>思路：这是一个动态规划问题，可用递归的思路来分析；f(i,j)代表到达位置(i,j)时最大礼物价值，则f(i,j)=max[f(i-1,j),f(i,j-1)]+gift(i,j)；</p>
-<pre><code>2.    用循环代码来实现。维护一个辅助的二维数组maxValues[rows][cols]，maxValues[i][j]=max(maxValues[i-1][j],maxValues[i][j-1])+giftValues[i][j]。用二重循环最终得到maxValues[rows-1][cols-1]就是最大的礼物价值。
-</code></pre><blockquote>
+<p>46.<strong>礼物的最大价值</strong><br>在一个m*n的棋盘的每一格都放有一个礼物，每个礼物具有一定价值（大于0）。从棋盘的左上角开始拿礼物，并每次向右或者向下移动一个，直到达到棋盘的右下角。实现一个函数，给定一个棋盘和上面的礼物，计算能最多拿走多大价值的礼物。<br>思路：这是一个动态规划问题，可用递归的思路来分析；f(i,j)代表到达位置(i,j)时最大礼物价值，则f(i,j)=max[f(i-1,j),f(i,j-1)]+gift(i,j)；用循环代码来实现。维护一个辅助的二维数组maxValues[rows][cols]，maxValues[i][j]=max(maxValues[i-1][j],maxValues[i][j-1])+giftValues[i][j]。用二重循环最终得到maxValues[rows-1][cols-1]就是最大的礼物价值。</p>
+<blockquote>
 <pre><code>import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -2961,18 +2960,18 @@ class Solution:
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/10/18/N皇后问题/" title="N皇后问题">
+ <a href="/2017/10/19/按层次遍历二叉树与求二叉树深度/" title="按层次遍历二叉树与求二叉树深度">
   <strong>上一篇：</strong><br/>
   <span>
-  N皇后问题</span>
+  按层次遍历二叉树与求二叉树深度</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/"  title="实现一个包含insert、search、和startWith的前缀树">
+<a href="/2017/10/18/N皇后问题/"  title="N皇后问题">
  <strong>下一篇：</strong><br/> 
- <span>实现一个包含insert、search、和startWith的前缀树
+ <span>N皇后问题
 </span>
 </a>
 </div>
@@ -3005,7 +3004,7 @@ class Solution:
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>3</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>4</sup></a></li>
 		  
 		
 		  
@@ -3013,7 +3012,7 @@ class Solution:
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>26</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>27</sup></a></li>
 		  
 		
 		</ul>
@@ -3074,7 +3073,7 @@ class Solution:
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
 		<a href="/about" target="_blank" title="Liberty_zheng">Liberty_zheng</a>
 		

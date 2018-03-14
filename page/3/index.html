@@ -74,6 +74,187 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/10/尽量少的次数使数组排完序/" title="尽量少的次数使数组排完序" itemprop="url">尽量少的次数使数组排完序</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>度度熊有一个N个数的数组，他想将数组从小到大排好序，但是萌萌的度度熊只会下面这个操作：任取数组中的一个数然后将它放置在数组的最后一个位置。问最少操作多少次可以使得数组从小到大有序？</p>
+<p>思路：根据其大小的出数组的下表排序，比如num含有 [4, 3, 1, 5, 2]。 index得到的是[2, 4, 1, 0, 3]这样的。2说明最小的是num[2]，4说明第二小是num[4]。在num中，最小的数不用移动，然后第二小的数如果在最小的后面也不用移动。第三小的如果在第二小的后面则不用移动。那么就是看index中，增加到哪里，那就是保持上述规则不用移动的数。index里，4&gt;1，意味num里第三小的数在第二小的之前，所以必须移动一次。那么之后的都需要移动。<br>python代码如下：</p>
+<blockquote>
+<pre><code>n = int(raw_input())
+nums = map(int, raw_input().split())
+index = sorted(range(len(nums)), key = lambda i: nums[i])
+count = 1
+for i in range(1, len(index)):
+    if index[i] &gt; index[i-1]:
+        count += 1
+    else:
+        break
+print len(index) - count   
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/10/最大三角形面积/" title="最大三角形面积" itemprop="url">最大三角形面积</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> Published 2017-10-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>三维空间中有N个点，每个点可能是三种颜色的其中之一，三种颜色分别是红绿蓝，分别用’R’, ‘G’, ‘B’表示。<br>现在要找出三个点，并组成一个三角形，使得这个三角形的面积最大。<br>但是三角形必须满足：三个点的颜色要么全部相同，要么全部不同。</p>
+<p>思路：构建一个三角形的类，判断是否形成三角形，是否满足颜色要求，求其最大值</p>
+<blockquote>
+<pre><code>class Node:                                       #构造Node类，每一个Node存储一行数据
+def __init__(self, l):
+    self.c = l[0]
+    self.x = int(l[1])
+    self.y = int(l[2])
+    self.z = int(l[3])
+class Solution():
+    def __init__(self, l):
+        self.l = l
+    def main(self, n):
+        i, j, k = 0, 1, 2
+        Max = 0
+        for i in range(n):
+            for j in range(i+1, n):
+                for k in range(j+1, n):
+                    if self.isSan(i, j, k) and self.isColour(i, j, k):
+                        Area = self.getArea(i, j, k)
+                        if Max &lt; Area:
+                            Max = Area
+        return Max
+    def isSan(self, i, j, k):                            
+        a = self.getlength(i, j)
+        b = self.getlength(i, k)
+        c = self.getlength(k, j)
+        if a &lt; b+c and b &lt; a+c and c &lt; a+b:
+            return True
+        return False
+    def getlength(self, i, j):
+        x = abs(self.l[i].x - self.l[j].x)
+        y = abs(self.l[i].y - self.l[j].y)
+        z = abs(self.l[i].z - self.l[j].z)
+        return (x*x+y*y+z*z)**0.5
+    def isColour(self, i, j, k):
+        if self.l[i].c == self.l[j].c and self.l[j].c == self.l[k].c:
+            return True
+        elif self.l[i].c != self.l[j].c and self.l[j].c != self.l[k].c /
+        and self.l[k].c != self.l[i].c:
+            return True
+        return False
+    def getArea(self, i, j, k):
+        a = self.getlength(i, j)
+        b = self.getlength(i, k)
+        c = self.getlength(k, j)
+        s = 0.5 * (a+b+c)
+        area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+        return area
+if __name__ == &apos;__main__&apos;:
+    n = input()
+    l = []
+    for i in range(n):
+    string = raw_input().split()
+    node = Node(string)
+    l.append(node)
+    s = Solution(l)
+    print(&quot;%.5f&quot;%s.main(n))
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/10/回家至少走多少距离/" title="回家至少走多少距离" itemprop="url">回家至少走多少距离</a>
   </h1>
   <p class="article-author">By
@@ -681,175 +862,9 @@ print largestarea(heights)
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/07/大富翁游戏/" title="大富翁游戏" itemprop="url">大富翁游戏</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>大富翁游戏，玩家根据骰子的点数决定走的步数，即骰子点数为1时可以走一步，点数为2时可以走两步，点数为n时可以走n步。求玩家走到第n步（n&lt;=骰子最大点数且是方法的唯一入参）时，总共有多少种投骰子的方法。</p>
-<p>思路：设f(n)表示到第n步时总共有f(n)种投骰子的方法,那么到第n-1步时总共有f(n-1)种投骰子的方法;那么到第n-2步时总共有f(n-2)种投骰子的方法……<br>规律:</p>
-<ul>
-<li>从第n-1步到第n步，只有一种可能性（投骰子结果为 1 ），所以从第n-1步到第n步共有f(n-1)*1 种投骰子的方法；</li>
-<li>从第n-2步到第n步，只有一种可能性（投骰子结果为 2 ），所以从第n-2步到第n步共有f(n-2)*1 种投骰子的方法；</li>
-<li>从第n-3步到第n步，只有一种可能性（投骰子结果为 3 ），所以从第n-3步到第n步共有f(n-3)*1 种投骰子的方法；</li>
-<li>依次类推:f(n) = f(n-1)+f(n-2)+f(n-3)+….+f(1)+f(0),且f(1)=f(0)=1;<br>代码如下：<blockquote>
-<pre><code>import java.util.Scanner;
-public class Main{
-public static void main(String[] args){
-      Scanner scan = new Scanner(System.in);
-    int n = scan.nextInt();
-    System.out.println(getSum(n));
-}
-public static int getSum(int n){
-        int count=0;
-    if(n==1)
-    count=1;//f(1) =1
-    else if(n==2)
-        count=2;//f(2)=2
-    else{
-        for(int i=1;i&lt;n;i++){
-            count+=getSum(n-i);//计算f(n) = f(n-1)+f(n-2)+f(n-3)+....+f(1)
-            }
-    count=count+1;//再加f(0) = 1
-        }
-return count;
-    }
-}
-</code></pre></blockquote>
-</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/07/python谷歌专利文件爬取/" title="python谷歌专利文件爬取" itemprop="url">python谷歌专利文件爬取</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>google被称为世界最强大搜索引擎,其反爬虫技术做的也非常好，下面我们就来简单的谈下爬取google专利的一些技巧。</p>
-<ol>
-<li>本篇就用python语言讲述下爬虫的过程，自己写过爬虫程序的人都知道，通常程序有三大主要模块，url管理器，下载器，解析器，我们通常用BeautifulSoup解析器根据自己需求来解析下载好的网页，url管理器也是自己根据需求自己手写，本文章我们重点讲解所用到的下载器。</li>
-<li>通常我们直接访问google，是访问不了的，所以我们要先翻墙，GAE，免费软件和vpn是我们常用的方法，这次我们使用XX-NET代理，至于这个代理是怎么配的，网上有不少的教程，这里我们就不多说了，我们试着访问下google专利网址，<a href="https://www.google.com.hk/patents" target="_blank" rel="external">谷歌专利</a>，输入一个专利号即可得到专利全文(<strong>注意：不翻墙这个地址是访问不了的</strong>)<br>通过构建url，当专利号为’CN101011964‘时，url构建方法如下：</li>
-</ol>
-<blockquote>
-<pre><code>import urllib2 
-response = urllib2.urlopen(&apos;https://www.google.com.hk/patents/CN101011964B?cl=zh&amp;dq=CN101011964&apos;) 
-print response.getcode()
-</code></pre></blockquote>
-<p> 直接抛出401权限错误问题，由于谷歌检测到我们发送的请求并不是通过浏览器，因此尝试下最土的方式试试，每次爬取一个专利文本通过代码启动浏览器并发送请求，如下代码：</p>
-<blockquote>
-<pre><code>from selenium import webdriver
-browser = webdriver.Chrome()
-browser.get(url)
-html_source = browser.page_source
-return (html_source.encode(&apos;utf-8&apos;))
-</code></pre></blockquote>
-<p><strong>注意事项:</strong></p>
-<ul>
-<li>该教程适合在winds系统适用；</li>
-<li>webdriver要去官网去<a href="http://chromedriver.storage.googleapis.comindex.html" target="_blank" rel="external">下载</a>,下载后的程序放在chrome浏览器安装目录的application目录下并且在环境变量path中加入路径；</li>
-<li>安装selenium，执行pip install selenium即可；</li>
-<li>获得一个专利文本后，sleep一段时间再下个专利文本。</li>
-<li>最后将获得到的内容使用BeautifulSoup解析即可。</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
   </nav>
 
 </div>
@@ -868,7 +883,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>3</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>4</sup></a></li>
 		  
 		
 		  
@@ -876,7 +891,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>26</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>27</sup></a></li>
 		  
 		
 		</ul>
@@ -937,7 +952,7 @@ return (html_source.encode(&apos;utf-8&apos;))
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
 		<a href="/about" target="_blank" title="Liberty_zheng">Liberty_zheng</a>
 		

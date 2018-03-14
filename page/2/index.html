@@ -74,6 +74,298 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/10/17/实现一个包含insert、search、和startWith的前缀树/" title="实现一个包含insert、search、和startWith的前缀树" itemprop="url">实现一个包含insert、search、和startWith的前缀树</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-17T07:39:49.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Tri树，又称为词典树，单词查找树活着前缀树，是一种用于快速检索的多叉树结构，insert、search、和startWith方法实现代码如下：</p>
+<blockquote>
+<pre><code>class TrieNode(object):   #节点结构
+    def __init__(self):
+        self.children = {}
+        self.IsWord = False
+class Trie(object):       #树结构
+    def __init__(self):
+        self.root = TrieNode()
+    def insert(self, word):   #插入方法
+        node = self.root
+        for letter in word:
+            child = node.children.get(letter)
+            if child is None:
+                child = TrieNode()
+                node.children[letter] = child
+            node = child
+        node.IsWord = True
+    def search(self, word):  #查询方法
+        node = self.root
+        for letter in word:
+            node = node.children.get(letter)
+            if node is None:
+                return False
+        return node.IsWord
+    def startsWith(self, prefix):   #是否含有以prefix开头的方法
+        node = self.root
+        for letter in prefix:
+            node = node.children.get(letter)
+            if node is None:
+                return False
+        return True
+</code></pre></blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/17/常用八大排序算法/" title="常用八大排序算法" itemprop="url">常用八大排序算法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-17T03:07:13.000Z" itemprop="datePublished"> Published 2017-10-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>排序分为内部排序和外部排序，内部排序是数据在内存中进行，而数据比较大排序的时候，内存有限，需要访问外存，采用外部排序。我们常说的八大排序算法一般是指内部排序。<br>排序分类如下图所示</p>
+<p><center><img width="500" align="center" src="/2017/10/17/常用八大排序算法/sort.png"></center></p>
+<p><center>排序分类</center><br>有上图可知常用内部排序算法有直接插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、快速排序、归并排序和基数排序<br>各排序算法思想和代码如下</p>
+<ol>
+<li>快速排序<br><strong>思想：</strong>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。代码如下：<blockquote>
+<pre><code>def quick_sort(lists, left, right):
+     if left &gt;= right:
+         return lists
+     key = lists[left]
+     low = left
+     high = right
+     while left &lt; right:
+         while left &lt; right and lists[right] &gt;= key:
+             right -= 1
+         lists[left] = lists[right]
+         while left &lt; right and lists[left] &lt;= key:
+             left += 1
+         lists[right] = lists[left]
+     lists[right] = key
+     quick_sort(lists, low, left - 1)
+     quick_sort(lists, left + 1, high)
+     return lists
+</code></pre></blockquote>
+</li>
+<li>插入排序<br><strong>思想：</strong>插入排序的基本操作就是将一个数据插入到已经排好序的有序数据中，从而得到一个新的、个数加一的有序数据，算法适用于少量数据的排序，时间复杂度为O(n^2)。是稳定的排序方法。插入算法把要排序的数组分成两部分：第一部分包含了这个数组的所有元素，但将最后一个元素除外（让数组多一个空间才有插入的位置），而第二部分就只包含这一个元素（即待插入元素）。在第一部分排序完成后，再将这个最后元素插入到已排好序的第一部分中。代码如下：<blockquote>
+<pre><code>def insert_sort(lists):
+     count = len(lists)
+     for i in range(1, count):
+         key = lists[i]
+         j = i - 1
+         while j &gt;= 0:
+             if lists[j] &gt; key:
+                 lists[j + 1] = lists[j]
+                 lists[j] = key
+             j -= 1
+     return lists
+</code></pre></blockquote>
+</li>
+<li>希尔排序<br><strong>思想：</strong>希尔排序(Shell Sort)是插入排序的一种。也称缩小增量排序，是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。 希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。代码如下：<blockquote>
+<pre><code>def shell_sort(lists):
+     count = len(lists)
+     step = 2
+     group = count / step
+     while group &gt; 0:
+         for i in range(0, group):
+             j = i + group
+             while j &lt; count:
+                 k = j - group
+                 key = lists[j]
+                 while k &gt;= 0:
+                     if lists[k] &gt; key:
+                         lists[k + group] = lists[k]
+                         lists[k] = key
+                     k -= group
+                 j += group
+            group /= step
+     return lists
+</code></pre></blockquote>
+</li>
+<li>冒泡排序<br><strong>思想：</strong>它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。代码如下：<blockquote>
+<pre><code>def bubble_sort(lists):
+     count = len(lists)
+     for i in range(0, count):
+         for j in range(i + 1, count):
+             if lists[i] &gt; lists[j]:
+                 lists[i], lists[j] = lists[j], lists[i]
+     return lists
+</code></pre></blockquote>
+</li>
+<li>直接选择排序<br><strong>思想：</strong>第1趟，在待排序记录r1 ~ r[n]中选出最小的记录，将它与r1交换；第2趟，在待排序记录r2 ~ r[n]中选出最小的记录，将它与r2交换；以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。代码如下：<blockquote>
+<pre><code>def select_sort(lists):
+     count = len(lists)
+     for i in range(0, count):
+         min = i
+         for j in range(i + 1, count):
+             if lists[min] &gt; lists[j]:
+                 min = j
+         lists[min], lists[i] = lists[i], lists[min]
+     return lists
+</code></pre></blockquote>
+</li>
+<li>堆排序<br><strong>思想：</strong>堆排序(Heapsort)是指利用堆积树（堆）这种数据结构所设计的一种排序算法，它是选择排序的一种。可以利用数组的特点快速定位指定索引的元素。堆分为大根堆和小根堆，是完全二叉树。大根堆的要求是每个节点的值都不大于其父节点的值，即A[PARENT[i]] &gt;= A[i]。在数组的非降序排序中，需要使用的就是大根堆，因为根据大根堆的要求可知，最大的值一定在堆顶。代码如下：<blockquote>
+<pre><code>def adjust_heap(lists, i, size):
+     lchild = 2 * i + 1
+     rchild = 2 * i + 2
+     max = i
+     if i &lt; size / 2:
+         if lchild &lt; size and lists[lchild] &gt; lists[max]:
+             max = lchild
+         if rchild &lt; size and lists[rchild] &gt; lists[max]:
+             max = rchild
+         if max != i:
+             lists[max], lists[i] = lists[i], lists[max]
+             adjust_heap(lists, max, size)
+def build_heap(lists, size):
+     for i in range(0, (size/2))[::-1]:
+         adjust_heap(lists, i, size)
+def heap_sort(lists):
+     size = len(lists)
+     build_heap(lists, size)
+     for i in range(0, size)[::-1]:
+         lists[0], lists[i] = lists[i], lists[0]
+         adjust_heap(lists, 0, i)
+</code></pre></blockquote>
+</li>
+<li><p>归并排序<br><strong>思想：</strong>比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。代码如下：</p>
+<blockquote>
+<pre><code>def merge(a, b):
+     c = []
+     h = j = 0
+     while j &lt; len(a) and h &lt; len(b):
+         if a[j] &lt; b[h]:
+             c.append(a[j])
+             j += 1
+         else:
+             c.append(b[h])
+             h += 1
+     if j == len(a):
+         for i in b[h:]:
+             c.append(i)
+     else:
+         for i in a[j:]:
+             c.append(i)
+     return c
+def merge_sort(lists):
+     if len(lists) &lt;= 1:
+         return lists
+     mid = len(lists)/2
+     left = merge_sort(lists[:mid])
+     right = merge_sort(lists[mid:])
+     return merge(left, right)
+print merge_sort([1,3,2,6,4,9,7,8,11,23])
+</code></pre></blockquote>
+</li>
+<li><p>基数排序<br><strong>思想：</strong>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序     法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。代码如下：</p>
+<blockquote>
+<pre><code>import math
+def radix_sort(lists, radix=10):
+     k = int(math.ceil(math.log(max(lists), radix)))
+     bucket = [[] for i in range(radix)]
+     for i in range(1, k+1):
+         for j in lists:
+             bucket[j/(radix**(i-1)) % (radix**i)].append(j)
+         del lists[:]
+         for z in bucket:
+             lists += z
+             del z[:]
+     return lists    
+</code></pre></blockquote>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/10/17/长度为n的数组选取k个数据所有组合/" title="长度为n的数组选取k个数据所有组合" itemprop="url">长度为n的数组选取k个数据所有组合</a>
   </h1>
   <p class="article-author">By
@@ -663,190 +955,9 @@ private static int solve(int n, int k) {
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/尽量少的次数使数组排完序/" title="尽量少的次数使数组排完序" itemprop="url">尽量少的次数使数组排完序</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T13:35:15.000Z" itemprop="datePublished"> Published 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>度度熊有一个N个数的数组，他想将数组从小到大排好序，但是萌萌的度度熊只会下面这个操作：任取数组中的一个数然后将它放置在数组的最后一个位置。问最少操作多少次可以使得数组从小到大有序？</p>
-<p>思路：根据其大小的出数组的下表排序，比如num含有 [4, 3, 1, 5, 2]。 index得到的是[2, 4, 1, 0, 3]这样的。2说明最小的是num[2]，4说明第二小是num[4]。在num中，最小的数不用移动，然后第二小的数如果在最小的后面也不用移动。第三小的如果在第二小的后面则不用移动。那么就是看index中，增加到哪里，那就是保持上述规则不用移动的数。index里，4&gt;1，意味num里第三小的数在第二小的之前，所以必须移动一次。那么之后的都需要移动。<br>python代码如下：</p>
-<blockquote>
-<pre><code>n = int(raw_input())
-nums = map(int, raw_input().split())
-index = sorted(range(len(nums)), key = lambda i: nums[i])
-count = 1
-for i in range(1, len(index)):
-    if index[i] &gt; index[i-1]:
-        count += 1
-    else:
-        break
-print len(index) - count   
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/10/10/最大三角形面积/" title="最大三角形面积" itemprop="url">最大三角形面积</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-10-10T13:23:00.000Z" itemprop="datePublished"> Published 2017-10-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>三维空间中有N个点，每个点可能是三种颜色的其中之一，三种颜色分别是红绿蓝，分别用’R’, ‘G’, ‘B’表示。<br>现在要找出三个点，并组成一个三角形，使得这个三角形的面积最大。<br>但是三角形必须满足：三个点的颜色要么全部相同，要么全部不同。</p>
-<p>思路：构建一个三角形的类，判断是否形成三角形，是否满足颜色要求，求其最大值</p>
-<blockquote>
-<pre><code>class Node:                                       #构造Node类，每一个Node存储一行数据
-def __init__(self, l):
-    self.c = l[0]
-    self.x = int(l[1])
-    self.y = int(l[2])
-    self.z = int(l[3])
-class Solution():
-    def __init__(self, l):
-        self.l = l
-    def main(self, n):
-        i, j, k = 0, 1, 2
-        Max = 0
-        for i in range(n):
-            for j in range(i+1, n):
-                for k in range(j+1, n):
-                    if self.isSan(i, j, k) and self.isColour(i, j, k):
-                        Area = self.getArea(i, j, k)
-                        if Max &lt; Area:
-                            Max = Area
-        return Max
-    def isSan(self, i, j, k):                            
-        a = self.getlength(i, j)
-        b = self.getlength(i, k)
-        c = self.getlength(k, j)
-        if a &lt; b+c and b &lt; a+c and c &lt; a+b:
-            return True
-        return False
-    def getlength(self, i, j):
-        x = abs(self.l[i].x - self.l[j].x)
-        y = abs(self.l[i].y - self.l[j].y)
-        z = abs(self.l[i].z - self.l[j].z)
-        return (x*x+y*y+z*z)**0.5
-    def isColour(self, i, j, k):
-        if self.l[i].c == self.l[j].c and self.l[j].c == self.l[k].c:
-            return True
-        elif self.l[i].c != self.l[j].c and self.l[j].c != self.l[k].c /
-        and self.l[k].c != self.l[i].c:
-            return True
-        return False
-    def getArea(self, i, j, k):
-        a = self.getlength(i, j)
-        b = self.getlength(i, k)
-        c = self.getlength(k, j)
-        s = 0.5 * (a+b+c)
-        area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
-        return area
-if __name__ == &apos;__main__&apos;:
-    n = input()
-    l = []
-    for i in range(n):
-    string = raw_input().split()
-    node = Node(string)
-    l.append(node)
-    s = Solution(l)
-    print(&quot;%.5f&quot;%s.main(n))
-</code></pre></blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -865,7 +976,7 @@ if __name__ == &apos;__main__&apos;:
 		<ul>
 		
 		  
-			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>3</sup></a></li>
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>4</sup></a></li>
 		  
 		
 		  
@@ -873,7 +984,7 @@ if __name__ == &apos;__main__&apos;:
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>26</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>27</sup></a></li>
 		  
 		
 		</ul>
@@ -934,7 +1045,7 @@ if __name__ == &apos;__main__&apos;:
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
 		
 		<a href="/about" target="_blank" title="Liberty_zheng">Liberty_zheng</a>
 		

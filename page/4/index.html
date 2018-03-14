@@ -1,0 +1,455 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Passion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Liberty_zheng">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Passion">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Passion">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Passion">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Passion" title="Passion"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Passion">Passion</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/大富翁游戏/" title="大富翁游戏" itemprop="url">大富翁游戏</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T14:57:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>大富翁游戏，玩家根据骰子的点数决定走的步数，即骰子点数为1时可以走一步，点数为2时可以走两步，点数为n时可以走n步。求玩家走到第n步（n&lt;=骰子最大点数且是方法的唯一入参）时，总共有多少种投骰子的方法。</p>
+<p>思路：设f(n)表示到第n步时总共有f(n)种投骰子的方法,那么到第n-1步时总共有f(n-1)种投骰子的方法;那么到第n-2步时总共有f(n-2)种投骰子的方法……<br>规律:</p>
+<ul>
+<li>从第n-1步到第n步，只有一种可能性（投骰子结果为 1 ），所以从第n-1步到第n步共有f(n-1)*1 种投骰子的方法；</li>
+<li>从第n-2步到第n步，只有一种可能性（投骰子结果为 2 ），所以从第n-2步到第n步共有f(n-2)*1 种投骰子的方法；</li>
+<li>从第n-3步到第n步，只有一种可能性（投骰子结果为 3 ），所以从第n-3步到第n步共有f(n-3)*1 种投骰子的方法；</li>
+<li>依次类推:f(n) = f(n-1)+f(n-2)+f(n-3)+….+f(1)+f(0),且f(1)=f(0)=1;<br>代码如下：<blockquote>
+<pre><code>import java.util.Scanner;
+public class Main{
+public static void main(String[] args){
+      Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    System.out.println(getSum(n));
+}
+public static int getSum(int n){
+        int count=0;
+    if(n==1)
+    count=1;//f(1) =1
+    else if(n==2)
+        count=2;//f(2)=2
+    else{
+        for(int i=1;i&lt;n;i++){
+            count+=getSum(n-i);//计算f(n) = f(n-1)+f(n-2)+f(n-3)+....+f(1)
+            }
+    count=count+1;//再加f(0) = 1
+        }
+return count;
+    }
+}
+</code></pre></blockquote>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/07/python谷歌专利文件爬取/" title="python谷歌专利文件爬取" itemprop="url">python谷歌专利文件爬取</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/" title="Liberty_zheng" target="_blank" itemprop="author">Liberty_zheng</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-07T13:40:14.000Z" itemprop="datePublished"> Published 2017-10-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>google被称为世界最强大搜索引擎,其反爬虫技术做的也非常好，下面我们就来简单的谈下爬取google专利的一些技巧。</p>
+<ol>
+<li>本篇就用python语言讲述下爬虫的过程，自己写过爬虫程序的人都知道，通常程序有三大主要模块，url管理器，下载器，解析器，我们通常用BeautifulSoup解析器根据自己需求来解析下载好的网页，url管理器也是自己根据需求自己手写，本文章我们重点讲解所用到的下载器。</li>
+<li>通常我们直接访问google，是访问不了的，所以我们要先翻墙，GAE，免费软件和vpn是我们常用的方法，这次我们使用XX-NET代理，至于这个代理是怎么配的，网上有不少的教程，这里我们就不多说了，我们试着访问下google专利网址，<a href="https://www.google.com.hk/patents" target="_blank" rel="external">谷歌专利</a>，输入一个专利号即可得到专利全文(<strong>注意：不翻墙这个地址是访问不了的</strong>)<br>通过构建url，当专利号为’CN101011964‘时，url构建方法如下：</li>
+</ol>
+<blockquote>
+<pre><code>import urllib2 
+response = urllib2.urlopen(&apos;https://www.google.com.hk/patents/CN101011964B?cl=zh&amp;dq=CN101011964&apos;) 
+print response.getcode()
+</code></pre></blockquote>
+<p> 直接抛出401权限错误问题，由于谷歌检测到我们发送的请求并不是通过浏览器，因此尝试下最土的方式试试，每次爬取一个专利文本通过代码启动浏览器并发送请求，如下代码：</p>
+<blockquote>
+<pre><code>from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get(url)
+html_source = browser.page_source
+return (html_source.encode(&apos;utf-8&apos;))
+</code></pre></blockquote>
+<p><strong>注意事项:</strong></p>
+<ul>
+<li>该教程适合在winds系统适用；</li>
+<li>webdriver要去官网去<a href="http://chromedriver.storage.googleapis.comindex.html" target="_blank" rel="external">下载</a>,下载后的程序放在chrome浏览器安装目录的application目录下并且在环境变量path中加入路径；</li>
+<li>安装selenium，执行pip install selenium即可；</li>
+<li>获得一个专利文本后，sleep一段时间再下个专利文本。</li>
+<li>最后将获得到的内容使用BeautifulSoup解析即可。</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/爬虫/">爬虫</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/机器学习/" title="机器学习">机器学习<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>27</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Cassiel in BISTU. <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="Liberty_zheng">Liberty_zheng</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
